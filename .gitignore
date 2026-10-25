@@ -1,3 +1,5 @@
 lora_adapter/ 
 *.faiss
 *.safetensors
+.venv/
+__pycache__/
