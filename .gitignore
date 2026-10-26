@@ -3,3 +3,4 @@ lora_adapter/
 *.safetensors
 .venv/
 __pycache__/
+myenv/
