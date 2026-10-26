@@ -1,0 +1,202 @@
+[
+ {
+  "id":1281,
+  "complexity":"subqueries",
+  "question":"Find the top 3 contributors with the lowest recycling rate in the 'waste_contributors' table.",
+  "pred":"SELECT contributor FROM waste_contributors ORDER BY recycling_rate ASC LIMIT 3;",
+  "gold":"SELECT contributor FROM waste_contributors WHERE recycling_rate IN (SELECT MIN(recycling_rate) FROM waste_contributors) LIMIT 3;",
+  "error":null,
+  "correct":false,
+  "sec":0.21
+ },
+ {
+  "id":4556,
+  "complexity":"multiple_joins",
+  "question":"Who are the top 2 artists with the most songs in the country genre?",
+  "pred":"SELECT T1.name FROM artists AS T1 JOIN songs_artists AS T2 ON T1.id = T2.artist_id JOIN songs AS T3 ON T2.song_id = T3.id WHERE T3.genre = 'country' GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 2;",
+  "gold":"SELECT artists.name, COUNT(songs.id) AS song_count FROM artists JOIN songs_artists ON artists.id = songs_artists.artist_id JOIN songs ON songs_artists.song_id = songs.id WHERE songs.genre = 'country' GROUP BY artists.name ORDER BY song_count DESC LIMIT 2;",
+  "error":null,
+  "correct":false,
+  "sec":0.79
+ },
+ {
+  "id":5395,
+  "complexity":"single join",
+  "question":"How many sustainable material products are supplied by each supplier?",
+  "pred":"SELECT s.name, COUNT(p.id) AS sustainable_products FROM suppliers s JOIN products p ON s.id = p.supplier_id WHERE s.sustainable_materials = TRUE GROUP BY s.name;",
+  "gold":"SELECT s.name AS supplier_name, COUNT(p.id) AS product_count FROM suppliers s LEFT JOIN products p ON s.id = p.supplier_id AND s.sustainable_materials = true GROUP BY s.name;",
+  "error":null,
+  "correct":false,
+  "sec":0.5
+ },
+ {
+  "id":3439,
+  "complexity":"multiple_joins",
+  "question":"How many menu items contain ingredients sourced from local suppliers for each restaurant?",
+  "pred":"SELECT R.name, COUNT(MI.id) AS num_local_ingredients\nFROM restaurants R\nJOIN menu_items MI ON R.id = MI.restaurant_id\nJOIN ingredients I ON MI.menu_item_id = I.menu_item_id\nWHERE I.local_source = TRUE\nGROUP BY R.name;",
+  "gold":"SELECT r.name, COUNT(DISTINCT mi.id) as num_local_items FROM restaurants r JOIN menu_items mi ON r.id = mi.restaurant_id JOIN ingredients i ON mi.id = i.menu_item_id WHERE i.local_source = TRUE GROUP BY r.name;",
+  "error":"SQL operational error: no such column: MI.menu_item_id",
+  "correct":false,
+  "sec":0.76
+ },
+ {
+  "id":4628,
+  "complexity":"basic SQL",
+  "question":"How many shark species are found in the Indian Ocean?",
+  "pred":"SELECT count(*) FROM shark_species WHERE ocean = 'Indian Ocean';",
+  "gold":"SELECT COUNT(*) FROM shark_species WHERE ocean = 'Indian Ocean';",
+  "error":null,
+  "correct":true,
+  "sec":0.18
+ },
+ {
+  "id":329,
+  "complexity":"subqueries",
+  "question":"What is the total number of space missions launched by Japan and the USA?",
+  "pred":"SELECT SUM(CASE WHEN launch_country = 'Japan' THEN 1 ELSE 0 END) + SUM(CASE WHEN launch_country = 'USA' THEN 1 ELSE 0 END) FROM space_missions;",
+  "gold":"SELECT SUM(cnt) FROM (SELECT launch_country, COUNT(*) AS cnt FROM space_missions WHERE launch_country IN ('Japan', 'USA') GROUP BY launch_country) AS subquery;",
+  "error":null,
+  "correct":true,
+  "sec":0.56
+ },
+ {
+  "id":2349,
+  "complexity":"aggregation",
+  "question":"List the unique sectors and the number of economic diversification projects in the 'economic_diversification' table for each.",
+  "pred":"SELECT DISTINCT sector, COUNT(*) FROM economic_diversification GROUP BY sector;",
+  "gold":"SELECT sector, COUNT(*) FROM economic_diversification GROUP BY sector;",
+  "error":null,
+  "correct":true,
+  "sec":0.2
+ },
+ {
+  "id":5386,
+  "complexity":"single join",
+  "question":"What is the number of open pedagogy resources accessed by students in each country?",
+  "pred":"SELECT T1.country, COUNT(T1.resource_id) FROM student_access AS T1 INNER JOIN open_resources AS T2 ON T1.resource_id = T2.resource_id WHERE T2.resource_name LIKE '%Pedagogy%' GROUP BY T1.country;",
+  "gold":"SELECT country, COUNT(*) FROM student_access JOIN open_resources ON student_access.resource_id = open_resources.resource_id GROUP BY country;",
+  "error":null,
+  "correct":false,
+  "sec":0.67
+ },
+ {
+  "id":317,
+  "complexity":"single join",
+  "question":"What is the total number of broadband customers and the total connection speed in Mbps for each region in 2021?",
+  "pred":"SELECT r.region, COUNT(s.subscriber_id) AS num_broadband_customers, SUM(s.connection_speed \/ 1000) AS total_connection_speed_mbps FROM subscribers s JOIN regions r ON s.region = r.id WHERE s.service = 'broadband' AND s.year = 2021 GROUP BY r.region;",
+  "gold":"SELECT subscribers.region, COUNT(subscribers.id) AS total_customers, SUM(speeds.connection_speed) AS total_speed FROM subscribers JOIN speeds ON subscribers.id = speeds.subscriber_id WHERE subscribers.service = 'broadband' AND speeds.year = 2021 GROUP BY subscribers.region;",
+  "error":"SQL operational error: no such table: regions",
+  "correct":false,
+  "sec":0.92
+ },
+ {
+  "id":210,
+  "complexity":"basic SQL",
+  "question":"What is the total revenue for each warehouse after a 10% discount?",
+  "pred":"SELECT warehouse_id, revenue * 0.9 AS discounted_revenue FROM warehouse_revenue;",
+  "gold":"SELECT warehouse_id, revenue * 0.9 FROM warehouse_revenue;",
+  "error":null,
+  "correct":true,
+  "sec":0.26
+ },
+ {
+  "id":4679,
+  "complexity":"subqueries",
+  "question":"Who was the first South Korean astronaut?",
+  "pred":"SELECT name FROM astronauts WHERE country = 'South Korea' ORDER BY first_flight ASC LIMIT 1;",
+  "gold":"SELECT name FROM astronauts WHERE country = 'South Korea' AND id = (SELECT MIN(id) FROM astronauts WHERE country = 'South Korea');",
+  "error":null,
+  "correct":true,
+  "sec":0.26
+ },
+ {
+  "id":1802,
+  "complexity":"subqueries",
+  "question":"What percentage of visitors to jazz events in New Orleans are repeat attendees?",
+  "pred":"SELECT CAST(SUM(CASE WHEN T2.city = 'New Orleans' THEN 1 ELSE 0 END) AS REAL) * 100 \/ COUNT(T1.visitor_id) FROM Visitors AS T1 INNER JOIN Cities AS T2 ON T1.city = T2.city WHERE T1.event_name = 'Jazz Festival';",
+  "gold":"SELECT COUNT(DISTINCT visitor_id) * 100.0 \/ (SELECT COUNT(DISTINCT visitor_id) FROM Visitors WHERE city = 'New Orleans' AND event_name LIKE '%Jazz%') FROM Visitors WHERE city = 'New Orleans' AND event_name LIKE '%Jazz%';",
+  "error":"SQL operational error: no such table: Cities",
+  "correct":false,
+  "sec":0.9
+ },
+ {
+  "id":3009,
+  "complexity":"window functions",
+  "question":"When did the latest collective bargaining agreements expire for each union?",
+  "pred":"SELECT T1.union_id, MAX(T1.expiration_date) FROM collective_bargaining AS T1 JOIN collective_bargaining AS T2 ON T1.union_id = T2.union_id GROUP BY T1.union_id;",
+  "gold":"SELECT union_id, MAX(expiration_date) OVER (PARTITION BY union_id) as latest_expiration_date FROM collective_bargaining;",
+  "error":null,
+  "correct":true,
+  "sec":0.6
+ },
+ {
+  "id":3164,
+  "complexity":"set operations",
+  "question":"What is the average age of patients who received therapy in 'clinic_a' and 'clinic_b'?",
+  "pred":"SELECT AVG(age) FROM clinic_a WHERE therapy_received = TRUE UNION ALL SELECT AVG(age) FROM clinic_b WHERE therapy_received = TRUE;",
+  "gold":"SELECT AVG(age) FROM (SELECT age FROM clinic_a WHERE therapy_received = true UNION ALL SELECT age FROM clinic_b WHERE therapy_received = true) AS combined_clinics;",
+  "error":null,
+  "correct":false,
+  "sec":0.35
+ },
+ {
+  "id":3256,
+  "complexity":"multiple_joins",
+  "question":"Which ethical labor certifications are associated with which products in the product_labor_certifications table?",
+  "pred":"SELECT T1.certification_name AS Labor_Certification, T2.product_name AS Product FROM labor_certifications AS T1 JOIN product_labor_certifications AS T2 ON T1.certification_id = T2.certification_id;",
+  "gold":"SELECT p.product_name, lc.certification_name FROM products p INNER JOIN product_labor_certifications plc ON p.product_id = plc.product_id INNER JOIN labor_certifications lc ON plc.certification_id = lc.certification_id;",
+  "error":"SQL operational error: no such column: T2.product_name",
+  "correct":false,
+  "sec":0.61
+ },
+ {
+  "id":2366,
+  "complexity":"single join",
+  "question":"List all countries and their corresponding peacekeeping operation budgets from the 'Budget' and 'Countries' tables",
+  "pred":"SELECT T1.country, T2.peacekeeping_operation FROM Budget AS T1 INNER JOIN Countries AS T2 ON T1.country = T2.country;",
+  "gold":"SELECT Countries.country, Budget.budget FROM Countries INNER JOIN Budget ON Countries.country = Budget.country;",
+  "error":null,
+  "correct":false,
+  "sec":0.41
+ },
+ {
+  "id":1784,
+  "complexity":"single join",
+  "question":"Who are the top 3 customers in terms of total value of ethical fashion purchases in 2020?",
+  "pred":"SELECT c.customer_name FROM customers c JOIN ethical_fashion_purchases efp ON c.id = efp.customer_id WHERE strftime('%Y', efp.purchase_date) = '2020' GROUP BY c.id ORDER BY SUM(efp.purchase_value) DESC LIMIT 3;",
+  "gold":"SELECT customer_name, SUM(purchase_value) FROM customers JOIN ethical_fashion_purchases ON customers.id = ethical_fashion_purchases.customer_id GROUP BY customer_name ORDER BY SUM(purchase_value) DESC LIMIT 3;",
+  "error":"SQL operational error: no such column: efp.purchase_date",
+  "correct":false,
+  "sec":0.76
+ },
+ {
+  "id":794,
+  "complexity":"multiple_joins",
+  "question":"Which suppliers have provided raw materials for the production of chemicals with high environmental impact?",
+  "pred":"SELECT s.name FROM suppliers s JOIN raw_materials rm ON s.id = rm.supplier_id JOIN chemicals c ON rm.chemical_id = c.id WHERE c.environmental_impact > 15;",
+  "gold":"SELECT s.name FROM suppliers s INNER JOIN raw_materials rm ON s.id = rm.supplier_id INNER JOIN chemicals c ON rm.chemical_id = c.id WHERE c.environmental_impact > 10;",
+  "error":null,
+  "correct":false,
+  "sec":0.54
+ },
+ {
+  "id":1785,
+  "complexity":"multiple_joins",
+  "question":"Who are the top 5 vendors with the highest revenue from circular supply chain products?",
+  "pred":"SELECT v.name FROM vendors v JOIN sales s ON v.vendor_id = s.vendor_id WHERE s.product_id IN (SELECT product_id FROM circular_supply_chain_products) GROUP BY v.vendor_id ORDER BY SUM(s.price) DESC LIMIT 5;",
+  "gold":"SELECT vendors.name, SUM(sales.price) FROM vendors INNER JOIN sales ON vendors.vendor_id = sales.vendor_id INNER JOIN circular_supply_chain_products ON sales.product_id = circular_supply_chain_products.product_id GROUP BY vendors.name ORDER BY SUM(sales.price) DESC LIMIT 5;",
+  "error":null,
+  "correct":false,
+  "sec":0.63
+ },
+ {
+  "id":4067,
+  "complexity":"window functions",
+  "question":"What is the average upload speed for broadband customers in a specific continent?",
+  "pred":"SELECT avg_upload_speed FROM avg_upload_speed_view WHERE continent = 'Asia';",
+  "gold":"SELECT continent, avg_upload_speed, avg_upload_speed\/AVG(avg_upload_speed) OVER (PARTITION BY continent) as avg_upload_speed_percentage FROM avg_upload_speed_view;",
+  "error":null,
+  "correct":false,
+  "sec":0.21
+ }
+]

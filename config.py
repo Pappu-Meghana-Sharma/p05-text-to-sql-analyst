@@ -3,7 +3,7 @@ import random
 import numpy as np
 
 SEED = 42
-QUICK_RUN = True      # True = small sample for fast runs
+QUICK_RUN = False      # True = small sample for fast runs
 TRAIN = False         # False = load saved LoRA adapter
 
 CONFIG = {

@@ -4,3 +4,4 @@ lora_adapter/
 .venv/
 __pycache__/
 myenv/
+env/

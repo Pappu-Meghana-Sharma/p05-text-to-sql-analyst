@@ -1,0 +1,39 @@
+{
+  "test_checks": {
+    "ok": 3079,
+    "not_select": 613,
+    "trivial_result": 348,
+    "empty_result": 592,
+    "missing_table": 170,
+    "missing_column": 288,
+    "unsupported_function": 205,
+    "syntax_dialect": 428,
+    "bad_context": 50,
+    "other_error": 78
+  },
+  "train_checks": {
+    "other_error": 1498,
+    "empty_result": 9621,
+    "trivial_result": 6033,
+    "ok": 52182,
+    "syntax_dialect": 7713,
+    "missing_table": 3284,
+    "not_select": 10243,
+    "unsupported_function": 3942,
+    "missing_column": 4783,
+    "bad_context": 701
+  },
+  "train_dropped_after_checks": {
+    "duplicate_question": 21,
+    "question_in_test": 3
+  },
+  "manual_audit": {
+    "checked": 60,
+    "flagged": 0
+  },
+  "final_sizes": {
+    "train": 52058,
+    "val": 100,
+    "test": 200
+  }
+}

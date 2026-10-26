@@ -1,0 +1,202 @@
+[
+ {
+  "id":83546,
+  "complexity":"window functions",
+  "question":"What is the distribution of policy types across different regions?",
+  "pred":"SELECT PolicyType, COUNT(*) OVER (PARTITION BY PolicyType) as PolicyCount FROM Policies;",
+  "gold":"SELECT PolicyType, SaleRegion, COUNT(*) OVER (PARTITION BY PolicyType, SaleRegion) as PolicyCount FROM Policies;",
+  "error":null,
+  "correct":false,
+  "sec":0.3
+ },
+ {
+  "id":21180,
+  "complexity":"single join",
+  "question":"What is the average viewership of TV shows by age group?",
+  "pred":"SELECT age_group_id, AVG(viewership) FROM shows_viewership GROUP BY age_group_id;",
+  "gold":"SELECT AVG(shows_viewership.viewership) FROM age_groups JOIN shows_viewership ON age_groups.id = shows_viewership.age_group_id;",
+  "error":null,
+  "correct":false,
+  "sec":0.32
+ },
+ {
+  "id":4744,
+  "complexity":"window functions",
+  "question":"How many users registered per day, with a running total, for the first 10 days of the 'online_platform' database?",
+  "pred":"SELECT RegistrationDate, COUNT(*) as RegisteredUsers, SUM(COUNT(*)) OVER (ORDER BY RegistrationDate ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as RunningTotal FROM online_platform GROUP BY RegistrationDate LIMIT 10;",
+  "gold":"SELECT registration_date, COUNT(user_id) OVER (ORDER BY registration_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as running_total FROM online_platform WHERE registration_date <= '2022-01-10';",
+  "error":"SQL operational error: no such column: RegistrationDate",
+  "correct":false,
+  "sec":0.7
+ },
+ {
+  "id":94653,
+  "complexity":"aggregation",
+  "question":"How many tickets were sold for each event type (theater, dance, music) at cultural centers in Chicago?",
+  "pred":"SELECT event_type, SUM(tickets_sold) FROM events WHERE city = 'Chicago' GROUP BY event_type;",
+  "gold":"SELECT event_type, SUM(tickets_sold) FROM events WHERE city = 'Chicago' GROUP BY event_type;",
+  "error":null,
+  "correct":true,
+  "sec":0.34
+ },
+ {
+  "id":30255,
+  "complexity":"aggregation",
+  "question":"List the top 2 sustainable menu items by sales in 'Japanese' restaurants in Q2 2022.",
+  "pred":"SELECT name, sales FROM menu_engineering WHERE category = 'Japanese' AND sustainable = TRUE ORDER BY sales DESC LIMIT 2;",
+  "gold":"SELECT name, SUM(sales) AS total_sales FROM menu_engineering WHERE category = 'Japanese' AND sustainable = true GROUP BY name ORDER BY total_sales DESC LIMIT 2;",
+  "error":null,
+  "correct":true,
+  "sec":0.38
+ },
+ {
+  "id":2380,
+  "complexity":"aggregation",
+  "question":"Find the average rating and release year for movies with a genre containing 'Action'",
+  "pred":"SELECT AVG(rating), release_year FROM movies WHERE genre LIKE '%Action%' GROUP BY genre;",
+  "gold":"SELECT AVG(release_year) as avg_release_year, genre FROM movies WHERE genre LIKE '%Action%' GROUP BY genre;",
+  "error":null,
+  "correct":false,
+  "sec":0.32
+ },
+ {
+  "id":44514,
+  "complexity":"single join",
+  "question":"What are the names of the marine species found in the Arctic region?'",
+  "pred":"SELECT name FROM marine_species WHERE region = 'Arctic';",
+  "gold":"SELECT marine_species.name FROM marine_species INNER JOIN arctic_region ON marine_species.name = arctic_region.name;",
+  "error":null,
+  "correct":true,
+  "sec":0.2
+ },
+ {
+  "id":9699,
+  "complexity":"subqueries",
+  "question":"Show the chemical code and production date for the records with the lowest production quantity",
+  "pred":"SELECT chemical_code, production_date FROM chemical_production ORDER BY quantity ASC LIMIT 1;",
+  "gold":"SELECT chemical_code, production_date, quantity FROM chemical_production WHERE (chemical_code, quantity) IN (SELECT chemical_code, MIN(quantity) FROM chemical_production GROUP BY chemical_code);",
+  "error":null,
+  "correct":false,
+  "sec":0.29
+ },
+ {
+  "id":94050,
+  "complexity":"basic SQL",
+  "question":"Which spacecraft have been launched by the European Space Agency?",
+  "pred":"SELECT name FROM Spacecraft WHERE manufacturer = 'ESA';",
+  "gold":"SELECT name FROM Spacecraft WHERE manufacturer = 'ESA';",
+  "error":null,
+  "correct":true,
+  "sec":0.2
+ },
+ {
+  "id":27187,
+  "complexity":"aggregation",
+  "question":"What is the percentage of dishes in each cuisine type that have less than 300 calories?",
+  "pred":"SELECT c.cuisine_type, CAST(SUM(CASE WHEN d.calories < 300 THEN 1 ELSE 0 END) AS REAL) * 100 \/ COUNT(*) AS Percentage FROM cuisine c JOIN dishes d ON c.cuisine_id = d.cuisine_id GROUP BY c.cuisine_type;",
+  "gold":"SELECT cuisine_type, 100.0 * AVG(CASE WHEN calories < 300 THEN 1.0 ELSE 0.0 END) AS pct_low_calorie FROM dishes GROUP BY cuisine_type;",
+  "error":"SQL operational error: no such table: cuisine",
+  "correct":false,
+  "sec":0.9
+ },
+ {
+  "id":71171,
+  "complexity":"basic SQL",
+  "question":"How many employees work in the 'finance' sector?",
+  "pred":"SELECT count(*) FROM employment WHERE industry = 'finance';",
+  "gold":"SELECT SUM(number_of_employees) FROM employment WHERE industry = 'finance';",
+  "error":null,
+  "correct":false,
+  "sec":0.2
+ },
+ {
+  "id":94548,
+  "complexity":"basic SQL",
+  "question":"What is the total number of mobile subscribers who have made international calls in the Eastern region?",
+  "pred":"SELECT COUNT(*) FROM mobile_subscribers WHERE international_calls = true AND region = 'Eastern';",
+  "gold":"SELECT COUNT(*) FROM mobile_subscribers WHERE international_calls = TRUE AND region = 'Eastern';",
+  "error":null,
+  "correct":true,
+  "sec":0.29
+ },
+ {
+  "id":39241,
+  "complexity":"single join",
+  "question":"Find the number of unique donors who have made donations in the effective altruism sector, but not in the impact investing sector.",
+  "pred":"SELECT COUNT(DISTINCT donor_id) FROM effective_altruism WHERE sector = 'Effective Altruism' EXCEPT SELECT DISTINCT donor_id FROM impact_investing WHERE sector = 'Impact Investing';",
+  "gold":"SELECT COUNT(DISTINCT effective_altruism.donor_id) FROM effective_altruism LEFT JOIN impact_investing ON effective_altruism.donor_id = impact_investing.donor_id WHERE impact_investing.donor_id IS NULL;",
+  "error":"SQL operational error: no such column: sector",
+  "correct":false,
+  "sec":0.61
+ },
+ {
+  "id":99007,
+  "complexity":"aggregation",
+  "question":"What is the average donation amount per donor in 2022?",
+  "pred":"SELECT AVG(amount) FROM donations WHERE YEAR(donation_date) = 2022;",
+  "gold":"SELECT donor_id, AVG(amount) as avg_donation FROM Donations WHERE donation_date BETWEEN '2022-01-01' AND '2022-12-31' GROUP BY donor_id;",
+  "error":"SQL operational error: no such function: YEAR",
+  "correct":false,
+  "sec":0.3
+ },
+ {
+  "id":48501,
+  "complexity":"aggregation",
+  "question":"Report the number of policy changes in the 'Transportation' area from 2018 to 2020, and the policy change descriptions.",
+  "pred":"SELECT COUNT(*) AS num_changes, description \nFROM policy_changes \nWHERE area = 'Transportation' AND change_date BETWEEN '2018-01-01' AND '2020-12-31';",
+  "gold":"SELECT COUNT(*) as num_changes, description FROM policy_changes WHERE area = 'Transportation' AND change_date BETWEEN '2018-01-01' AND '2020-12-31' GROUP BY description",
+  "error":null,
+  "correct":false,
+  "sec":0.74
+ },
+ {
+  "id":20447,
+  "complexity":"aggregation",
+  "question":"How many vessels are there in total for each flag?",
+  "pred":"SELECT flag, COUNT(*) FROM vessels GROUP BY flag;",
+  "gold":"SELECT V.Flag, COUNT(V.Id) FROM Vessels V GROUP BY V.Flag;",
+  "error":null,
+  "correct":true,
+  "sec":0.18
+ },
+ {
+  "id":28225,
+  "complexity":"basic SQL",
+  "question":"What is the total number of hours played by all players in Valorant?",
+  "pred":"SELECT SUM(hours_played) FROM players WHERE game = 'Valorant';",
+  "gold":"SELECT SUM(hours_played) AS total_hours FROM players WHERE game = 'Valorant';",
+  "error":null,
+  "correct":true,
+  "sec":0.25
+ },
+ {
+  "id":27970,
+  "complexity":"aggregation",
+  "question":"What are the total sales and average play time for each game in the 'Simulation' genre?",
+  "pred":"SELECT Sales, AvgPlayTime FROM Games WHERE Genre = 'Simulation';",
+  "gold":"SELECT Genre, SUM(Sales) as TotalSales, AVG(AvgPlayTime) as AvgPlayTime FROM Games WHERE Genre = 'Simulation' GROUP BY Genre;",
+  "error":null,
+  "correct":false,
+  "sec":0.24
+ },
+ {
+  "id":99892,
+  "complexity":"basic SQL",
+  "question":"What is the sum of the prices of all organic cosmetics sourced from South Korea?",
+  "pred":"SELECT SUM(price) FROM products WHERE is_organic = TRUE AND source_country = 'South Korea';",
+  "gold":"SELECT SUM(price) FROM products WHERE is_organic = TRUE AND source_country = 'South Korea';",
+  "error":null,
+  "correct":true,
+  "sec":0.32
+ },
+ {
+  "id":43912,
+  "complexity":"aggregation",
+  "question":"What is the total number of work-related injuries for each union, sorted by the number of injuries in descending order?",
+  "pred":"SELECT union_name, SUM(total_injuries) AS total_injuries \nFROM work_injuries \nGROUP BY union_name \nORDER BY total_injuries DESC;",
+  "gold":"SELECT union_name, SUM(number_of_injuries) as total_injuries FROM union_workplace_safety_stats GROUP BY union_name ORDER BY total_injuries DESC;",
+  "error":"SQL operational error: no such table: work_injuries",
+  "correct":false,
+  "sec":0.52
+ }
+]
