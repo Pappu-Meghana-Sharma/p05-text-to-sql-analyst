@@ -5,3 +5,4 @@ lora_adapter/
 __pycache__/
 myenv/
 env/
+/**/*.npy
