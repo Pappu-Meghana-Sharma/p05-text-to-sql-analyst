@@ -1,0 +1,12 @@
+system,exec_acc,avg_sec,gain_vs_zero,95% CI
+zero_shot,0.58,0.2,,
+random_k3,0.595,0.27,0.015,"(np.float64(-0.025), np.float64(0.055))"
+dense_k3,0.665,0.25,0.085,"(np.float64(0.02), np.float64(0.15))"
+dense_k5,0.68,0.3,0.1,"(np.float64(0.035), np.float64(0.165))"
+bm25_k3,0.665,0.31,0.085,"(np.float64(0.02), np.float64(0.15))"
+bm25_k5,0.645,0.36,0.065,"(np.float64(0.0), np.float64(0.13))"
+hybrid_k3,0.66,0.33,0.08,"(np.float64(0.015), np.float64(0.145))"
+hybrid_k5,0.675,0.38,0.095,"(np.float64(0.035), np.float64(0.155))"
+masked_k3,0.655,0.26,0.075,"(np.float64(0.015), np.float64(0.135))"
+masked_k5,0.66,0.3,0.08,"(np.float64(0.025), np.float64(0.135))"
+skeleton_k3,0.645,0.57,0.065,"(np.float64(0.005), np.float64(0.12))"

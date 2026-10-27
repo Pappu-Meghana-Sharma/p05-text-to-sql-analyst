@@ -1,39 +1,45 @@
 {
-  "test_checks": {
-    "ok": 3079,
-    "not_select": 613,
-    "trivial_result": 348,
-    "empty_result": 592,
-    "missing_table": 170,
-    "missing_column": 288,
-    "unsupported_function": 205,
-    "syntax_dialect": 428,
-    "bad_context": 50,
-    "other_error": 78
+  "generated_at": "2026-10-27T12:54:51",
+  "test_split": {
+    "raw_total": 5851,
+    "removed_total": 2773,
+    "removed_by_reason": {
+      "write_or_non_select": 613,
+      "trivial_result": 348,
+      "empty_result": 592,
+      "sql_execution_error": 1052,
+      "context_setup_error": 167,
+      "manual_exclusion": 1
+    },
+    "clean_pool_size": 3078
   },
-  "train_checks": {
-    "other_error": 1498,
-    "empty_result": 9621,
-    "trivial_result": 6033,
-    "ok": 52182,
-    "syntax_dialect": 7713,
-    "missing_table": 3284,
-    "not_select": 10243,
-    "unsupported_function": 3942,
-    "missing_column": 4783,
-    "bad_context": 701
+  "train_split": {
+    "raw_total": 100000,
+    "removed_total": 47819,
+    "removed_by_reason": {
+      "sql_execution_error": 19392,
+      "empty_result": 9621,
+      "trivial_result": 6033,
+      "context_setup_error": 2529,
+      "write_or_non_select": 10243,
+      "manual_exclusion": 1
+    },
+    "clean_total": 52181
   },
-  "train_dropped_after_checks": {
-    "duplicate_question": 21,
-    "question_in_test": 3
+  "final_splits": {
+    "test": 200,
+    "val": 200,
+    "train_clean_total": 52181,
+    "quick_run_subset": 20
   },
   "manual_audit": {
-    "checked": 60,
-    "flagged": 0
-  },
-  "final_sizes": {
-    "train": 52058,
-    "val": 100,
-    "test": 200
+    "status": "pending manual review (1 example pre-flagged as reference)",
+    "test_sampled": 1,
+    "test_flagged": 1,
+    "test_flag_rate_pct": 1.67,
+    "train_sampled": 0,
+    "train_flagged": 0,
+    "train_flag_rate_pct": 0.0,
+    "note": "ID 4323 (test): BRICS query returns all rows, no country filter applied."
   }
 }

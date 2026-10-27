@@ -1,4 +1,10 @@
 {
-  "test": {},
-  "train": {}
+  "test_exclusions": [
+    {
+      "id": 4323,
+      "split": "test",
+      "reason": "Gold query ignores the BRICS country filter - performs an inner join without a WHERE clause, returning all rows from military_innovation instead of only BRICS countries."
+    }
+  ],
+  "train_exclusions": []
 }
