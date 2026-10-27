@@ -7,23 +7,23 @@
   "gold":"SELECT PolicyType, SaleRegion, COUNT(*) OVER (PARTITION BY PolicyType, SaleRegion) as PolicyCount FROM Policies;",
   "error":null,
   "correct":true,
-  "sec":0.38
+  "sec":0.35
  },
  {
   "id":21180,
   "complexity":"single join",
   "question":"What is the average viewership of TV shows by age group?",
-  "pred":"SELECT AVG(shows_viewership.viewership) FROM age_groups JOIN shows_viewership ON age_groups.id = shows_viewership.age_group_id WHERE shows_viewership.country = 'USA';",
+  "pred":"SELECT AVG(shows_viewership.viewership) FROM age_groups JOIN shows_viewership ON age_groups.id = shows_viewership.age_group_id;",
   "gold":"SELECT AVG(shows_viewership.viewership) FROM age_groups JOIN shows_viewership ON age_groups.id = shows_viewership.age_group_id;",
-  "error":"SQL operational error: no such column: shows_viewership.country",
-  "correct":false,
-  "sec":0.61
+  "error":null,
+  "correct":true,
+  "sec":0.45
  },
  {
   "id":4744,
   "complexity":"window functions",
   "question":"How many users registered per day, with a running total, for the first 10 days of the 'online_platform' database?",
-  "pred":"SELECT registration_date, COUNT(*) as RegisteredUsers, SUM(COUNT(*)) OVER (ORDER BY registration_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as RunningTotal FROM online_platform GROUP BY registration_date LIMIT 10;",
+  "pred":"SELECT registration_date, COUNT(*) as NewPlayers, SUM(CASE WHEN registration_date = '2022-01-01' THEN 1 ELSE 0 END) AS RunningTotal FROM online_platform GROUP BY registration_date LIMIT 10;",
   "gold":"SELECT registration_date, COUNT(user_id) OVER (ORDER BY registration_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as running_total FROM online_platform WHERE registration_date <= '2022-01-10';",
   "error":null,
   "correct":false,
@@ -37,7 +37,7 @@
   "gold":"SELECT event_type, SUM(tickets_sold) FROM events WHERE city = 'Chicago' GROUP BY event_type;",
   "error":null,
   "correct":true,
-  "sec":0.35
+  "sec":0.32
  },
  {
   "id":30255,
@@ -47,7 +47,7 @@
   "gold":"SELECT name, SUM(sales) AS total_sales FROM menu_engineering WHERE category = 'Japanese' AND sustainable = true GROUP BY name ORDER BY total_sales DESC LIMIT 2;",
   "error":"SQL operational error: no such column: transaction_date",
   "correct":false,
-  "sec":0.79
+  "sec":0.75
  },
  {
   "id":2380,
@@ -57,7 +57,7 @@
   "gold":"SELECT AVG(release_year) as avg_release_year, genre FROM movies WHERE genre LIKE '%Action%' GROUP BY genre;",
   "error":null,
   "correct":false,
-  "sec":0.29
+  "sec":0.27
  },
  {
   "id":44514,
@@ -67,7 +67,7 @@
   "gold":"SELECT marine_species.name FROM marine_species INNER JOIN arctic_region ON marine_species.name = arctic_region.name;",
   "error":null,
   "correct":false,
-  "sec":0.45
+  "sec":0.42
  },
  {
   "id":9699,
@@ -77,7 +77,7 @@
   "gold":"SELECT chemical_code, production_date, quantity FROM chemical_production WHERE (chemical_code, quantity) IN (SELECT chemical_code, MIN(quantity) FROM chemical_production GROUP BY chemical_code);",
   "error":null,
   "correct":false,
-  "sec":0.29
+  "sec":0.26
  },
  {
   "id":94050,
@@ -87,17 +87,17 @@
   "gold":"SELECT name FROM Spacecraft WHERE manufacturer = 'ESA';",
   "error":null,
   "correct":true,
-  "sec":0.2
+  "sec":0.18
  },
  {
   "id":27187,
   "complexity":"aggregation",
   "question":"What is the percentage of dishes in each cuisine type that have less than 300 calories?",
-  "pred":"SELECT cuisine_type, CAST(SUM(CASE WHEN calories < 300 THEN 1 ELSE 0 END) AS REAL) * 100.0 \/ COUNT(*) AS percentage FROM dishes GROUP BY cuisine_type;",
+  "pred":"SELECT cuisine_type, AVG(CASE WHEN calories < 300 THEN 1 ELSE 0 END) * 100 AS percentage FROM dishes GROUP BY cuisine_type;",
   "gold":"SELECT cuisine_type, 100.0 * AVG(CASE WHEN calories < 300 THEN 1.0 ELSE 0.0 END) AS pct_low_calorie FROM dishes GROUP BY cuisine_type;",
   "error":null,
   "correct":true,
-  "sec":0.64
+  "sec":0.48
  },
  {
   "id":71171,
@@ -107,17 +107,17 @@
   "gold":"SELECT SUM(number_of_employees) FROM employment WHERE industry = 'finance';",
   "error":null,
   "correct":true,
-  "sec":0.25
+  "sec":0.23
  },
  {
   "id":94548,
   "complexity":"basic SQL",
   "question":"What is the total number of mobile subscribers who have made international calls in the Eastern region?",
-  "pred":"SELECT COUNT(*) FROM mobile_subscribers WHERE international_calls = TRUE AND region = 'Eastern';",
+  "pred":"SELECT COUNT(subscriber_id) FROM mobile_subscribers WHERE international_calls = TRUE AND region = 'Eastern';",
   "gold":"SELECT COUNT(*) FROM mobile_subscribers WHERE international_calls = TRUE AND region = 'Eastern';",
   "error":null,
   "correct":true,
-  "sec":0.29
+  "sec":0.31
  },
  {
   "id":39241,
@@ -127,27 +127,27 @@
   "gold":"SELECT COUNT(DISTINCT effective_altruism.donor_id) FROM effective_altruism LEFT JOIN impact_investing ON effective_altruism.donor_id = impact_investing.donor_id WHERE impact_investing.donor_id IS NULL;",
   "error":null,
   "correct":true,
-  "sec":0.75
+  "sec":0.7
  },
  {
   "id":99007,
   "complexity":"aggregation",
   "question":"What is the average donation amount per donor in 2022?",
-  "pred":"SELECT AVG(amount) as average_donation_amount FROM donations WHERE donation_date BETWEEN '2022-01-01' AND '2022-12-31';",
+  "pred":"SELECT AVG(amount) as avg_donation_amount FROM donations WHERE donation_date BETWEEN '2022-01-01' AND '2022-12-31';",
   "gold":"SELECT donor_id, AVG(amount) as avg_donation FROM Donations WHERE donation_date BETWEEN '2022-01-01' AND '2022-12-31' GROUP BY donor_id;",
   "error":null,
   "correct":false,
-  "sec":0.59
+  "sec":0.57
  },
  {
   "id":48501,
   "complexity":"aggregation",
   "question":"Report the number of policy changes in the 'Transportation' area from 2018 to 2020, and the policy change descriptions.",
-  "pred":"SELECT COUNT(id), description FROM policy_changes WHERE area = 'Transportation' AND change_date BETWEEN '2018-01-01' AND '2020-12-31' GROUP BY id;",
+  "pred":"SELECT COUNT(id) AS total_changes, description FROM policy_changes WHERE area = 'Transportation' AND change_date BETWEEN '2018-01-01' AND '2020-12-31' GROUP BY description;",
   "gold":"SELECT COUNT(*) as num_changes, description FROM policy_changes WHERE area = 'Transportation' AND change_date BETWEEN '2018-01-01' AND '2020-12-31' GROUP BY description",
   "error":null,
   "correct":true,
-  "sec":0.7
+  "sec":0.69
  },
  {
   "id":20447,
@@ -157,7 +157,7 @@
   "gold":"SELECT V.Flag, COUNT(V.Id) FROM Vessels V GROUP BY V.Flag;",
   "error":null,
   "correct":true,
-  "sec":0.29
+  "sec":0.25
  },
  {
   "id":28225,
@@ -167,7 +167,7 @@
   "gold":"SELECT SUM(hours_played) AS total_hours FROM players WHERE game = 'Valorant';",
   "error":null,
   "correct":true,
-  "sec":0.26
+  "sec":0.23
  },
  {
   "id":27970,
@@ -177,7 +177,7 @@
   "gold":"SELECT Genre, SUM(Sales) as TotalSales, AVG(AvgPlayTime) as AvgPlayTime FROM Games WHERE Genre = 'Simulation' GROUP BY Genre;",
   "error":null,
   "correct":true,
-  "sec":0.52
+  "sec":0.49
  },
  {
   "id":99892,
@@ -187,7 +187,7 @@
   "gold":"SELECT SUM(price) FROM products WHERE is_organic = TRUE AND source_country = 'South Korea';",
   "error":null,
   "correct":true,
-  "sec":0.38
+  "sec":0.35
  },
  {
   "id":43912,
@@ -197,17 +197,17 @@
   "gold":"SELECT union_name, SUM(number_of_injuries) as total_injuries FROM union_workplace_safety_stats GROUP BY union_name ORDER BY total_injuries DESC;",
   "error":null,
   "correct":true,
-  "sec":0.46
+  "sec":0.43
  },
  {
   "id":73121,
   "complexity":"aggregation",
   "question":"What is the total number of medical staff members in rural health centers in Indonesia and Thailand?",
-  "pred":"SELECT SUM(num_staff) FROM medical_staff WHERE country IN ('Indonesia', 'Thailand');",
+  "pred":"SELECT SUM(num_staff) FROM medical_staff WHERE country IN ('Indonesia', 'Thailand') AND location LIKE 'Rural%';",
   "gold":"SELECT country, SUM(num_staff) FROM medical_staff GROUP BY country;",
-  "error":null,
+  "error":"SQL operational error: no such column: location",
   "correct":false,
-  "sec":0.31
+  "sec":0.37
  },
  {
   "id":90585,
@@ -217,7 +217,7 @@
   "gold":"SELECT AVG(production_cost) FROM OrganicCottonClothing;",
   "error":null,
   "correct":true,
-  "sec":0.2
+  "sec":0.19
  },
  {
   "id":80901,
@@ -227,7 +227,7 @@
   "gold":"SELECT COUNT(*) FROM exploration_projects WHERE region = 'Africa';",
   "error":null,
   "correct":true,
-  "sec":0.25
+  "sec":0.22
  },
  {
   "id":4933,
@@ -257,7 +257,7 @@
   "gold":"SELECT complaint_type, COUNT(*) FROM customer_complaints GROUP BY complaint_type;",
   "error":null,
   "correct":true,
-  "sec":0.27
+  "sec":0.24
  },
  {
   "id":87541,
@@ -267,7 +267,7 @@
   "gold":"SELECT SiteName FROM HeritageSites WHERE Country = 'Peru';",
   "error":null,
   "correct":false,
-  "sec":0.23
+  "sec":0.21
  },
  {
   "id":63915,
@@ -287,33 +287,33 @@
   "gold":"SELECT forest_type, SUM(volume) FROM timber_production GROUP BY forest_type;",
   "error":null,
   "correct":true,
-  "sec":0.24
+  "sec":0.23
  },
  {
   "id":62708,
   "complexity":"single join",
   "question":"Which materials in the 'inventory' table have a quantity of at least 100 and are used in the production of at least one product in the 'products' table?",
-  "pred":"SELECT i.material FROM inventory i INNER JOIN products p ON i.material = p.material WHERE i.quantity >= 100 AND NOT EXISTS (SELECT * FROM production WHERE production.material = i.material AND production.country = 'China');",
+  "pred":"SELECT i.material FROM inventory i INNER JOIN products p ON i.material = p.material WHERE i.quantity >= 100 AND EXISTS (SELECT * FROM production WHERE production.material = i.material);",
   "gold":"SELECT i.material FROM inventory i INNER JOIN products p ON i.material = p.material WHERE i.quantity >= 100;",
   "error":"SQL operational error: no such table: production",
   "correct":false,
-  "sec":0.66
+  "sec":0.53
  },
  {
   "id":20150,
   "complexity":"single join",
   "question":"What are the names of investors who have invested in companies with an IPO exit strategy?",
-  "pred":"SELECT Investors.name FROM Companies INNER JOIN Investors ON TRUE WHERE Companies.exit_strategy = 'IPO';",
+  "pred":"SELECT Investors.name FROM Investors INNER JOIN Companies ON Investors.id = Companies.id WHERE Companies.exit_strategy = 'IPO';",
   "gold":"SELECT Investors.name FROM Companies INNER JOIN Investors ON TRUE WHERE Companies.exit_strategy = 'IPO';",
   "error":null,
-  "correct":true,
-  "sec":0.31
+  "correct":false,
+  "sec":0.33
  },
  {
   "id":44158,
   "complexity":"basic SQL",
   "question":"List all projects in the 'research' table that have a 'start_date' on or after '2022-01-01'.",
-  "pred":"SELECT * FROM research WHERE start_date >= '2022-01-01';",
+  "pred":"SELECT project_name FROM research WHERE start_date >= '2022-01-01';",
   "gold":"SELECT project_name, location, start_date FROM research WHERE start_date >= '2022-01-01';",
   "error":null,
   "correct":false,
@@ -327,17 +327,17 @@
   "gold":"SELECT DISTINCT medical_condition FROM AstronautMedical WHERE nationality = 'India';",
   "error":null,
   "correct":true,
-  "sec":0.24
+  "sec":0.22
  },
  {
   "id":48342,
   "complexity":"aggregation",
   "question":"What is the number of safety incidents in each manufacturing plant, grouped by the state?",
-  "pred":"SELECT State, COUNT(*) as num_incidents FROM ManufacturingPlants GROUP BY State;",
+  "pred":"SELECT State, COUNT(SafetyIncidents) as num_incidents FROM ManufacturingPlants GROUP BY State;",
   "gold":"SELECT State, SUM(SafetyIncidents) AS TotalSafetyIncidents FROM ManufacturingPlants GROUP BY State;",
   "error":null,
   "correct":false,
-  "sec":0.27
+  "sec":0.29
  },
  {
   "id":30651,
@@ -347,7 +347,7 @@
   "gold":"SELECT research_interest FROM faculty WHERE department = 'Natural Sciences';",
   "error":null,
   "correct":true,
-  "sec":0.2
+  "sec":0.19
  },
  {
   "id":5935,
@@ -357,7 +357,7 @@
   "gold":"SELECT warehouse_id, MAX(delivery_time) - MIN(delivery_time) FROM Shipment GROUP BY warehouse_id;",
   "error":null,
   "correct":false,
-  "sec":0.46
+  "sec":0.42
  },
  {
   "id":92951,
@@ -367,7 +367,7 @@
   "gold":"SELECT COUNT(*) FROM deep_sea_expeditions WHERE region = 'Southern Ocean' AND year >= 2010;",
   "error":null,
   "correct":true,
-  "sec":0.4
+  "sec":0.37
  },
  {
   "id":8236,
@@ -377,7 +377,7 @@
   "gold":"SELECT AVG(resolution_time) as avg_resolution_time FROM incidents WHERE sector = 'Technology';",
   "error":null,
   "correct":true,
-  "sec":0.24
+  "sec":0.22
  },
  {
   "id":46416,
@@ -387,7 +387,7 @@
   "gold":"SELECT COUNT(*) FROM inventory WHERE is_vegan = true;",
   "error":null,
   "correct":true,
-  "sec":0.24
+  "sec":0.2
  },
  {
   "id":20524,
@@ -397,17 +397,17 @@
   "gold":"SELECT h.name, COUNT(a.id) FROM Habitat h INNER JOIN Animals a ON h.id = a.habitat_id GROUP BY h.name;",
   "error":null,
   "correct":true,
-  "sec":0.44
+  "sec":0.4
  },
  {
   "id":38863,
   "complexity":"basic SQL",
   "question":"How many properties in the city of Seattle have a sustainable building certification?'",
-  "pred":"SELECT COUNT(*) FROM seattle_properties WHERE certification IS NOT NULL AND city = 'Seattle';",
+  "pred":"SELECT COUNT(*) FROM seattle_properties WHERE certification IN ('LEED', 'Energy Star') AND city = 'Seattle';",
   "gold":"SELECT COUNT(*) as certified_properties FROM seattle_properties WHERE certification IS NOT NULL AND city = 'Seattle';",
   "error":null,
   "correct":true,
-  "sec":0.28
+  "sec":0.34
  },
  {
   "id":30603,
@@ -417,7 +417,7 @@
   "gold":"SELECT name FROM research_projects WHERE country = 'Japan' AND methods LIKE '%CRISPR%';",
   "error":null,
   "correct":true,
-  "sec":0.3
+  "sec":0.28
  },
  {
   "id":7702,
@@ -437,7 +437,7 @@
   "gold":"SELECT MAX(launch_date) FROM satellites WHERE company = 'SpaceX';",
   "error":null,
   "correct":true,
-  "sec":0.25
+  "sec":0.23
  },
  {
   "id":93530,
@@ -447,17 +447,17 @@
   "gold":"SELECT COUNT(*) FROM models WHERE region = 'US' AND is_fairness_test = true;",
   "error":null,
   "correct":true,
-  "sec":0.32
+  "sec":0.3
  },
  {
   "id":38442,
   "complexity":"window functions",
   "question":"Calculate the percentage of products sold for each brand in the 'ethical_labor' table, ordered by the percentage in descending order.",
-  "pred":"SELECT brand, (SUM(quantity_sold) OVER (PARTITION BY brand) * 100.0 \/ SUM(quantity_sold) OVER ()) AS percentage_sold FROM ethical_labor2 GROUP BY brand ORDER BY percentage_sold DESC;",
+  "pred":"SELECT brand, (SUM(quantity_sold) OVER (PARTITION BY brand) * 100.0 \/ SUM(quantity_sold) OVER ()) AS percentage_sold FROM ethical_labor GROUP BY brand ORDER BY percentage_sold DESC;",
   "gold":"SELECT brand, (SUM(quantity_sold) OVER (PARTITION BY brand) * 100.0 \/ SUM(quantity_sold) OVER ()) AS percentage_sold FROM ethical_labor GROUP BY brand ORDER BY percentage_sold DESC;",
-  "error":"SQL operational error: no such table: ethical_labor2",
-  "correct":false,
-  "sec":0.66
+  "error":null,
+  "correct":true,
+  "sec":0.61
  },
  {
   "id":27147,
@@ -467,17 +467,17 @@
   "gold":"SELECT SUM(order_value) FROM Orders WHERE country = 'India' AND is_fair_trade = true;",
   "error":null,
   "correct":true,
-  "sec":0.33
+  "sec":0.3
  },
  {
   "id":99774,
   "complexity":"basic SQL",
   "question":"What is the minimum quantity of a product that is both organic and fair trade?",
-  "pred":"SELECT MIN(quantity) FROM products WHERE certifications LIKE '%organic% AND %fair trade%';",
+  "pred":"SELECT MIN(quantity) FROM products WHERE certifications LIKE '%organic, fair trade%';",
   "gold":"SELECT MIN(quantity) FROM products WHERE certifications LIKE '%organic, fair trade%';",
   "error":null,
-  "correct":false,
-  "sec":0.28
+  "correct":true,
+  "sec":0.23
  },
  {
   "id":55312,
@@ -487,7 +487,7 @@
   "gold":"SELECT A.Age, COUNT(*) AS Archaeologist_Count FROM Archaeologists A INNER JOIN Excavations E ON A.ArchaeologistID = E.ArchaeologistID WHERE E.Country = 'Asia' GROUP BY A.Age;",
   "error":null,
   "correct":false,
-  "sec":0.46
+  "sec":0.41
  },
  {
   "id":26441,
@@ -497,7 +497,7 @@
   "gold":"SELECT SUM(capacity) FROM cargo_fleet;",
   "error":null,
   "correct":true,
-  "sec":0.18
+  "sec":0.15
  },
  {
   "id":66316,
@@ -507,7 +507,7 @@
   "gold":"SELECT condition_name, patient_count FROM (SELECT condition_name, patient_count, ROW_NUMBER() OVER (ORDER BY patient_count DESC) AS rn FROM conditions WHERE state = 'California' AND year = 2021) t WHERE rn <= 3;",
   "error":null,
   "correct":true,
-  "sec":0.61
+  "sec":0.57
  },
  {
   "id":148,
@@ -517,7 +517,7 @@
   "gold":"SELECT country, military_innovation_score FROM (SELECT country, military_innovation_score, ROW_NUMBER() OVER (ORDER BY military_innovation_score DESC) as rank FROM defense_innovation) as ranked_innovation WHERE rank <= 3;",
   "error":null,
   "correct":true,
-  "sec":0.35
+  "sec":0.32
  },
  {
   "id":81099,
@@ -527,7 +527,7 @@
   "gold":"SELECT DonorName, SUM(DonationAmount) AS TotalDonation FROM Donations INNER JOIN Donors ON Donations.DonorID = Donors.DonorID GROUP BY DonorName ORDER BY TotalDonation DESC LIMIT 3;",
   "error":"SQL operational error: no such column: DonationAmount",
   "correct":false,
-  "sec":0.52
+  "sec":0.49
  },
  {
   "id":32998,
@@ -537,7 +537,7 @@
   "gold":"SELECT consumers.consumer_id FROM consumers LEFT JOIN purchases ON consumers.consumer_id = purchases.consumer_id WHERE purchases.is_circular_supply IS NULL;",
   "error":null,
   "correct":false,
-  "sec":0.31
+  "sec":0.29
  },
  {
   "id":50865,
@@ -547,7 +547,7 @@
   "gold":"SELECT name FROM Innovations WHERE location = 'Asia';",
   "error":null,
   "correct":true,
-  "sec":0.2
+  "sec":0.18
  },
  {
   "id":69986,
@@ -557,7 +557,7 @@
   "gold":"SELECT ProgramType, AVG(DonationAmount) as AverageDonation FROM Donations INNER JOIN Programs ON Donations.ProgramID = Programs.ProgramID GROUP BY ProgramType;",
   "error":null,
   "correct":true,
-  "sec":1.05
+  "sec":0.98
  },
  {
   "id":78461,
@@ -567,7 +567,7 @@
   "gold":"SELECT SUM(costs) FROM projects WHERE country = 'USA' AND techniques LIKE '%DNA sequencing%';",
   "error":null,
   "correct":true,
-  "sec":0.32
+  "sec":0.3
  },
  {
   "id":61630,
@@ -577,7 +577,7 @@
   "gold":"SELECT MAX(temp), MIN(temp) FROM temp_data WHERE location = 'Caribbean region';",
   "error":null,
   "correct":true,
-  "sec":0.29
+  "sec":0.27
  },
  {
   "id":49560,
@@ -587,17 +587,17 @@
   "gold":"SELECT region, SUM(num_visits) as total_visits FROM doctor_visits WHERE disease = 'Diabetes' AND year = 2019 GROUP BY region;",
   "error":null,
   "correct":true,
-  "sec":0.45
+  "sec":0.44
  },
  {
   "id":55139,
   "complexity":"subqueries",
   "question":"What was the plastic recycling rate in 2019 compared to 2017?",
-  "pred":"SELECT recycling_rate FROM recycling_rates WHERE material = 'plastic' AND year = 2019 - 2017;",
+  "pred":"SELECT recycling_rate FROM recycling_rates WHERE material = 'plastic' AND year = 2019 - recycling_rate FROM recycling_rates WHERE material = 'plastic' AND year = 2017;",
   "gold":"SELECT (recycling_rate - (SELECT recycling_rate FROM recycling_rates r2 WHERE r2.material = 'plastic' AND r2.year = 2017)) FROM recycling_rates WHERE material = 'plastic' AND year = 2019;",
-  "error":null,
+  "error":"SQL operational error: near \"FROM\": syntax error",
   "correct":false,
-  "sec":0.43
+  "sec":0.58
  },
  {
   "id":97973,
@@ -607,7 +607,7 @@
   "gold":"SELECT COUNT(*) FROM students s1 WHERE s1.mental_health_score < (SELECT AVG(s2.mental_health_score) FROM students s2 WHERE s2.participated_in_open_pedagogy = TRUE);",
   "error":null,
   "correct":true,
-  "sec":0.5
+  "sec":0.45
  },
  {
   "id":40049,
@@ -617,7 +617,7 @@
   "gold":"SELECT r.region, SUM(pd_budgets.amount) as total_budget FROM regions r JOIN pd_budgets ON r.id = pd_budgets.region_id GROUP BY r.region ORDER BY total_budget DESC;",
   "error":"SQL operational error: no such column: r.name",
   "correct":false,
-  "sec":0.49
+  "sec":0.46
  },
  {
   "id":17875,
@@ -627,7 +627,7 @@
   "gold":"SELECT MAX(session_count) FROM (SELECT patients.patient_id, COUNT(therapy_sessions.session_id) AS session_count FROM patients JOIN therapy_sessions ON patients.patient_id = therapy_sessions.patient_id WHERE patients.condition = 'PTSD' AND patients.country = 'Australia' GROUP BY patients.patient_id) AS subquery;",
   "error":null,
   "correct":true,
-  "sec":0.67
+  "sec":0.64
  },
  {
   "id":82161,
@@ -637,17 +637,17 @@
   "gold":"SELECT AVG(age) FROM patients WHERE treatment_type = 'medication';",
   "error":null,
   "correct":true,
-  "sec":0.24
+  "sec":0.22
  },
  {
   "id":23435,
   "complexity":"aggregation",
   "question":"Find the unique investment strategies with the highest returns, excluding strategies that have had less than 5 transactions.",
-  "pred":"SELECT DISTINCT T1.StrategyName FROM InvestmentStrategies AS T1 INNER JOIN investment_scores AS T2 ON T1.StrategyID = T2.InvestmentID WHERE T2.Returns = (SELECT MAX(Returns) FROM InvestmentStrategies WHERE Transactions >= 5);",
+  "pred":"SELECT DISTINCT T1.StrategyName FROM InvestmentStrategies AS T1 INNER JOIN (SELECT StrategyID, MAX(Returns) AS MaxReturns FROM InvestmentStrategies GROUP BY StrategyID HAVING Transactions >= 5) AS T2 ON T1.StrategyID = T2.StrategyID AND T1.Returns = T2.MaxReturns;",
   "gold":"SELECT StrategyName, Returns FROM InvestmentStrategies WHERE Transactions >= 5 GROUP BY StrategyName, Returns ORDER BY Returns DESC;",
-  "error":"SQL operational error: no such table: investment_scores",
+  "error":null,
   "correct":false,
-  "sec":0.78
+  "sec":0.9
  },
  {
   "id":66649,
@@ -657,7 +657,7 @@
   "gold":"SELECT incident_type, COUNT(*) AS incident_count  FROM safety_incidents  GROUP BY incident_type  ORDER BY incident_count DESC;",
   "error":null,
   "correct":true,
-  "sec":0.31
+  "sec":0.29
  },
  {
   "id":46817,
@@ -667,7 +667,7 @@
   "gold":"SELECT u.type, 100.0 * COUNT(m.id) FILTER (WHERE m.gender = 'Female') \/ COUNT(m.id) AS percentage FROM unions u JOIN members m ON u.id = m.union_id GROUP BY u.type;",
   "error":null,
   "correct":true,
-  "sec":0.76
+  "sec":0.71
  },
  {
   "id":16421,
@@ -677,7 +677,7 @@
   "gold":"SELECT AVG(p.age) FROM patients p JOIN flu_shots fs ON p.id = fs.patient_id JOIN community_health_centers chc ON fs.center_id = chc.id WHERE chc.state = 'California';",
   "error":null,
   "correct":true,
-  "sec":0.75
+  "sec":0.71
  },
  {
   "id":86102,
@@ -687,7 +687,7 @@
   "gold":"SELECT material_type, SUM(amount) FROM waste_generation WHERE city = 'Mumbai' AND year = 2019 GROUP BY material_type;",
   "error":null,
   "correct":true,
-  "sec":0.44
+  "sec":0.41
  },
  {
   "id":75602,
@@ -697,7 +697,7 @@
   "gold":"SELECT employer FROM construction_employers WHERE state = 'Florida' ORDER BY num_employees DESC LIMIT 2;",
   "error":null,
   "correct":true,
-  "sec":0.34
+  "sec":0.32
  },
  {
   "id":51191,
@@ -707,7 +707,7 @@
   "gold":"SELECT machine_type, next_maintenance_date FROM machines WHERE division = 'Manufacturing';",
   "error":null,
   "correct":true,
-  "sec":0.28
+  "sec":0.27
  },
  {
   "id":42210,
@@ -717,17 +717,17 @@
   "gold":"SELECT severity, COUNT(*) as total FROM security_incidents GROUP BY severity;",
   "error":null,
   "correct":true,
-  "sec":0.22
+  "sec":0.19
  },
  {
   "id":72534,
   "complexity":"subqueries",
   "question":"How many community health workers are employed in each county with health equity metrics above the national average?",
-  "pred":"SELECT COUNT(*) FROM equity_metrics WHERE county IN (SELECT county FROM equity_metrics WHERE score > (SELECT avg_score FROM national_averages));",
+  "pred":"SELECT COUNT(*) FROM CommunityHealthWorkers WHERE County IN (SELECT county FROM equity_metrics WHERE score > (SELECT avg_score FROM national_averages));",
   "gold":"SELECT county, SUM(workers) FROM equity_metrics WHERE score > (SELECT avg_score FROM national_averages) GROUP BY county;",
-  "error":null,
+  "error":"SQL operational error: no such table: CommunityHealthWorkers",
   "correct":false,
-  "sec":0.42
+  "sec":0.41
  },
  {
   "id":65404,
@@ -737,27 +737,27 @@
   "gold":"SELECT SUM(balance) FROM customers WHERE region = 'Southeast';",
   "error":null,
   "correct":true,
-  "sec":0.23
+  "sec":0.21
  },
  {
   "id":17393,
   "complexity":"aggregation",
   "question":"What is the total quantity of each ingredient used?",
-  "pred":"SELECT ingredient_name, SUM(quantity) FROM ingredient_usage GROUP BY ingredient_name;",
+  "pred":"SELECT ingredient_name, SUM(quantity) FROM ingredients GROUP BY ingredient_name;",
   "gold":"SELECT ingredient_name, SUM(quantity) FROM ingredients GROUP BY ingredient_name;",
-  "error":"SQL operational error: no such table: ingredient_usage",
-  "correct":false,
-  "sec":0.25
+  "error":null,
+  "correct":true,
+  "sec":0.2
  },
  {
   "id":98086,
   "complexity":"basic SQL",
   "question":"How many companies in the biotech sector were founded by women or non-binary individuals in the past decade?",
-  "pred":"SELECT COUNT(*) FROM companies WHERE industry = 'Biotech' AND (founder_gender = 'Female' OR founder_gender = 'Non-binary');",
+  "pred":"SELECT COUNT(*) FROM companies WHERE industry = 'Biotech' AND (founder_gender = 'Female' OR founder_gender = 'Non-binary') AND founding_year >= 2010;",
   "gold":"SELECT COUNT(*) FROM companies WHERE industry = 'Biotech' AND (founder_gender = 'Female' OR founder_gender IS NULL);",
   "error":null,
   "correct":true,
-  "sec":0.44
+  "sec":0.52
  },
  {
   "id":73140,
@@ -767,7 +767,7 @@
   "gold":"SELECT title, creation_date FROM artworks WHERE museum_id = 1 ORDER BY creation_date LIMIT 1;",
   "error":null,
   "correct":false,
-  "sec":0.63
+  "sec":0.62
  },
  {
   "id":26997,
@@ -777,7 +777,7 @@
   "gold":"SELECT SUM(Population) FROM Cities WHERE State = 'New York';",
   "error":null,
   "correct":true,
-  "sec":0.26
+  "sec":0.23
  },
  {
   "id":55344,
@@ -787,7 +787,7 @@
   "gold":"SELECT AVG(capacity_mw) FROM carbon_offset_programs WHERE country = 'Spain';",
   "error":null,
   "correct":true,
-  "sec":0.3
+  "sec":0.27
  },
  {
   "id":30624,
@@ -797,7 +797,7 @@
   "gold":"SELECT COUNT(*) FROM virtual_tours WHERE country IN ('Japan', 'Italy');",
   "error":null,
   "correct":true,
-  "sec":0.25
+  "sec":0.24
  },
  {
   "id":26055,
@@ -807,7 +807,7 @@
   "gold":"SELECT AVG(media_literacy_score) FROM content_creators WHERE country IN ('Nigeria', 'Egypt', 'South Africa', 'Kenya', 'Ghana');",
   "error":null,
   "correct":true,
-  "sec":0.35
+  "sec":0.32
  },
  {
   "id":83076,
@@ -817,27 +817,27 @@
   "gold":"SELECT * FROM ai_conferences WHERE location = 'Canada';",
   "error":null,
   "correct":false,
-  "sec":0.21
+  "sec":0.2
  },
  {
   "id":67054,
   "complexity":"single join",
   "question":"Which customers have more than one account?",
-  "pred":"SELECT customer_id FROM Customers GROUP BY customer_id HAVING COUNT(*) > 1;",
+  "pred":"SELECT CustomerID FROM Customers GROUP BY CustomerID HAVING COUNT(*) > 1;",
   "gold":"SELECT c1.CustomerID FROM Customers c1 INNER JOIN Customers c2 ON c1.CustomerID = c2.CustomerID AND c1.AccountID != c2.AccountID;",
-  "error":"SQL operational error: no such column: customer_id",
+  "error":null,
   "correct":false,
-  "sec":0.27
+  "sec":0.25
  },
  {
   "id":8624,
   "complexity":"aggregation",
   "question":"How many graduate students are enrolled in the Mathematics department, broken down by gender?",
-  "pred":"SELECT COUNT(*) AS male_enrollments, COUNT(*) AS female_enrollments FROM graduate_students WHERE department = 'Mathematics' AND gender = 'Male' UNION ALL SELECT COUNT(*) AS male_enrollments, COUNT(*) AS female_enrollments FROM graduate_students WHERE department = 'Mathematics' AND gender = 'Female';",
+  "pred":"SELECT COUNT(*) AS male_count, COUNT(*) AS female_count FROM graduate_students WHERE department = 'Mathematics' GROUP BY gender;",
   "gold":"SELECT gender, COUNT(*) as count FROM graduate_students WHERE department = 'Mathematics' GROUP BY gender;",
   "error":null,
   "correct":false,
-  "sec":0.93
+  "sec":0.36
  },
  {
   "id":67676,
@@ -847,17 +847,17 @@
   "gold":"SELECT AVG(square_footage) FROM green_apartments WHERE num_bedrooms = 2;",
   "error":null,
   "correct":true,
-  "sec":0.3
+  "sec":0.28
  },
  {
   "id":1543,
   "complexity":"window functions",
   "question":"What is the water usage percentage rank for each mine, with the highest water user getting the closest rank to 1?",
-  "pred":"SELECT MineName, WaterUsage, CAST(SUM(WaterUsage) AS REAL) \/ (SELECT SUM(WaterUsage) FROM WaterConsumption) * 100 AS UsagePercentageRank FROM WaterConsumption GROUP BY MineName ORDER BY UsagePercentageRank DESC;",
+  "pred":"SELECT MineName, WaterUsage, CAST(SUM(WaterUsage) AS REAL) \/ (SELECT SUM(WaterUsage) FROM WaterConsumption) * 100 AS WaterUsagePercentageRank FROM WaterConsumption GROUP BY MineName ORDER BY WaterUsagePercentageRank DESC;",
   "gold":"SELECT ConsumptionID, MineName, WaterUsage, PERCENT_RANK() OVER (ORDER BY WaterUsage DESC) as 'WaterUsageRank' FROM WaterConsumption;",
   "error":null,
   "correct":false,
-  "sec":0.76
+  "sec":0.75
  },
  {
   "id":12617,
@@ -867,7 +867,7 @@
   "gold":"SELECT title, rating, company FROM tv_show ORDER BY company ASC;",
   "error":null,
   "correct":true,
-  "sec":0.24
+  "sec":0.22
  },
  {
   "id":70367,
@@ -877,7 +877,7 @@
   "gold":"SELECT Size, COUNT(*) FROM Customers WHERE Size IN ('X-Large', 'XX-Large') GROUP BY Size;",
   "error":null,
   "correct":false,
-  "sec":0.18
+  "sec":0.16
  },
  {
   "id":33287,
@@ -887,27 +887,27 @@
   "gold":"SELECT AVG(g.num_grants) FROM (SELECT faculty_id, COUNT(*) AS num_grants FROM grants GROUP BY faculty_id) g JOIN faculty f ON g.faculty_id = f.id WHERE f.department = 'Humanities';",
   "error":null,
   "correct":true,
-  "sec":0.68
+  "sec":0.64
  },
  {
   "id":85728,
   "complexity":"basic SQL",
   "question":"Calculate the average number of reviews for hotels in South America",
-  "pred":"SELECT AVG(reviews) as avg_reviews FROM hotels WHERE country = 'South America';",
+  "pred":"SELECT AVG(reviews) FROM hotels WHERE country = 'South America';",
   "gold":"SELECT AVG(reviews) FROM hotels WHERE country = 'South America';",
   "error":null,
   "correct":true,
-  "sec":0.28
+  "sec":0.22
  },
  {
   "id":72003,
   "complexity":"aggregation",
   "question":"What is the difference in ocean health metrics between freshwater and marine aquaculture sites?",
-  "pred":"SELECT certification, metric_name, AVG(value) AS avg_value FROM ocean_health_metrics GROUP BY certification, metric_name ORDER BY certification;",
+  "pred":"SELECT certification, metric_name, AVG(value) AS avg_value FROM ocean_health_metrics WHERE site_type IN ('Freshwater', 'Marine') GROUP BY certification, metric_name ORDER BY certification;",
   "gold":"SELECT site_type, metric_name, AVG(value) AS avg_value FROM ocean_health_metrics GROUP BY site_type, metric_name;",
   "error":"SQL operational error: no such column: certification",
   "correct":false,
-  "sec":0.4
+  "sec":0.51
  },
  {
   "id":63647,
@@ -917,7 +917,7 @@
   "gold":"SELECT Type, Quantity, RANK() OVER (ORDER BY Quantity DESC) as Rank FROM SouthAmericaMilitaryAircraftTypes;",
   "error":null,
   "correct":true,
-  "sec":0.38
+  "sec":0.34
  },
  {
   "id":75812,
@@ -927,7 +927,7 @@
   "gold":"SELECT union_name, AVG(salary) FROM UnionH GROUP BY union_name ORDER BY AVG(salary) DESC LIMIT 2;",
   "error":null,
   "correct":true,
-  "sec":0.4
+  "sec":0.38
  },
  {
   "id":22273,
@@ -937,7 +937,7 @@
   "gold":"SELECT MIN(founding_year) FROM companies WHERE industry = 'E-commerce';",
   "error":null,
   "correct":true,
-  "sec":0.26
+  "sec":0.24
  },
  {
   "id":82976,
@@ -947,7 +947,7 @@
   "gold":"SELECT AVG(visitors) FROM DanceEvents WHERE year = 2020;",
   "error":null,
   "correct":true,
-  "sec":0.27
+  "sec":0.24
  },
  {
   "id":13704,
@@ -957,7 +957,7 @@
   "gold":"SELECT sourcing_category, AVG(monthly_sales) FROM sustainable_sourcing GROUP BY sourcing_category;",
   "error":null,
   "correct":true,
-  "sec":0.32
+  "sec":0.3
  },
  {
   "id":61356,
@@ -967,17 +967,17 @@
   "gold":"SELECT COUNT(*) FROM Bridges WHERE Region = 'Andalusia';",
   "error":null,
   "correct":true,
-  "sec":0.31
+  "sec":0.28
  },
  {
   "id":69902,
   "complexity":"window functions",
   "question":"What is the clinic capacity by clinic name, ordered within each province?",
-  "pred":"SELECT ProvinceName, ClinicName, Capacity FROM ClinicCapacity ORDER BY ProvinceName, Capacity;",
+  "pred":"SELECT ProvinceName, ClinicName, Capacity FROM ClinicBeds;",
   "gold":"SELECT ProvinceName, ClinicName, NumBeds, RANK() OVER (PARTITION BY ProvinceName ORDER BY NumBeds DESC) AS Rank FROM ClinicBeds",
-  "error":"SQL operational error: no such table: ClinicCapacity",
+  "error":"SQL operational error: no such column: Capacity",
   "correct":false,
-  "sec":0.28
+  "sec":0.2
  },
  {
   "id":2363,
@@ -987,16 +987,16 @@
   "gold":"SELECT Artist, COUNT(*) FROM Song WHERE Genre = 'HipHop' AND Duration > 5 GROUP BY Artist ORDER BY COUNT(*) DESC LIMIT 1;",
   "error":"SQL operational error: misuse of aggregate: COUNT()",
   "correct":false,
-  "sec":0.39
+  "sec":0.36
  },
  {
   "id":8713,
   "complexity":"basic SQL",
   "question":"What is the daily wastewater treatment capacity in Texas?",
-  "pred":"SELECT CAST(capacity AS REAL) \/ 24 FROM texas_wastewater_capacity WHERE date BETWEEN '2022-01-01' AND '2022-01-31';",
+  "pred":"SELECT CAST(capacity AS REAL) \/ 24 FROM texas_wastewater_capacity WHERE date BETWEEN '2022-01-01' AND '2022-12-31';",
   "gold":"SELECT capacity FROM texas_wastewater_capacity;",
   "error":null,
   "correct":false,
-  "sec":0.64
+  "sec":0.6
  }
 ]
