@@ -7,7 +7,7 @@
   "gold":"SELECT AVG(balance) as avg_balance FROM accounts WHERE country IN ('India', 'China', 'Japan') AND account_date BETWEEN '2022-04-01' AND '2022-06-30';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5779,
@@ -17,7 +17,7 @@
   "gold":"SELECT incident_type, COUNT(*) as incident_count FROM incidents WHERE sector = 'Financial' GROUP BY incident_type ORDER BY incident_count DESC LIMIT 5;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4741,
@@ -27,7 +27,7 @@
   "gold":"SELECT subscriber_id, data_usage FROM (SELECT subscriber_id, data_usage, ROW_NUMBER() OVER (PARTITION BY region ORDER BY data_usage DESC) as rn FROM subscribers WHERE region = 'Africa') subquery WHERE rn <= 3 ORDER BY data_usage DESC;",
   "error":"SQL operational error: no such column: date",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5361,
@@ -37,7 +37,7 @@
   "gold":"SELECT af.name, af.location, ap.product_name, ap.price FROM Agroecology_Farmers af INNER JOIN Agroecology_Produce ap ON af.id = ap.farmer_id WHERE af.location IN ('Senegalese Savannah', 'Kenyan Highlands');",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1316,
@@ -47,7 +47,7 @@
   "gold":"SELECT port.name, AVG(cargo.weight) FROM port INNER JOIN cargo ON port.id = cargo.port_id AND cargo.quarter IN (2, 3) INNER JOIN company ON cargo.company_id = company.id WHERE company.name = 'HarborLink' GROUP BY port.name;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":646,
@@ -57,7 +57,7 @@
   "gold":"SELECT race, COUNT(*) as num_employees, CONCAT(ROUND(COUNT(*) \/ (SELECT COUNT(*) FROM employees) * 100, 2), '%') as percent_of_employees FROM employees GROUP BY race;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2477,
@@ -67,7 +67,7 @@
   "gold":"SELECT Context.Country, Context.CarbonPrice FROM ( SELECT * FROM CarbonPrices WHERE CarbonPrices.Country IN ('Europe', 'Australia') AND CarbonPrices.Year = 2020 AND CarbonPrices.Quarter = 4 UNION SELECT * FROM CarbonTaxes WHERE CarbonTaxes.Country IN ('Europe', 'Australia') AND CarbonTaxes.Year = 2020 AND CarbonTaxes.Quarter = 4 ) AS Context;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2613,
@@ -77,7 +77,7 @@
   "gold":"SELECT SUM(SaleDate >= '2022-01-01' AND SaleDate < '2022-02-01') FROM Sales WHERE Category = 'Organic';",
   "error":"SQL operational error: no such table: Products",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5667,
@@ -87,7 +87,7 @@
   "gold":"SELECT interaction_date, COUNT(DISTINCT user_id) as total_users, SUM(interaction_time) as total_engagement_time FROM ad_interactions WHERE country IN ('AU', 'NZ') GROUP BY interaction_date ORDER BY interaction_date DESC LIMIT 7;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3818,
@@ -97,7 +97,7 @@
   "gold":"SELECT * FROM (SELECT plant_id, plant_name, safety_violation_cost, ROW_NUMBER() OVER (ORDER BY safety_violation_cost DESC) as rn FROM chemical_plants WHERE country = 'Japan') tmp WHERE rn <= 2;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1920,
@@ -107,7 +107,7 @@
   "gold":"SELECT f.location, i.description FROM factories f JOIN initiatives i ON f.factory_id = i.factory_id WHERE i.circular_economy = true GROUP BY f.location, i.description;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2986,
@@ -117,7 +117,7 @@
   "gold":"SELECT dept_name, worker_gender, COUNT(*) as count, COUNT(*) * 100.0 \/ (SELECT COUNT(*) FROM department d JOIN worker_demographics w ON d.worker_id = w.worker_id) as percentage, (SELECT COUNT(*) FROM department d JOIN worker_demographics w ON d.worker_id = w.worker_id) as total FROM department d JOIN worker_demographics w ON d.worker_id = w.worker_id GROUP BY dept_name, worker_gender;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3433,
@@ -127,7 +127,7 @@
   "gold":"SELECT PlayerName FROM Players WHERE TournamentLosses = (SELECT MIN(TournamentLosses) FROM Players);",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5678,
@@ -137,7 +137,7 @@
   "gold":"SELECT COUNT(*) FROM (SELECT city FROM PublicWorksC WHERE city = 'Sydney' UNION ALL SELECT city FROM PublicWorksC WHERE city = 'Melbourne') AS Total;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":173,
@@ -147,7 +147,7 @@
   "gold":"SELECT COUNT(*) FROM transportation_systems WHERE system_type = 'Bicycle-Sharing';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":231,
@@ -157,7 +157,7 @@
   "gold":"SELECT region, COUNT(*) FROM mobile_subscribers GROUP BY region;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":978,
@@ -167,7 +167,7 @@
   "gold":"SELECT production_rate FROM (SELECT well_id, well_type, location, production_rate, ROW_NUMBER() OVER (ORDER BY production_rate DESC) rn FROM wells) t WHERE rn = 1;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":778,
@@ -177,7 +177,7 @@
   "gold":"SELECT MAX(Singapore_Properties.Property_Price) FROM Singapore_Properties INNER JOIN Singapore_Neighborhoods ON Singapore_Properties.Neighborhood_Name = Singapore_Neighborhoods.Neighborhood_Name WHERE Singapore_Neighborhoods.Wheelchair_Accessibility = true;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5376,
@@ -187,7 +187,7 @@
   "gold":"SELECT vessels.vessel_id, cargo.cargo_type FROM vessels JOIN port ON vessels.port_id = port.port_id JOIN cargo ON vessels.vessel_id = cargo.vessel_id WHERE port.port_name = 'New York' ORDER BY vessels.vessel_id;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":887,
@@ -197,7 +197,7 @@
   "gold":"SELECT SUM(num_volunteers) FROM volunteer_events WHERE year = 2020 AND event_name IN (SELECT event_name FROM volunteer_events WHERE year = 2020 AND num_volunteers > 0);",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3042,
@@ -207,7 +207,7 @@
   "gold":"SELECT MIN(Salary) FROM Employees WHERE Ethnicity = 'Latinx' AND Department = 'Sales';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2276,
@@ -217,7 +217,7 @@
   "gold":"SELECT region, AVG(depth) FROM marine_protected_areas GROUP BY region;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4234,
@@ -227,7 +227,7 @@
   "gold":"SELECT program_id, MAX(amount) OVER (PARTITION BY program_id) AS max_donation_amount FROM donations;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4097,
@@ -237,7 +237,7 @@
   "gold":"SELECT w.region, 100.0 * AVG(CASE WHEN i.injury_count = 0 THEN 1 ELSE 0 END) as pct_no_injuries FROM workplaces w LEFT JOIN injuries i ON w.id = i.workplace_id GROUP BY w.region;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1943,
@@ -247,7 +247,7 @@
   "gold":"SELECT Factories.name FROM Factories INNER JOIN (SELECT factory_id, COUNT(*) as product_count FROM Factory_Products WHERE is_fair_trade_certified = true GROUP BY factory_id) AS Subquery ON Factories.id = Subquery.factory_id ORDER BY Subquery.product_count ASC LIMIT 1;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5510,
@@ -257,7 +257,7 @@
   "gold":"SELECT COUNT(*) FROM schools WHERE state = 'Texas' AND type = 'Public';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4307,
@@ -267,7 +267,7 @@
   "gold":"SELECT FLOOR(age\/10)*10 as age_group, COUNT(*) as num_users FROM SPOTIFY_USERS WHERE premium = true GROUP BY age_group;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3542,
@@ -277,7 +277,7 @@
   "gold":"SELECT country, AVG(yield) as avg_yield, ROW_NUMBER() OVER (ORDER BY AVG(yield) DESC) as rank FROM farming GROUP BY country;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3723,
@@ -287,7 +287,7 @@
   "gold":"SELECT p.name, SUM(w.amount) as total_waste FROM Waste w JOIN Plant p ON w.plant_id = p.id WHERE w.date BETWEEN '2020-01-01' AND '2020-01-31' GROUP BY p.name;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":933,
@@ -297,7 +297,7 @@
   "gold":"SELECT menu_category, daily_revenue FROM menu_engineering WHERE daily_revenue > (SELECT AVG(daily_revenue) FROM menu_engineering);",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3326,
@@ -307,17 +307,17 @@
   "gold":"SELECT SUM(ticket_price) as total_revenue FROM concert_tickets WHERE timestamp BETWEEN '2022-01-01' AND '2022-12-31' AND country = 'United States';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":240,
   "complexity":"aggregation",
   "question":"What is the average capacity of renewable energy projects for each country?",
-  "pred":"SELECT T1.country, AVG(T1.capacity) FROM projects AS T1 INNER JOIN types AS T2 ON T1.type = T2.name WHERE T2.type LIKE 'Renewable' GROUP BY T1.country;",
+  "pred":"SELECT T2.country, AVG(T1.capacity) FROM projects AS T1 INNER JOIN countries AS T2 ON T1.country = T2.code GROUP BY T2.country;",
   "gold":"SELECT country, AVG(capacity) FROM projects GROUP BY country",
-  "error":"SQL operational error: no such table: types",
+  "error":"SQL operational error: no such table: countries",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5297,
@@ -327,7 +327,7 @@
   "gold":"SELECT line_id, city, daily_ridership FROM (SELECT line_id, city, daily_ridership, RANK() OVER (PARTITION BY city ORDER BY daily_ridership DESC) as rnk FROM subway) tmp WHERE rnk = 1 AND city = 'Seoul';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4594,
@@ -337,7 +337,7 @@
   "gold":"SELECT (COUNT(CASE WHEN Gender = 'Male' THEN 1 END) * 1.0 \/ COUNT(*)) AS Male_ratio, (COUNT(CASE WHEN Gender = 'Female' THEN 1 END) * 1.0 \/ COUNT(*)) AS Female_ratio FROM Players INNER JOIN Games ON Players.Location = Games.GameName WHERE Games.Esports = true AND Players.Location = 'Canada';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2514,
@@ -347,7 +347,7 @@
   "gold":"SELECT o.name, SUM(o.donation_amount) AS total_donation, ROUND(100 * SUM(o.donation_amount) \/ (SELECT SUM(donation_amount) FROM organizations WHERE donation_date BETWEEN '2021-01-01' AND '2021-03-31'), 2) AS percentage FROM organizations o WHERE donation_date BETWEEN '2021-01-01' AND '2021-03-31' GROUP BY o.name;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2791,
@@ -357,7 +357,7 @@
   "gold":"SELECT program_name FROM fwp_programs WHERE country IN ('USA', 'UK');",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5625,
@@ -367,7 +367,7 @@
   "gold":"SELECT user_id, AVG(heart_rate) as avg_heart_rate FROM workouts WHERE workout_type = 'Spin' GROUP BY user_id;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5327,
@@ -377,7 +377,7 @@
   "gold":"SELECT artist_id, AVG(revenue) AS avg_revenue_per_concert FROM (SELECT artist_id, revenue, ROW_NUMBER() OVER (PARTITION BY artist_id ORDER BY concert_id) AS rn FROM concerts) t WHERE rn >= 3 GROUP BY artist_id;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5086,
@@ -387,7 +387,7 @@
   "gold":"SELECT v.name, SUM(vio.severity) as total_severity FROM vessels v INNER JOIN violations vio ON v.id = vio.vessel_id GROUP BY v.name ORDER BY total_severity DESC;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4021,
@@ -397,7 +397,7 @@
   "gold":"SELECT sector, (SUM(efficiency) \/ (SELECT SUM(efficiency) FROM energy_efficiency WHERE year = 2015 AND sector = e.sector) * 100.0) - 100.0 AS improvement FROM energy_efficiency e WHERE year = 2020 GROUP BY sector;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5428,
@@ -407,7 +407,7 @@
   "gold":"SELECT MAX(revenue) FROM Restaurants WHERE type = 'Japanese';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":288,
@@ -417,7 +417,7 @@
   "gold":"SELECT gender, AVG(salary) FROM employees GROUP BY gender;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4954,
@@ -427,7 +427,7 @@
   "gold":"SELECT product_id, carbon_footprint, AVG(carbon_footprint) OVER (ORDER BY product_id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as running_avg_cf FROM sustainability_metrics;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":803,
@@ -437,7 +437,7 @@
   "gold":"SELECT ingredient FROM ingredients INNER JOIN brands ON ingredients.brand_id = brands.brand_id WHERE brand_name = 'Lush';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4160,
@@ -447,7 +447,7 @@
   "gold":"SELECT Region, AVG(CommunityHealthWorkerCount \/ MentalHealthProfessionalCount) AS Ratio FROM (SELECT Region, SUM(CASE WHEN WorkerType = 'MentalHealthProfessional' THEN Count ELSE 0 END) AS MentalHealthProfessionalCount, SUM(CASE WHEN WorkerType = 'CommunityHealthWorker' THEN Count ELSE 0 END) AS CommunityHealthWorkerCount FROM HealthWorkers GROUP BY Region) AS HealthWorkerCounts GROUP BY Region;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4676,
@@ -457,17 +457,17 @@
   "gold":"SELECT COUNT(DISTINCT country) FROM EnergyEfficiencyPolicies WHERE policy_start_date >= '2010-01-01' AND country IN ('UAE', 'Saudi Arabia', 'Iran', 'Iraq', 'Israel', 'Jordan', 'Kuwait', 'Lebanon', 'Oman', 'Palestine', 'Qatar', 'Syria', 'Yemen', 'Bahrain');",
   "error":"SQL operational error: no such table: Countries",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2561,
   "complexity":"aggregation",
   "question":"Which industries have the most companies founded in a given year?",
-  "pred":"SELECT industry FROM Company WHERE founding_year = 2010 GROUP BY industry ORDER BY COUNT(*) DESC LIMIT 1;",
+  "pred":"SELECT industry FROM Company GROUP BY industry ORDER BY COUNT(*) DESC LIMIT 1;",
   "gold":"SELECT industry, founding_year, COUNT(*) as company_count FROM Company GROUP BY industry, founding_year ORDER BY company_count DESC;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3782,
@@ -477,7 +477,7 @@
   "gold":"SELECT SUM(revenue) FROM concerts c INNER JOIN venues v ON c.venue = v.id WHERE v.country = 'Canada';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3691,
@@ -487,7 +487,7 @@
   "gold":"SELECT AVG(ResponseTime), SUM(RespondedWithin48Hours) FROM FeedbackResponse WHERE Year = 2022;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3529,
@@ -497,7 +497,7 @@
   "gold":"SELECT sector, state, SUM(usage) AS total_usage FROM water_usage_by_state WHERE year = 2020 AND sector = 'agricultural' GROUP BY sector, state ORDER BY total_usage DESC LIMIT 3;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3026,
@@ -507,7 +507,7 @@
   "gold":"SELECT MAX(funding_amount) FROM funding JOIN startups ON startups.id = funding.startup_id WHERE startups.industry = 'Biotech';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":792,
@@ -517,7 +517,7 @@
   "gold":"SELECT MAX(labor_cost_per_square_foot) FROM Labor_Cost_Per_Square_Foot WHERE state = 'Florida' AND budget > 6000000;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4501,
@@ -527,7 +527,7 @@
   "gold":"SELECT warehouse_location FROM warehouse_data WHERE item_name = 'Widget' GROUP BY warehouse_location HAVING SUM(quantity) < 50;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4876,
@@ -537,7 +537,7 @@
   "gold":"SELECT COUNT(*) FROM Donations INNER JOIN Volunteers ON Donations.volunteer_id = Volunteers.id WHERE Volunteers.country = 'India';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4908,
@@ -547,7 +547,7 @@
   "gold":"SELECT MAX(quantity_sold) FROM naval_sales WHERE company = 'ArmaTech' AND region = 'Europe';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3927,
@@ -557,7 +557,7 @@
   "gold":"SELECT region_name, MIN(min_ocean_ph) AS min_ocean_ph, MAX(max_ocean_ph) AS max_ocean_ph FROM marine_region GROUP BY region_name;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4727,
@@ -567,7 +567,7 @@
   "gold":"SELECT r.name, p.name as project_name FROM researchers r JOIN projects p ON r.id = p.researcher_id WHERE r.domain = 'Genetics';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4994,
@@ -577,7 +577,7 @@
   "gold":"SELECT species_name FROM marine_species WHERE ocean_location = 'Arctic Ocean';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3386,
@@ -587,7 +587,7 @@
   "gold":"SELECT name, SUM(units_produced) as total_units FROM worker GROUP BY name ORDER BY total_units DESC;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":317,
@@ -597,7 +597,7 @@
   "gold":"SELECT subscribers.region, COUNT(subscribers.id) AS total_customers, SUM(speeds.connection_speed) AS total_speed FROM subscribers JOIN speeds ON subscribers.id = speeds.subscriber_id WHERE subscribers.service = 'broadband' AND speeds.year = 2021 GROUP BY subscribers.region;",
   "error":"SQL operational error: no such column: connection_speed",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3994,
@@ -607,7 +607,7 @@
   "gold":"SELECT COUNT(*) FROM community_development WHERE completion_year = 2021;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":366,
@@ -617,7 +617,7 @@
   "gold":"SELECT country, SUM(num_incidents) as total_incidents FROM cybersecurity_incidents GROUP BY country;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2359,
@@ -627,7 +627,7 @@
   "gold":"SELECT AVG(funding_round.round_size) FROM company INNER JOIN funding_round ON company.id = funding_round.company_id WHERE company.founder_gender = 'Female' AND company.industry = 'Healthcare';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1332,
@@ -637,7 +637,7 @@
   "gold":"SELECT country, production_quantity FROM solar_energy ORDER BY production_quantity DESC LIMIT 3;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":501,
@@ -647,7 +647,7 @@
   "gold":"SELECT game_genre FROM player GROUP BY game_genre ORDER BY COUNT(*) DESC LIMIT 1;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":495,
@@ -657,7 +657,7 @@
   "gold":"SELECT SUM(quantity) AS total_local_ingredients FROM dish_ingredients DI INNER JOIN ingredients I ON DI.ingredient = I.ingredient WHERE I.is_local = TRUE;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5842,
@@ -667,7 +667,7 @@
   "gold":"SELECT SUM(quantity) FROM Fabrics WHERE year = 2020 AND type IN ('Organic_Cotton', 'Recycled_Polyester');",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1453,
@@ -677,7 +677,7 @@
   "gold":"SELECT student_id, MAX(score) - MIN(score) as score_improvement FROM student_mental_health GROUP BY student_id ORDER BY score_improvement DESC;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1087,
@@ -687,7 +687,7 @@
   "gold":"SELECT bs.country, COUNT(bs.subscriber_id) AS num_subscribers FROM broadband_subscribers bs JOIN country_codes cc ON bs.country = cc.country GROUP BY bs.country ORDER BY num_subscribers DESC LIMIT 5;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5267,
@@ -697,7 +697,7 @@
   "gold":"SELECT SUM(quantity) FROM fleet_inventory WHERE type IN ('Cargo', 'Tanker');",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":103,
@@ -707,7 +707,7 @@
   "gold":"SELECT location, COUNT(*) as spotted_count FROM whale_sharks GROUP BY location;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":722,
@@ -717,7 +717,7 @@
   "gold":"SELECT AVG(CASE WHEN Outcome = 'won' THEN 1.0 ELSE 0.0 END) as SuccessRate FROM Cases C INNER JOIN Attorneys A ON C.AttorneyID = A.AttorneyID WHERE A.BarPassed = 'yes';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3706,
@@ -727,7 +727,7 @@
   "gold":"SELECT MIN(Rating) FROM SafetyTesting WHERE VehicleType = 'SUV' AND Country = 'United Kingdom';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":528,
@@ -737,7 +737,7 @@
   "gold":"SELECT animal, SUM(population) FROM animal_population GROUP BY animal;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5402,
@@ -747,7 +747,7 @@
   "gold":"SELECT c.name FROM company_can c JOIN research_can r ON c.id = r.company_id WHERE c.location = 'Toronto, Canada' AND r.research_area = 'Gene Therapy';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1247,
@@ -757,7 +757,7 @@
   "gold":"SELECT DISTINCT route_id, station_id FROM route_stations;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":964,
@@ -767,7 +767,7 @@
   "gold":"SELECT year, SUM(CASE WHEN disability THEN 1 ELSE 0 END) AS students_with_disabilities, SUM(CASE WHEN NOT disability THEN 1 ELSE 0 END) AS students_without_disabilities FROM students GROUP BY year;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3190,
@@ -777,7 +777,7 @@
   "gold":"SELECT policyholders.policyholder_name, SUM(claims.claim_amount) AS total_claim_amount FROM claims JOIN policyholders ON claims.policyholder_id = policyholders.id WHERE policyholders.state = 'TX' GROUP BY policyholders.policyholder_name ORDER BY total_claim_amount DESC LIMIT 5;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4051,
@@ -787,7 +787,7 @@
   "gold":"SELECT SUM(num_engagements) FROM TourEngagements WHERE city = 'Barcelona' AND rating >= 4.5;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2152,
@@ -797,7 +797,7 @@
   "gold":"SELECT SUM(quantity) FROM production_data WHERE element IN ('Neodymium', 'Dysprosium') GROUP BY element;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":107,
@@ -807,7 +807,7 @@
   "gold":"SELECT SUM(revenue) FROM SkincareSales INNER JOIN ProductIngredients ON SkincareSales.productID = ProductIngredients.productID WHERE organic = false AND region = 'North America';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5612,
@@ -817,7 +817,7 @@
   "gold":"SELECT SUM(cost) FROM space_missions;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4865,
@@ -827,7 +827,7 @@
   "gold":"SELECT day_of_week, AVG(attendance) as avg_attendance FROM cultural_events GROUP BY day_of_week;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":287,
@@ -837,7 +837,7 @@
   "gold":"SELECT AVG(students.mental_health_score) FROM students JOIN courses ON students.course_id = courses.course_id WHERE courses.course_type = 'Traditional';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3611,
@@ -847,7 +847,7 @@
   "gold":"SELECT SUM(Incidents) FROM UnionSafety WHERE HeadquarterCountry IN ('USA', 'Canada', 'Mexico')",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":612,
@@ -857,7 +857,7 @@
   "gold":"SELECT initiative_name, MAX(funding) FROM initiatives WHERE country = 'Bangladesh' AND year = 2020 GROUP BY initiative_name;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":597,
@@ -867,7 +867,7 @@
   "gold":"SELECT COUNT(DISTINCT workers.worker_id) FROM workers INNER JOIN factories ON workers.factory_id = factories.id WHERE factories.audit_passed = TRUE;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2674,
@@ -877,7 +877,7 @@
   "gold":"SELECT COUNT(*) FROM RuralHealthFacility8 WHERE diagnosis IN ('Anxiety', 'Depression');",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1143,
@@ -887,7 +887,7 @@
   "gold":"SELECT vessel_flag, SUM(unloaded_weight) AS total_weight FROM ports WHERE country = 'USA' GROUP BY vessel_flag;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2860,
@@ -897,7 +897,7 @@
   "gold":"SELECT community_name, MAX(response_time) max_response_time FROM emergencies JOIN communities ON emergencies.community_id = communities.community_id GROUP BY community_name;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5401,
@@ -907,7 +907,7 @@
   "gold":"SELECT supplier FROM StoreSuppliers WHERE store = 'Organic Foods';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":310,
@@ -917,7 +917,7 @@
   "gold":"SELECT country, SUM(eco_tourists) AS total_eco_tourists FROM EcoTouristsQ1Q2 WHERE country IN ('Japan', 'Thailand', 'Indonesia') AND quarter IN (1, 2) GROUP BY country;",
   "error":"SQL operational error: no such column: date",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":314,
@@ -927,7 +927,7 @@
   "gold":"SELECT SUM(chile_copper_export.export_amount), SUM(chile_co2_emission.emission) FROM chile_copper_export INNER JOIN chile_co2_emission ON chile_copper_export.year = chile_co2_emission.year WHERE chile_copper_export.year BETWEEN 2016 AND 2018;",
   "error":"SQL operational error: no such column: export_amount",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3594,
@@ -937,7 +937,7 @@
   "gold":"SELECT COUNT(*) FROM donors WHERE donation > 500.00;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4733,
@@ -947,7 +947,7 @@
   "gold":"SELECT AVG(price) as avg_price FROM hotel_prices WHERE city = 'Tokyo' OR city = 'Osaka' GROUP BY city;",
   "error":"SQL operational error: near \"FROM\": syntax error",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5325,
@@ -957,7 +957,7 @@
   "gold":"SELECT e.company_id, c.name, SUM(e.quantity) AS total_copper_quantity FROM extraction e JOIN company c ON e.company_id = c.id WHERE e.mineral = 'copper' GROUP BY e.company_id, c.name;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3987,
@@ -967,7 +967,7 @@
   "gold":"SELECT AVG(SafetyRating) FROM Vehicles WHERE Type = 'Electric' AND ReleaseYear = 2020;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1366,
@@ -977,7 +977,7 @@
   "gold":"SELECT judge_name, COUNT(*) as total_cases FROM criminal_cases GROUP BY judge_name;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4756,
@@ -987,7 +987,7 @@
   "gold":"SELECT c.city_name, pu.passengers FROM cities c JOIN pt_usage pu ON c.city_id = pu.city WHERE c.population > 5000000;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1938,
@@ -997,7 +997,7 @@
   "gold":"SELECT COUNT(*) FROM bus_fleet WHERE is_wheelchair_accessible = true;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4778,
@@ -1007,7 +1007,7 @@
   "gold":"SELECT year, COUNT(*) as campaigns_per_year FROM climate_communication WHERE region = 'Pacific Islands' AND year >= 2015 GROUP BY year ORDER BY year;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2956,
@@ -1017,7 +1017,7 @@
   "gold":"SELECT * FROM community_centers WHERE country = 'Colombia';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5457,
@@ -1027,7 +1027,7 @@
   "gold":"SELECT artist, COUNT(piece_name) AS piece_count FROM Art WHERE gallery = 'Modern Art' GROUP BY artist ORDER BY piece_count DESC LIMIT 1;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5281,
@@ -1037,7 +1037,7 @@
   "gold":"SELECT SUM(Quantity) FROM MaizeProduction WHERE Location = 'Kenya' OR Location = 'Tanzania' OR Location = 'Uganda' AND System = 'Indigenous Food Systems';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1567,
@@ -1047,7 +1047,7 @@
   "gold":"SELECT name, SUM(donation_amount) as total_donation FROM nonprofits WHERE category IN ('Education', 'Health') GROUP BY name;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1800,
@@ -1057,7 +1057,7 @@
   "gold":"SELECT country, dissolved_oxygen FROM atlantic_fish_farms WHERE country IN ('USA', 'Canada', 'Brazil');",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2230,
@@ -1067,7 +1067,7 @@
   "gold":"SELECT country, SUM(accidents) AS total_accidents, SUM(total_employees) AS total_employees FROM mining_operations WHERE country IN ('India', 'Argentina') GROUP BY country;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1391,
@@ -1077,7 +1077,7 @@
   "gold":"SELECT ocean_basin, species_number FROM species_count;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2979,
@@ -1087,7 +1087,7 @@
   "gold":"SELECT Continent, MAX(CO2EmissionsReduction) as MaxReduction, COUNT(*) as HotelCount FROM Hotels GROUP BY Continent;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5664,
@@ -1097,7 +1097,7 @@
   "gold":"SELECT type, AVG(length) as avg_length FROM routes WHERE type = 'Light Rail';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1658,
@@ -1107,7 +1107,7 @@
   "gold":"SELECT bridge_type, construction_year, COUNT(*) as count FROM Bridges WHERE state = 'CA' AND seismic_retrofit_need = TRUE GROUP BY bridge_type, construction_year;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3699,
@@ -1117,7 +1117,7 @@
   "gold":"SELECT SUM(duration) FROM SpaceMissions;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1363,
@@ -1127,7 +1127,7 @@
   "gold":"SELECT country, SUM(visitors) as total_visitors FROM tourism_stats WHERE country IN ('Australia', 'New Zealand') AND year = 2021 GROUP BY country, month;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4107,
@@ -1137,7 +1137,7 @@
   "gold":"SELECT MAX(donation_amount) FROM dance_sponsors;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3043,
@@ -1147,7 +1147,7 @@
   "gold":"SELECT region, AVG(score) FROM energy_efficiency WHERE year = 2021 GROUP BY region;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":232,
@@ -1157,7 +1157,7 @@
   "gold":"SELECT COUNT(*) FROM broadband_subscribers WHERE subscriber_location = 'Urban';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1071,
@@ -1167,7 +1167,7 @@
   "gold":"SELECT Region, AVG(AvgFabricWaste) FROM TextileSuppliers WHERE Region = 'NY' GROUP BY Region;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2199,
@@ -1177,7 +1177,7 @@
   "gold":"SELECT SUM(Cost) FROM Trainings WHERE TrainingDate BETWEEN '2022-01-01' AND '2022-06-30';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3014,
@@ -1187,7 +1187,7 @@
   "gold":"SELECT sector, SUM(consumption) FROM water_usage WHERE year = 2020 AND sector IN ('Residential', 'Commercial') GROUP BY sector;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":542,
@@ -1197,7 +1197,7 @@
   "gold":"SELECT * FROM Farmers WHERE location = 'Asia';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2410,
@@ -1207,7 +1207,7 @@
   "gold":"SELECT crop_type, AVG(soil_moisture) as avg_moisture FROM crop_data WHERE measurement_date BETWEEN '2021-05-01' AND '2021-05-31' GROUP BY crop_type;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3708,
@@ -1217,7 +1217,7 @@
   "gold":"SELECT COUNT(*) FROM WaterTreatmentPlants WHERE region = 'Urban' AND total_capacity > 50000;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2191,
@@ -1227,7 +1227,7 @@
   "gold":"SELECT customer_id, SUM(transaction_amount) AS total_amount FROM transactions WHERE country = 'Australia' GROUP BY customer_id ORDER BY total_amount DESC LIMIT 5;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":839,
@@ -1237,7 +1237,7 @@
   "gold":"SELECT MIN(production_rate) FROM zinc_mines WHERE location = 'India';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4690,
@@ -1247,7 +1247,7 @@
   "gold":"SELECT City, COUNT(*) FROM Workouts GROUP BY City ORDER BY COUNT(*) DESC LIMIT 3;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":108,
@@ -1257,7 +1257,7 @@
   "gold":"SELECT MAX(ticket_sales) FROM EventData WHERE city = 'Tokyo';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1341,
@@ -1267,7 +1267,7 @@
   "gold":"SELECT BrandName, AVG(Quantity) as AvgQuantity FROM Brands WHERE BrandName != 'BrandA' GROUP BY BrandName;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":623,
@@ -1277,7 +1277,7 @@
   "gold":"SELECT project_name, funding_amount FROM climate_finance WHERE year = 2019 ORDER BY funding_amount DESC LIMIT 3;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4292,
@@ -1287,7 +1287,7 @@
   "gold":"SELECT sector, SUM(violations) as total_violations FROM union_construction WHERE sector = 'Construction' GROUP BY sector ORDER BY total_violations DESC;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1564,
@@ -1297,7 +1297,7 @@
   "gold":"SELECT COUNT(*) FROM mines WHERE location = 'Colombia' AND eia_score > 80;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":640,
@@ -1307,7 +1307,7 @@
   "gold":"SELECT country, AVG(amount) as avg_investment FROM investments WHERE sector = 'Sustainable Agriculture' GROUP BY country;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4844,
@@ -1317,7 +1317,7 @@
   "gold":"SELECT union_name FROM cb_agreements WHERE region = 'west_region' AND expiration_year = 2024;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4696,
@@ -1327,7 +1327,7 @@
   "gold":"SELECT division, SUM(amount) AS total_expenditure FROM r_d_expenditure WHERE date BETWEEN '2020-01-01' AND '2020-03-31' GROUP BY division;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":58,
@@ -1337,7 +1337,7 @@
   "gold":"SELECT AVG(rating) FROM movies WHERE production_year BETWEEN 2010 AND 2020 AND country = 'USA';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4609,
@@ -1347,7 +1347,7 @@
   "gold":"SELECT CargoType, SUM(Tonnage) FROM Cargo GROUP BY CargoType;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1148,
@@ -1357,7 +1357,7 @@
   "gold":"SELECT strategy, author FROM cybersecurity_strategies;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4640,
@@ -1367,7 +1367,7 @@
   "gold":"SELECT province, AVG(num_beds) FROM rural_canada_hospitals GROUP BY province;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1668,
@@ -1377,7 +1377,7 @@
   "gold":"SELECT conservation_status FROM species WHERE common_name = 'Giant Pacific Octopus';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2556,
@@ -1387,7 +1387,7 @@
   "gold":"SELECT drug_name, MIN(sales_amount) FROM sales WHERE continent = 'Europe' AND sale_date BETWEEN '2022-01-01' AND '2022-12-31' GROUP BY drug_name;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4629,
@@ -1397,7 +1397,7 @@
   "gold":"SELECT COUNT(*) FROM smart_contract_deployments WHERE developer_name = 'Hayden Adams';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3718,
@@ -1407,7 +1407,7 @@
   "gold":"SELECT species, COUNT(*) FROM RehabilitationCenters WHERE condition = 'Stable' GROUP BY species;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4651,
@@ -1417,7 +1417,7 @@
   "gold":"SELECT COUNT(DISTINCT id) FROM donors WHERE state = 'Washington';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":507,
@@ -1427,7 +1427,7 @@
   "gold":"SELECT region, MAX(amount) FROM Budget WHERE category = 'Transportation' GROUP BY region;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4362,
@@ -1437,7 +1437,7 @@
   "gold":"SELECT COUNT(*) FROM Arctic_Marine_Species WHERE is_affected_by_pollution = true;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4409,
@@ -1447,7 +1447,7 @@
   "gold":"SELECT country, SUM(quantity) FROM materials GROUP BY country;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2588,
@@ -1457,7 +1457,7 @@
   "gold":"SELECT SUM(cost) FROM production_cost WHERE country = 'Netherlands' AND material = 'linen';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":400,
@@ -1467,7 +1467,7 @@
   "gold":"SELECT AVG(inspections.score) FROM inspections WHERE inspections.area = 'urban';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4290,
@@ -1477,7 +1477,7 @@
   "gold":"SELECT COUNT(*) FROM security_incidents WHERE incident_date BETWEEN '2022-01-01' AND '2022-12-31';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4057,
@@ -1487,7 +1487,7 @@
   "gold":"SELECT MAX(visitors) FROM gcnp_visitors;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":248,
@@ -1497,7 +1497,7 @@
   "gold":"SELECT SUM(consumption) FROM water_consumption WHERE user_category = 'residential' AND usage_date >= '2021-07-01' AND usage_date <= '2021-07-31';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1228,
@@ -1507,7 +1507,7 @@
   "gold":"SELECT region, SUM(participants) FROM employee_training_pacific WHERE region = 'Pacific' AND training = 'Disability Awareness';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3136,
@@ -1517,7 +1517,7 @@
   "gold":"SELECT production_quantity FROM well_quantities WHERE well_name = 'Well B';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2078,
@@ -1527,7 +1527,7 @@
   "gold":"SELECT SUM(cargo_capacity) FROM Vessels WHERE type != 'Tanker';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2204,
@@ -1537,7 +1537,7 @@
   "gold":"SELECT fare FROM fares WHERE line = 'blue' AND passenger_type = 'adult';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3109,
@@ -1547,7 +1547,7 @@
   "gold":"SELECT SUM(Success) FROM Relocation WHERE Location = 'South America';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5173,
@@ -1557,7 +1557,7 @@
   "gold":"SELECT AVG(altitude) FROM geostationary_satellites;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":611,
@@ -1567,7 +1567,7 @@
   "gold":"SELECT 100.0 * SUM(success) \/ COUNT(*) FROM indonesia_projects WHERE location = 'rural';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2364,
@@ -1577,7 +1577,7 @@
   "gold":"SELECT product_name, consumer_preference_score FROM cosmetics WHERE cruelty_free = true ORDER BY consumer_preference_score DESC LIMIT 5;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5217,
@@ -1587,7 +1587,7 @@
   "gold":"SELECT SUM(budget) FROM programs WHERE community_impact_score >= 8;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5787,
@@ -1597,7 +1597,7 @@
   "gold":"SELECT COUNT(DISTINCT project) as total_projects FROM rural_infrastructure WHERE country IN ('Indonesia', 'Thailand', 'Philippines', 'Vietnam', 'Malaysia') AND year = 2018;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3114,
@@ -1607,7 +1607,7 @@
   "gold":"SELECT MAX(billing_amount) FROM cases WHERE precedent_type = 'Non-Precedential';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5671,
@@ -1617,7 +1617,7 @@
   "gold":"SELECT COUNT(id) FROM Warehouses WHERE city = 'City Y' AND capacity > 100000;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2894,
@@ -1627,7 +1627,7 @@
   "gold":"SELECT item_name, quantity * unit_price as total_value FROM organic_inventory ORDER BY total_value DESC LIMIT 3;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1210,
@@ -1637,7 +1637,7 @@
   "gold":"SELECT AVG(car_manufacture_year) FROM policies WHERE policy_id = 1003;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3534,
@@ -1647,7 +1647,7 @@
   "gold":"SELECT COUNT(*) FROM Missions WHERE agency = 'AgencyX' AND success = TRUE;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1729,
@@ -1657,7 +1657,7 @@
   "gold":"SELECT MAX(max_habitat_depth) FROM species;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2383,
@@ -1667,7 +1667,7 @@
   "gold":"SELECT SUM(CASE WHEN type = 'school' THEN 1 ELSE 0 END) as total_schools, SUM(CASE WHEN type = 'hospital' THEN 1 ELSE 0 END) as total_hospitals FROM relief_operations;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4150,
@@ -1677,7 +1677,7 @@
   "gold":"SELECT AVG(delivery_time) FROM orders WHERE eco_friendly = TRUE AND country = 'Italy';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4465,
@@ -1687,7 +1687,7 @@
   "gold":"SELECT SUM(cost) as total_cost FROM agri_innovation_projects ORDER BY total_cost DESC;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1474,
@@ -1697,7 +1697,7 @@
   "gold":"SELECT SUM(cost) FROM renewable_energy WHERE project_name LIKE '%Solar%';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1369,
@@ -1707,7 +1707,7 @@
   "gold":"SELECT COUNT(*) FROM species_inventory WHERE region = 'Indian Ocean';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4493,
@@ -1717,7 +1717,7 @@
   "gold":"SELECT DISTINCT material FROM clothing_materials WHERE country = 'Africa';",
   "error":"SQL operational error: no such table: countries",
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":671,
@@ -1727,7 +1727,7 @@
   "gold":"SELECT SUM(number_of_tourists) FROM tourism WHERE category = 'Historical';",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":545,
@@ -1737,7 +1737,7 @@
   "gold":"SELECT MIN(age) FROM Trees;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5020,
@@ -1747,7 +1747,7 @@
   "gold":"SELECT name FROM Creative_AI WHERE country IN ('USA', 'Germany', 'Switzerland');",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2127,
@@ -1757,7 +1757,7 @@
   "gold":"SELECT AVG(age) FROM patients WHERE state = 'New York' AND condition = 'Anxiety';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1051,
@@ -1767,7 +1767,7 @@
   "gold":"SELECT AVG(transaction_amount) FROM retail_customers WHERE state = 'NY';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1417,
@@ -1777,7 +1777,7 @@
   "gold":"SELECT MAX(ClaimAmount) FROM PetPolicies;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":210,
@@ -1787,7 +1787,7 @@
   "gold":"SELECT warehouse_id, revenue * 0.9 FROM warehouse_revenue;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1657,
@@ -1797,7 +1797,7 @@
   "gold":"SELECT name FROM contributors ORDER BY amount_donated DESC LIMIT 3;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3085,
@@ -1807,7 +1807,7 @@
   "gold":"SELECT COUNT(*) FROM AstroResearch WHERE Subject IN ('Neutron Stars', 'Quasars');",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4532,
@@ -1817,7 +1817,7 @@
   "gold":"SELECT facility_name, safety_officer_name, safety_officer_email FROM facilities;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2631,
@@ -1827,7 +1827,7 @@
   "gold":"SELECT AVG(salary) FROM union_members WHERE gender = 'Female' AND industry = 'Construction' AND membership_duration > 5;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":607,
@@ -1837,7 +1837,7 @@
   "gold":"SELECT waste_type, rate FROM recycling_rates WHERE location = 'UrbanArea' AND year = 2020 AND waste_type IN ('Organic', 'Electronic');",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2647,
@@ -1847,7 +1847,7 @@
   "gold":"SELECT msy_value FROM msy WHERE species = 'Catfish' AND year = 2024 AND region = 'Pacific Ocean';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2293,
@@ -1857,7 +1857,7 @@
   "gold":"SELECT Strategy FROM Cybersecurity_Strategies WHERE Year = 2010;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2542,
@@ -1867,7 +1867,7 @@
   "gold":"SELECT AVG(new_york_water_use.water_consumption \/ new_york_water_use.population) as avg_water_consumption FROM new_york_water_use WHERE new_york_water_use.year = 2021;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1541,
@@ -1877,7 +1877,7 @@
   "gold":"SELECT gas_consumption FROM gas_consumption WHERE country = 'Nigeria' AND consumption_year = 2019;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1382,
@@ -1887,7 +1887,7 @@
   "gold":"SELECT subscriber_id FROM broadband_subscribers WHERE download_speed > 300;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5227,
@@ -1897,7 +1897,7 @@
   "gold":"SELECT COUNT(*) FROM credit_cards WHERE card_type IN ('Platinum', 'Gold');",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":413,
@@ -1907,7 +1907,7 @@
   "gold":"SELECT AVG(sustainability_score) FROM garment_data_2 WHERE collection = 'Autumn 2021';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":5048,
@@ -1917,7 +1917,7 @@
   "gold":"SELECT operation FROM intelligence_operations WHERE region = 'americas';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2331,
@@ -1927,7 +1927,7 @@
   "gold":"SELECT COUNT(*) FROM spacecraft_components WHERE company = 'AstroCorp' AND country = 'Russia' AND weight < 100.0;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3400,
@@ -1937,7 +1937,7 @@
   "gold":"SELECT COUNT(DISTINCT garment_category) FROM circular_economy;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2529,
@@ -1947,7 +1947,7 @@
   "gold":"SELECT SUM(trips_per_month) FROM monthly_bike_trips WHERE city = 'New York City';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":2665,
@@ -1957,7 +1957,7 @@
   "gold":"SELECT AVG(weight) FROM ingredients WHERE product_id = 1;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":3405,
@@ -1967,7 +1967,7 @@
   "gold":"SELECT name FROM researchers WHERE project = 'gene sequencing';",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1105,
@@ -1977,7 +1977,7 @@
   "gold":"SELECT COUNT(*) FROM mars_missions;",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":1045,
@@ -1987,7 +1987,7 @@
   "gold":"SELECT COUNT(*) FROM smart_contracts WHERE developer_community IN ('Women in Tech', 'Minority Ethnic Group', 'LGBTQ+', 'People with Disabilities', 'Indigenous People', 'Young Developers');",
   "error":null,
   "correct":true,
-  "sec":0.201
+  "sec":8.93
  },
  {
   "id":4427,
@@ -1997,6 +1997,6 @@
   "gold":"SELECT AVG(visitors) FROM india_tourism WHERE sustainability_rating >= 4 AND year BETWEEN 2018 AND 2023;",
   "error":null,
   "correct":false,
-  "sec":0.201
+  "sec":8.93
  }
 ]
