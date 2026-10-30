@@ -1,0 +1,39 @@
+{
+  "system": "LoRA Coder-1.5B (n=5000, r=16, lr=0.0002, ep=1)",
+  "n_eval": 200,
+  "exec_acc": 0.69,
+  "exact_match": 0.33,
+  "valid_sql": 0.975,
+  "gold_runs": 0.99,
+  "sec_per_example": 3.23,
+  "by_complexity": {
+    "aggregation": {
+      "acc": 0.6122,
+      "n": 49
+    },
+    "basic SQL": {
+      "acc": 0.8333,
+      "n": 102
+    },
+    "multiple_joins": {
+      "acc": 1.0,
+      "n": 4
+    },
+    "set operations": {
+      "acc": 0.0,
+      "n": 2
+    },
+    "single join": {
+      "acc": 0.5556,
+      "n": 27
+    },
+    "subqueries": {
+      "acc": 0.3333,
+      "n": 9
+    },
+    "window functions": {
+      "acc": 0.1429,
+      "n": 7
+    }
+  }
+}
