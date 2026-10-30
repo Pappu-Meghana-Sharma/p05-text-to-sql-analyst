@@ -1,537 +1,0 @@
-W1029 17:41:46.193686 10352 myenv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-train=52200  val=200
-
-=== 2026-10-29 17:41:53 eval base Coder-1.5B (no LoRA) on 200 examples
-[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
-Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|▍         | 13/338 [00:00<00:03, 105.61it/s]Loading weights:   7%|▋         | 24/338 [00:00<00:02, 106.20it/s]Loading weights:  10%|█         | 35/338 [00:00<00:03, 89.04it/s] Loading weights:  13%|█▎        | 45/338 [00:00<00:04, 72.65it/s]Loading weights:  17%|█▋        | 59/338 [00:00<00:03, 88.40it/s]Loading weights:  21%|██        | 70/338 [00:00<00:02, 90.81it/s]Loading weights:  24%|██▎       | 80/338 [00:00<00:02, 91.36it/s]Loading weights:  27%|██▋       | 90/338 [00:01<00:02, 83.24it/s]Loading weights:  29%|██▉       | 99/338 [00:01<00:03, 73.99it/s]Loading weights:  32%|███▏      | 109/338 [00:01<00:02, 76.70it/s]Loading weights:  35%|███▍      | 117/338 [00:01<00:02, 75.47it/s]Loading weights:  38%|███▊      | 130/338 [00:01<00:02, 82.48it/s]Loading weights:  41%|████      | 139/338 [00:01<00:02, 77.36it/s]Loading weights:  43%|████▎     | 147/338 [00:01<00:02, 67.96it/s]Loading weights:  46%|████▌     | 155/338 [00:02<00:03, 60.56it/s]Loading weights:  49%|████▉     | 167/338 [00:02<00:02, 69.04it/s]Loading weights:  52%|█████▏    | 177/338 [00:02<00:02, 63.81it/s]Loading weights:  56%|█████▌    | 189/338 [00:02<00:02, 69.36it/s]Loading weights:  58%|█████▊    | 197/338 [00:02<00:02, 68.04it/s]Loading weights:  60%|██████    | 204/338 [00:02<00:02, 61.02it/s]Loading weights:  64%|██████▍   | 216/338 [00:02<00:01, 62.94it/s]Loading weights:  67%|██████▋   | 228/338 [00:03<00:01, 62.12it/s]Loading weights:  70%|███████   | 237/338 [00:03<00:01, 55.55it/s]Loading weights:  74%|███████▎  | 249/338 [00:03<00:01, 57.05it/s]Loading weights:  77%|███████▋  | 261/338 [00:03<00:01, 58.81it/s]Loading weights:  81%|████████▏ | 275/338 [00:03<00:00, 64.36it/s]Loading weights:  85%|████████▍ | 286/338 [00:04<00:00, 63.62it/s]Loading weights:  88%|████████▊ | 299/338 [00:04<00:00, 65.25it/s]Loading weights:  92%|█████████▏| 311/338 [00:04<00:00, 71.62it/s]Loading weights:  95%|█████████▍| 321/338 [00:04<00:00, 61.23it/s]Loading weights: 100%|██████████| 338/338 [00:04<00:00, 72.01it/s]
-[1/200] exec=0 em=0 15.7s running_acc=0.000 cx=basic SQL | pred: "SELECT AVG(balance) AS avg_balance\nFROM accounts\nWHERE country = 'Asia'\nAND account_date BETWEEN '2022-04-01' AND '2022-06-30';"
-[2/200] exec=1 em=1 1.7s running_acc=0.500 cx=aggregation | pred: 'SELECT state, COUNT(*) FROM InfrastructureProjects GROUP BY state;'
-[3/200] exec=0 em=0 4.9s running_acc=0.333 cx=window functions | pred: 'SELECT p.id, p.reactor_temp, p.reactor_temp_time\nFROM production_runs p\nJOIN (\n    SELECT id, AVG(reactor_temp) AS avg_reactor_temp\n    FROM productio'
-[4/200] exec=0 em=0 2.0s running_acc=0.250 cx=single join | pred: 'SELECT department, COUNT(*) AS worker_count\nFROM workers\nGROUP BY department;'
-[5/200] exec=0 em=0 3.4s running_acc=0.200 cx=multiple_joins | pred: "SELECT c.name FROM Companies c JOIN Funding f ON c.id = f.company_id WHERE c.country = 'USA' AND f.investor_type IN ('VC', 'Angel');"
-[6/200] exec=0 em=0 4.3s running_acc=0.167 cx=subqueries | pred: "SELECT AVG(num_staff) AS avg_num_clinics_per_state, COUNT(*) AS num_states_with_more_than_50_clinics\nFROM rural_health_clinics\nWHERE state IN ('Nigeri"
-[7/200] exec=0 em=0 4.2s running_acc=0.143 cx=set operations | pred: "SELECT DISTINCT T1.project FROM atlantic_ocean AS T1 INNER JOIN southern_ocean AS T2 ON T1.id = T2.id WHERE T1.region = 'Atlantic Ocean' OR T2.region "
-[8/200] exec=0 em=0 8.0s running_acc=0.125 cx=basic SQL err=SQL operational error: no such table: Products | pred: 'SELECT SUM(SaleAmount) AS TotalRevenue\nFROM (\n    SELECT \n        p.Product,\n        s.SaleDate,\n        s.SaleAmount * p.Price AS SaleAmount\n    FROM'
-[9/200] exec=1 em=0 4.4s running_acc=0.222 cx=aggregation | pred: "SELECT restaurant_name, MAX(daily_revenue) AS max_daily_revenue\nFROM daily_revenue\nWHERE date BETWEEN '2022-01-01' AND '2022-12-31'\nGROUP BY restauran"
-[10/200] exec=0 em=0 2.2s running_acc=0.200 cx=window functions | pred: "SELECT * FROM mining_sites WHERE location != 'California' ORDER BY extraction_rate ASC LIMIT 3;"
-[11/200] exec=1 em=0 3.0s running_acc=0.273 cx=single join | pred: 'SELECT SUM(f.amount) FROM funding f JOIN organizations o ON f.org_id = o.org_id WHERE o.implemented_digital_divide_initiatives = TRUE;'
-[12/200] exec=0 em=0 6.7s running_acc=0.250 cx=multiple_joins | pred: "SELECT \n    d.dept_name,\n    SUM(CASE WHEN w.worker_gender = 'Female' THEN 1 ELSE 0 END) AS female_workers,\n    SUM(CASE WHEN w.worker_gender = 'Male'"
-[13/200] exec=0 em=0 1.9s running_acc=0.231 cx=subqueries | pred: 'SELECT contributor FROM waste_contributors ORDER BY recycling_rate ASC LIMIT 3;'
-[14/200] exec=0 em=0 1.9s running_acc=0.214 cx=set operations | pred: "SELECT AVG(views) FROM movies WHERE country IN ('South Korea', 'Japan');"
-[15/200] exec=1 em=1 1.9s running_acc=0.267 cx=basic SQL | pred: "SELECT COUNT(*) FROM transportation_systems WHERE system_type = 'Bicycle-Sharing';"
-[16/200] exec=0 em=0 1.9s running_acc=0.250 cx=aggregation | pred: 'SELECT COUNT(*) AS total_loans FROM socially_responsible_lending GROUP BY region;'
-[17/200] exec=0 em=0 3.1s running_acc=0.235 cx=window functions | pred: 'SELECT program, AVG(energy_savings) OVER (ORDER BY program ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_average\nFROM energy_efficiency;'
-[18/200] exec=0 em=0 4.2s running_acc=0.222 cx=single join | pred: 'SELECT d.name, COUNT(f.id) * 100.0 / (SELECT COUNT(*) FROM faculty) AS percentage_female\nFROM faculty f\nJOIN departments d ON f.department = d.id\nWHER'
-[19/200] exec=0 em=0 3.0s running_acc=0.211 cx=multiple_joins err=SQL operational error: no such column: v.vehicle_count | pred: "SELECT SUM(v.vehicle_count) FROM sales s JOIN vehicles v ON s.region_id = v.id WHERE s.region_name = 'California' AND v.type = 'electric';"
-[20/200] exec=0 em=0 3.0s running_acc=0.200 cx=subqueries | pred: "SELECT Region, COUNT(*) / SUM(CASE WHEN WorkerType = 'CommunityHealthWorker' THEN 1 ELSE 0 END) AS Ratio FROM HealthWorkers GROUP BY Region;"
-[21/200] exec=1 em=1 2.2s running_acc=0.238 cx=basic SQL | pred: "SELECT MIN(Salary) FROM Employees WHERE Ethnicity = 'Latinx' AND Department = 'Sales';"
-[22/200] exec=0 em=0 3.1s running_acc=0.227 cx=aggregation | pred: "SELECT rep_name FROM sales_data_2 WHERE drug_name = 'DrugT' AND region = 'North America' AND quarter = 1 ORDER BY total_sales DESC LIMIT 2;"
-[23/200] exec=0 em=0 2.2s running_acc=0.217 cx=window functions | pred: 'SELECT country, AVG(yield) AS avg_yield FROM farming GROUP BY country ORDER BY avg_yield DESC;'
-[24/200] exec=0 em=0 2.9s running_acc=0.208 cx=single join | pred: "SELECT AVG(mental_health_score) FROM students WHERE course_id IN (SELECT course_id FROM courses WHERE course_type = 'Traditional') GROUP BY course_id;"
-[25/200] exec=0 em=0 2.6s running_acc=0.200 cx=subqueries err=SQL operational error: no such column: county.name | pred: "SELECT COUNT(*) FROM patients WHERE diagnosis = 'Hypertension' AND age > 65 AND county.name = 'Mountain';"
-[26/200] exec=1 em=1 2.1s running_acc=0.231 cx=basic SQL | pred: "SELECT COUNT(*) FROM schools WHERE state = 'Texas' AND type = 'Public';"
-[27/200] exec=1 em=0 2.1s running_acc=0.259 cx=aggregation | pred: 'SELECT country, SUM(cost) AS total_cost\nFROM missions\nGROUP BY country;'
-[28/200] exec=0 em=0 3.8s running_acc=0.250 cx=window functions err=SQL operational error: no such function: YEAR | pred: 'SELECT PolicyType, COUNT(*) AS NumberOfPolicies\nFROM Policies\nWHERE YEAR(SaleDate) = 2022 AND MONTH(SaleDate) BETWEEN 1 AND 3\nGROUP BY PolicyType;'
-[29/200] exec=0 em=0 2.4s running_acc=0.241 cx=single join err=SQL operational error: no such column: country | pred: "SELECT COUNT(hotel_id) FROM eco_hotels WHERE country = 'Canada' AND is_eco = TRUE;"
-[30/200] exec=0 em=0 6.6s running_acc=0.233 cx=subqueries err=SQL operational error: no such function: MONTH | pred: 'SELECT \n    o.name,\n    SUM(o.donation_amount) AS total_donation,\n    (SUM(o.donation_amount) / (SELECT SUM(donation_amount) FROM organizations)) * 10'
-[31/200] exec=0 em=0 2.5s running_acc=0.226 cx=basic SQL err=SQL operational error: misuse of aggregate function COUNT() | pred: "SELECT SUM(ticket_price * COUNT(*)) AS total_revenue\nFROM concert_tickets\nWHERE country = 'United States';"
-[32/200] exec=1 em=0 2.2s running_acc=0.250 cx=aggregation | pred: 'SELECT region, AVG(assets_value) AS avg_assets_value FROM customers GROUP BY region;'
-[33/200] exec=1 em=0 6.6s running_acc=0.273 cx=window functions | pred: 'SELECT T1.name, T1.crop, T1.yield_per_acre\nFROM Farm AS T1\nJOIN (\n    SELECT region, MAX(yield_per_acre) AS max_yield\n    FROM Farm\n    WHERE region ='
-[34/200] exec=1 em=0 3.9s running_acc=0.294 cx=single join | pred: "SELECT DISTINCT c.name, p.address \nFROM co_owners c \nJOIN properties p ON c.property_id = p.id \nWHERE p.city = 'Portland' AND p.address LIKE '%SE%' OR"
-[35/200] exec=1 em=0 2.5s running_acc=0.314 cx=subqueries | pred: "SELECT COUNT(*) FROM Cases WHERE AttorneyID = (SELECT AttorneyID FROM Attorneys WHERE Name = 'Jane Doe');"
-[36/200] exec=1 em=0 2.1s running_acc=0.333 cx=basic SQL | pred: "SELECT program_name FROM fwp_programs WHERE country = 'USA' OR country = 'UK';"
-[37/200] exec=0 em=0 2.4s running_acc=0.324 cx=aggregation | pred: "SELECT AVG(capacity) AS avg_capacity, country FROM projects WHERE type = 'Renewable' GROUP BY country;"
-[38/200] exec=0 em=0 2.2s running_acc=0.316 cx=window functions | pred: 'SELECT year, COUNT(*) AS count FROM ai_safety_research GROUP BY year ORDER BY count DESC;'
-[39/200] exec=1 em=0 3.0s running_acc=0.333 cx=single join | pred: "SELECT AVG(Amount) AS AverageClaimAmount FROM Claims WHERE PolicyholderID IN (SELECT PolicyholderID FROM Policyholders WHERE State = 'TX') GROUP BY Po"
-[40/200] exec=1 em=0 2.2s running_acc=0.350 cx=subqueries | pred: "SELECT site_name FROM SiteN WHERE artifact_type = 'Bone Fragments' ORDER BY quantity ASC LIMIT 1;"
-[41/200] exec=1 em=1 1.7s running_acc=0.366 cx=basic SQL | pred: "SELECT MAX(revenue) FROM Restaurants WHERE type = 'Japanese';"
-[42/200] exec=0 em=0 2.5s running_acc=0.357 cx=aggregation | pred: "SELECT AVG(area) AS average_area, property_type FROM sustainable_urban_properties WHERE state = 'New York' GROUP BY property_type;"
-[43/200] exec=0 em=0 3.3s running_acc=0.349 cx=window functions err=SQL operational error: no such column: s.agency_name | pred: 'SELECT SUM(s.cost) AS total_cost, s.agency_name FROM space_missions s JOIN space_agencies a ON s.agency_id = a.id GROUP BY s.agency_name;'
-[44/200] exec=0 em=0 5.1s running_acc=0.341 cx=single join | pred: 'SELECT A.name AS Farmer_Name, P.product_name AS Produce_Name, P.price AS Price\nFROM Agroecology_Farmers A\nJOIN Agroecology_Produce P ON A.id = P.farme'
-[45/200] exec=1 em=0 8.9s running_acc=0.356 cx=subqueries | pred: 'SELECT location FROM justice_programs ORDER BY id ASC LIMIT 1'
-[46/200] exec=0 em=0 4.4s running_acc=0.348 cx=basic SQL err=SQL operational error: no such table: Countries | pred: "SELECT COUNT(DISTINCT T1.country) FROM EnergyEfficiencyPolicies AS T1 INNER JOIN Countries AS T2 ON T1.country = T2.code WHERE T2.region = 'Middle Eas"
-[47/200] exec=0 em=0 2.4s running_acc=0.340 cx=aggregation | pred: "SELECT country, product, size FROM sizes WHERE country = 'France' GROUP BY country, product, size ORDER BY size;"
-[48/200] exec=0 em=0 5.7s running_acc=0.333 cx=single join | pred: "SELECT CAST(SUM(CASE WHEN T2.BarPassed = 'yes' THEN 1 ELSE 0 END) AS DECIMAL(5, 2)) * 100 / COUNT(T1.CaseID) FROM Cases AS T1 INNER JOIN Attorneys AS "
-[49/200] exec=0 em=0 3.6s running_acc=0.327 cx=basic SQL | pred: 'SELECT AVG(ResponseTime) AS AverageResponseTime, COUNT(*) AS RespondedWithin48Hours FROM FeedbackResponse WHERE Year = 2022 AND RespondedWithin48Hours'
-[50/200] exec=0 em=0 2.2s running_acc=0.320 cx=aggregation | pred: "SELECT word FROM news WHERE category = 'Politics' GROUP BY word ORDER BY COUNT(*) DESC LIMIT 1;"
-[51/200] exec=1 em=0 3.3s running_acc=0.333 cx=single join | pred: 'SELECT dc.category, SUM(rd.amount) AS total_expenditure\nFROM rd_expenditure rd\nJOIN drug_categories dc ON rd.category_id = dc.id\nGROUP BY dc.category;'
-[52/200] exec=1 em=1 3.0s running_acc=0.346 cx=basic SQL | pred: "SELECT MAX(labor_cost_per_square_foot) FROM Labor_Cost_Per_Square_Foot WHERE state = 'Florida' AND budget > 6000000;"
-[53/200] exec=1 em=0 1.9s running_acc=0.358 cx=aggregation | pred: 'SELECT species, stocking_density FROM fish_stock WHERE YEAR = 2021;'
-[54/200] exec=0 em=0 4.1s running_acc=0.352 cx=single join | pred: 'SELECT SUM(ad_data.impressions + ad_data.clicks) AS total_impressions_clicks, ad_data.ad_category\nFROM ad_data\nJOIN users ON ad_data.user_id = users.i'
-[55/200] exec=1 em=1 2.2s running_acc=0.364 cx=basic SQL | pred: "SELECT MAX(quantity_sold) FROM naval_sales WHERE company = 'ArmaTech' AND region = 'Europe';"
-[56/200] exec=0 em=0 1.8s running_acc=0.357 cx=aggregation | pred: 'SELECT AVG(claim_amount) AS avg_claim_amount_per_region\nFROM claims;'
-[57/200] exec=0 em=0 4.1s running_acc=0.351 cx=single join | pred: "SELECT T1.content_category FROM content_categories AS T1 JOIN posts_extended AS T2 ON T1.id = T2.content_category_id WHERE T2.country = 'Japan' GROUP "
-[58/200] exec=1 em=1 1.8s running_acc=0.362 cx=basic SQL | pred: "SELECT species_name FROM marine_species WHERE ocean_location = 'Arctic Ocean';"
-[59/200] exec=0 em=0 2.4s running_acc=0.356 cx=aggregation | pred: 'SELECT COUNT(initiative_id) AS count_of_initiatives, country FROM smart_city_initiatives GROUP BY country;'
-[60/200] exec=0 em=0 2.9s running_acc=0.350 cx=single join | pred: "SELECT impacts FROM climate_change_impacts_southern_ocean WHERE species_name = 'Ross Seal' OR species_name = 'Crabeater Seal';"
-[61/200] exec=0 em=0 2.3s running_acc=0.344 cx=basic SQL | pred: "SELECT COUNT(*) FROM community_development WHERE completion_year = 2021 AND initiative_name LIKE '%Peru%';"
-[62/200] exec=1 em=1 2.1s running_acc=0.355 cx=aggregation | pred: 'SELECT game_genre FROM player GROUP BY game_genre ORDER BY COUNT(*) DESC LIMIT 1;'
-[63/200] exec=0 em=0 4.5s running_acc=0.349 cx=single join | pred: "SELECT T1.artifact_id FROM Artifacts AS T1 INNER JOIN ExcavationSites AS T2 ON T1.site_id = T2.site_id WHERE T2.site_name = 'Pompeii' AND T1.discovere"
-[64/200] exec=0 em=0 1.8s running_acc=0.344 cx=basic SQL | pred: 'SELECT country FROM solar_energy ORDER BY production_quantity DESC LIMIT 3;'
-[65/200] exec=0 em=0 3.2s running_acc=0.338 cx=aggregation | pred: 'SELECT menu_item_name, SUM(quantity_sold) AS total_quantity_sold\nFROM menu_items\nWHERE price > 10000\nGROUP BY menu_item_name;'
-[66/200] exec=1 em=0 3.0s running_acc=0.348 cx=single join | pred: "SELECT AVG(Amount) FROM Donations WHERE DonorID IN (SELECT DonorID FROM Donors WHERE Country = 'USA') GROUP BY DonorID;"
-[67/200] exec=0 em=0 2.5s running_acc=0.343 cx=basic SQL | pred: "SELECT SUM(quantity) FROM Fabrics WHERE type = 'Sustainable_Fabric' AND YEAR = 2020;"
-[68/200] exec=1 em=0 3.6s running_acc=0.353 cx=aggregation | pred: "SELECT country, COUNT(*) AS total_articles, SUM(CASE WHEN category = 'politics' THEN 1 ELSE 0 END) * 100 / COUNT(*) AS politics_percentage\nFROM articl"
-[69/200] exec=1 em=0 2.6s running_acc=0.362 cx=single join | pred: "SELECT AVG(f.cost) FROM Fabrics f JOIN Products p ON f.id = p.fabric_id WHERE p.product_name = 'T-Shirt';"
-[70/200] exec=1 em=0 3.4s running_acc=0.371 cx=basic SQL | pred: "SELECT SUM(CASE WHEN type = 'Cargo' THEN quantity ELSE 0 END) + SUM(CASE WHEN type = 'Tanker' THEN quantity ELSE 0 END) AS total_vessels FROM fleet_in"
-[71/200] exec=1 em=0 1.9s running_acc=0.380 cx=aggregation | pred: 'SELECT type, AVG(temperature) AS avg_temp\nFROM crop\nGROUP BY type;'
-[72/200] exec=0 em=0 4.0s running_acc=0.375 cx=single join | pred: 'SELECT f.facility_name, AVG(po.output_quantity) AS avg_production\nFROM facilities f\nJOIN production_output po ON f.facility_id = po.machine_id\nWHERE f'
-[73/200] exec=1 em=1 2.4s running_acc=0.384 cx=basic SQL | pred: "SELECT MIN(Rating) FROM SafetyTesting WHERE VehicleType = 'SUV' AND Country = 'United Kingdom';"
-[74/200] exec=1 em=0 2.6s running_acc=0.392 cx=aggregation | pred: "SELECT Region, SUM(Quantity) AS Total_Sold FROM Regional_Sales WHERE Menu_Item = 'Veggie Burger' GROUP BY Region;"
-[75/200] exec=1 em=0 4.8s running_acc=0.400 cx=single join | pred: 'SELECT COUNT(*) AS TotalPolicyholders, AVG(ClaimAmount) AS AverageClaimAmount\nFROM Policyholders\nJOIN Claims ON Policyholders.PolicyholderID = Claims.'
-[76/200] exec=1 em=0 8.9s running_acc=0.408 cx=basic SQL | pred: 'SELECT DISTINCT route_id ,  station_id FROM route_stations'
-[77/200] exec=1 em=1 2.6s running_acc=0.416 cx=aggregation | pred: 'SELECT menu_category, SUM(quantity) AS total_quantity\nFROM orders\nGROUP BY menu_category\nORDER BY total_quantity DESC\nLIMIT 3;'
-[78/200] exec=1 em=0 3.1s running_acc=0.423 cx=single join | pred: "SELECT AVG(e.cost) AS avg_cost\nFROM equipment e\nJOIN students s ON e.student_id = s.id\nWHERE s.department = 'education' AND e.cost > 0;"
-[79/200] exec=1 em=1 2.3s running_acc=0.430 cx=basic SQL | pred: "SELECT SUM(num_engagements) FROM TourEngagements WHERE city = 'Barcelona' AND rating >= 4.5;"
-[80/200] exec=1 em=0 2.2s running_acc=0.438 cx=aggregation | pred: 'SELECT make, COUNT(*) AS num_evs FROM vehicle_data WHERE is_ev = TRUE GROUP BY make;'
-[81/200] exec=1 em=1 3.7s running_acc=0.444 cx=single join | pred: "SELECT r.name, SUM(re.revenue) as total_revenue\nFROM restaurants r\nJOIN revenue re ON r.id = re.restaurant_id\nWHERE r.category = 'fine_dining'\nGROUP B"
-[82/200] exec=1 em=1 1.4s running_acc=0.451 cx=basic SQL | pred: 'SELECT SUM(cost) FROM space_missions;'
-[83/200] exec=0 em=0 2.3s running_acc=0.446 cx=aggregation | pred: 'SELECT AVG(DonationAmount) AS AverageDonation\nFROM Programs\nORDER BY AverageDonation DESC;'
-[84/200] exec=0 em=0 2.9s running_acc=0.440 cx=single join err=SQL operational error: no such table: endangered_species | pred: 'SELECT habitat_type, COUNT(*) FROM endangered_species JOIN habitat_preservation ON endangered_species.habitat_type = habitat_preservation.habitat_type'
-[85/200] exec=0 em=0 2.0s running_acc=0.435 cx=basic SQL | pred: "SELECT SUM(Incidents) FROM UnionSafety WHERE HeadquarterCountry = 'North America';"
-[86/200] exec=0 em=0 2.0s running_acc=0.430 cx=aggregation | pred: 'SELECT country, COUNT(*) FROM cruelty_free_products WHERE cruelty_free = TRUE GROUP BY country;'
-[87/200] exec=1 em=0 3.5s running_acc=0.437 cx=single join | pred: "SELECT e.country, COUNT(e.id) AS num_employees\nFROM employees e\nJOIN training t ON e.id = t.employee_id\nWHERE t.course = 'SQL'\nGROUP BY e.country;"
-[88/200] exec=1 em=0 3.0s running_acc=0.443 cx=basic SQL | pred: "SELECT SUM(CASE WHEN diagnosis IN ('Anxiety', 'Depression') THEN 1 ELSE 0 END) AS total_patients FROM RuralHealthFacility8;"
-[89/200] exec=0 em=0 2.3s running_acc=0.438 cx=aggregation | pred: 'SELECT country FROM ota_hotels GROUP BY country ORDER BY SUM(listings) DESC LIMIT 3;'
-[90/200] exec=1 em=0 3.2s running_acc=0.444 cx=single join | pred: 'SELECT SUM(unit_sales) FROM product_sales WHERE product_name IN (SELECT product_name FROM product_safety WHERE is_paraben_free = TRUE AND is_sulfate_f'
-[91/200] exec=1 em=0 1.8s running_acc=0.451 cx=basic SQL | pred: "SELECT DISTINCT supplier FROM StoreSuppliers WHERE store = 'Organic Foods';"
-[92/200] exec=0 em=0 2.4s running_acc=0.446 cx=aggregation | pred: "SELECT AVG(AvgFabricWaste) AS AverageFabricWaste FROM TextileSuppliers WHERE Region = 'NY';"
-[93/200] exec=0 em=0 3.6s running_acc=0.441 cx=single join err=SQL operational error: no such column: mc.country | pred: 'SELECT AVG(m.productivity) AS avg_productivity, SUM(mc.production_volume) AS total_production_volume FROM miners m JOIN mining_companies mc ON m.compa'
-[94/200] exec=1 em=0 1.7s running_acc=0.447 cx=basic SQL | pred: 'SELECT COUNT(*) FROM donors WHERE donation > 500;'
-[95/200] exec=1 em=0 2.2s running_acc=0.453 cx=aggregation | pred: 'SELECT game_genre, AVG(performance_score) AS avg_performance FROM game_genre_performance GROUP BY game_genre;'
-[96/200] exec=0 em=0 2.2s running_acc=0.448 cx=single join err=SQL operational error: no such column: country | pred: "SELECT AVG(price) FROM products WHERE organic = TRUE AND country = 'USA' GROUP BY product_id;"
-[97/200] exec=1 em=1 2.5s running_acc=0.454 cx=basic SQL | pred: "SELECT AVG(SafetyRating) FROM Vehicles WHERE Type = 'Electric' AND ReleaseYear = 2020;"
-[98/200] exec=0 em=0 3.4s running_acc=0.449 cx=aggregation | pred: "SELECT SUM(ticket_price * tickets_sold) AS total_revenue FROM concerts WHERE artist_name = 'BTS';"
-[99/200] exec=1 em=0 6.2s running_acc=0.455 cx=single join | pred: "SELECT SUM(revenue) AS total_sales FROM SkincareSales WHERE region = 'North America' AND productID IN (SELECT productID FROM ProductIngredients WHERE "
-[100/200] exec=1 em=0 2.4s running_acc=0.460 cx=basic SQL | pred: 'SELECT COUNT(vehicle_id) FROM bus_fleet WHERE is_wheelchair_accessible = TRUE;'
-[101/200] exec=0 em=0 3.5s running_acc=0.455 cx=aggregation | pred: "SELECT SUM(eco_tourists) FROM EcoTouristsQ1Q2 WHERE country IN ('Japan', 'Thailand', 'Indonesia') AND quarter IN (1, 2);"
-[102/200] exec=1 em=1 1.8s running_acc=0.461 cx=basic SQL | pred: "SELECT * FROM community_centers WHERE country = 'Colombia';"
-[103/200] exec=0 em=0 3.5s running_acc=0.456 cx=aggregation | pred: "SELECT supplier FROM military_sales WHERE region = 'North America' AND quarter = 'Q3' AND year = 2022 GROUP BY supplier ORDER BY SUM(quantity) DESC LI"
-[104/200] exec=0 em=0 2.1s running_acc=0.452 cx=basic SQL | pred: "SELECT SUM(Quantity) FROM MaizeProduction WHERE System = 'East African Indigenous Food Systems';"
-[105/200] exec=0 em=0 5.1s running_acc=0.448 cx=aggregation err=SQL operational error: no such table: programs | pred: 'SELECT COUNT(DISTINCT T1.org_name) AS num_unique_orgs, T2.program_id FROM community_orgs AS T1 JOIN programs AS T2 ON T1.program_id = T2.program_id GR'
-[106/200] exec=0 em=0 2.1s running_acc=0.443 cx=basic SQL | pred: "SELECT dissolved_oxygen FROM atlantic_fish_farms WHERE country = 'Atlantic Ocean';"
-[107/200] exec=0 em=0 4.2s running_acc=0.439 cx=aggregation err=SQL operational error: no such table: plan | pred: "SELECT p.plan_name, SUM(sd.data_usage) AS total_usage\nFROM subscriber_data sd\nJOIN plan p ON sd.plan_id = p.plan_id\nWHERE sd.usage_month = 'Jan-2022'\n"
-[108/200] exec=0 em=0 1.9s running_acc=0.435 cx=basic SQL | pred: 'SELECT ocean_basin, COUNT(*) FROM species_count GROUP BY ocean_basin;'
-[109/200] exec=1 em=1 2.3s running_acc=0.440 cx=aggregation | pred: 'SELECT state, SUM(inspections) AS total_inspections\nFROM safety_inspections\nGROUP BY state;'
-[110/200] exec=0 em=0 1.7s running_acc=0.436 cx=basic SQL | pred: "SELECT AVG(length) FROM routes WHERE type = 'Light Rail';"
-[111/200] exec=0 em=0 2.3s running_acc=0.432 cx=aggregation | pred: 'SELECT industry, COUNT(*) AS total_employees\nFROM employees\nGROUP BY industry, union_status;'
-[112/200] exec=1 em=1 1.5s running_acc=0.438 cx=basic SQL | pred: 'SELECT SUM(duration) FROM SpaceMissions;'
-[113/200] exec=0 em=0 3.1s running_acc=0.434 cx=aggregation | pred: 'SELECT COUNT(*) FROM department WHERE id = 1;'
-[114/200] exec=1 em=1 3.1s running_acc=0.439 cx=basic SQL | pred: 'SELECT MAX(donation_amount) FROM dance_sponsors;'
-[115/200] exec=0 em=0 6.2s running_acc=0.435 cx=aggregation | pred: "SELECT s.state, COUNT(s.id) AS num_public_schools\nFROM schools s\nWHERE s.school_name LIKE '%Public%'\nGROUP BY s.state;"
-[116/200] exec=1 em=0 4.7s running_acc=0.440 cx=basic SQL | pred: "SELECT COUNT(subscriber_id) FROM broadband_subscribers WHERE subscriber_location = 'Urban';"
-[117/200] exec=0 em=0 6.9s running_acc=0.436 cx=aggregation | pred: 'SELECT team_id, MAX(total_sales) AS highest_total_sales, MIN(total_sales) AS lowest_total_sales\nFROM team_performance\nWHERE home_game = TRUE AND total'
-[118/200] exec=1 em=0 7.4s running_acc=0.441 cx=basic SQL | pred: "SELECT SUM(Cost) AS TotalCost\nFROM Trainings\nWHERE TrainingDate BETWEEN '2022-01-01' AND '2022-06-30';"
-[119/200] exec=1 em=0 3.9s running_acc=0.445 cx=aggregation | pred: 'SELECT country, COUNT(*) AS total_missions FROM SpaceMissions GROUP BY country;'
-[120/200] exec=1 em=1 3.0s running_acc=0.450 cx=basic SQL | pred: "SELECT * FROM Farmers WHERE location = 'Asia';"
-[121/200] exec=0 em=0 10.6s running_acc=0.446 cx=aggregation | pred: 'SELECT \n    Continent,\n    CAST(SUM(Number_Speakers) AS DECIMAL(10, 2)) / COUNT(*) * 100 AS Percentage,\n    MAX(Number_Speakers) AS Most_Widely_Spoken'
-[122/200] exec=1 em=1 4.7s running_acc=0.451 cx=basic SQL | pred: "SELECT COUNT(*) FROM WaterTreatmentPlants WHERE region = 'Urban' AND total_capacity > 50000;"
-[123/200] exec=1 em=0 4.6s running_acc=0.455 cx=aggregation | pred: 'SELECT cause_area, COUNT(DISTINCT id) AS num_volunteers\nFROM volunteers\nGROUP BY cause_area;'
-[124/200] exec=1 em=1 4.2s running_acc=0.460 cx=basic SQL | pred: "SELECT MIN(production_rate) FROM zinc_mines WHERE location = 'India';"
-[125/200] exec=0 em=0 3.6s running_acc=0.456 cx=aggregation | pred: 'SELECT Player FROM Players ORDER BY Hits / GamesPlayed DESC LIMIT 1;'
-[126/200] exec=1 em=1 3.5s running_acc=0.460 cx=basic SQL | pred: "SELECT MAX(ticket_sales) FROM EventData WHERE city = 'Tokyo';"
-[127/200] exec=0 em=0 4.4s running_acc=0.457 cx=aggregation | pred: 'SELECT AVG(rating) AS avg_rating, state FROM Residential_Buildings GROUP BY state ORDER BY avg_rating DESC;'
-[128/200] exec=1 em=1 5.1s running_acc=0.461 cx=basic SQL | pred: 'SELECT project_name, funding_amount FROM climate_finance WHERE year = 2019 ORDER BY funding_amount DESC LIMIT 3;'
-[129/200] exec=0 em=0 4.3s running_acc=0.457 cx=aggregation | pred: "SELECT AVG(salary) AS average_salary\nFROM employees\nWHERE gender IN ('Male', 'Female');"
-[130/200] exec=1 em=1 4.5s running_acc=0.462 cx=basic SQL | pred: "SELECT COUNT(*) FROM mines WHERE location = 'Colombia' AND eia_score > 80;"
-[131/200] exec=1 em=0 4.4s running_acc=0.466 cx=aggregation | pred: 'SELECT state, SUM(spending) AS total_spending\nFROM us_conservation\nGROUP BY state;'
-[132/200] exec=0 em=0 4.5s running_acc=0.462 cx=basic SQL | pred: "SELECT * FROM cb_agreements WHERE expiration_year = 2024 AND region = 'west_region';"
-[133/200] exec=0 em=0 5.0s running_acc=0.459 cx=aggregation | pred: 'SELECT Year, Category, Resolution, SUM(Cases) AS TotalCases FROM CasesByJusticeCategory WHERE YEAR = 2021 GROUP BY Year, Category, Resolution;'
-[134/200] exec=1 em=1 2.8s running_acc=0.463 cx=basic SQL | pred: "SELECT AVG(rating) FROM movies WHERE production_year BETWEEN 2010 AND 2020 AND country = 'USA';"
-[135/200] exec=0 em=0 5.2s running_acc=0.459 cx=aggregation err=SQL operational error: no such column: T2.travel_time | pred: "SELECT AVG(T2.travel_time / 24) AS median_travel_time\nFROM VesselTravel AS T1\nJOIN Routes AS T2 ON T1.route = T2.route_id\nWHERE T2.departure_port = 'S"
-[136/200] exec=0 em=0 1.3s running_acc=0.456 cx=basic SQL | pred: 'SELECT * FROM cybersecurity_strategies;'
-[137/200] exec=0 em=0 2.7s running_acc=0.453 cx=aggregation | pred: "SELECT country FROM climate_finance WHERE country IN ('Brazil', 'Argentina', 'Colombia') ORDER BY amount DESC LIMIT 3;"
-[138/200] exec=1 em=0 2.0s running_acc=0.457 cx=basic SQL | pred: "SELECT conservation_status FROM species WHERE scientific_name = 'Giant Pacific Octopus';"
-[139/200] exec=1 em=0 2.4s running_acc=0.460 cx=aggregation | pred: "SELECT MIN(wage) AS min_wage, COUNT(*) AS num_workers FROM wages WHERE sector = 'food';"
-[140/200] exec=1 em=0 2.2s running_acc=0.464 cx=basic SQL | pred: "SELECT COUNT(deployment_id) FROM smart_contract_deployments WHERE developer_name = 'Hayden Adams';"
-[141/200] exec=0 em=0 2.6s running_acc=0.461 cx=aggregation | pred: "SELECT asset_name FROM digital_assets WHERE region = 'Europe' ORDER BY trading_volume DESC LIMIT 5;"
-[142/200] exec=1 em=1 3.7s running_acc=0.465 cx=basic SQL | pred: "SELECT COUNT(DISTINCT id) FROM donors WHERE state = 'Washington';"
-[143/200] exec=1 em=1 4.5s running_acc=0.469 cx=aggregation | pred: 'SELECT species, AVG(water_temperature) AS avg_temp\nFROM fish_tanks\nGROUP BY species;'
-[144/200] exec=1 em=1 4.3s running_acc=0.472 cx=basic SQL | pred: 'SELECT COUNT(*) FROM Arctic_Marine_Species WHERE is_affected_by_pollution = TRUE;'
-[145/200] exec=0 em=0 3.7s running_acc=0.469 cx=aggregation | pred: 'SELECT ArtistName FROM MusicSales ORDER BY SalesAmount DESC LIMIT 3;'
-[146/200] exec=1 em=1 4.7s running_acc=0.473 cx=basic SQL | pred: "SELECT SUM(cost) FROM production_cost WHERE country = 'Netherlands' AND material = 'linen';"
-[147/200] exec=1 em=0 3.4s running_acc=0.476 cx=basic SQL | pred: "SELECT AVG(score) FROM inspections WHERE area = 'urban';"
-[148/200] exec=1 em=0 4.9s running_acc=0.480 cx=basic SQL | pred: "SELECT COUNT(*) FROM security_incidents WHERE incident_date LIKE '2022%';"
-[149/200] exec=1 em=1 3.3s running_acc=0.483 cx=basic SQL | pred: 'SELECT MAX(visitors) FROM gcnp_visitors;'
-[150/200] exec=0 em=0 7.2s running_acc=0.480 cx=basic SQL | pred: "SELECT SUM(consumption * 0.39) AS total_water_consumption FROM water_consumption WHERE user_category = 'residential' AND usage_date LIKE '2021-07-%';"
-[151/200] exec=0 em=0 4.6s running_acc=0.477 cx=basic SQL | pred: "SELECT SUM(participants) FROM employee_training_pacific WHERE region = 'Pacific' AND training = 'Disability Awareness';"
-[152/200] exec=1 em=1 3.7s running_acc=0.480 cx=basic SQL | pred: "SELECT production_quantity FROM well_quantities WHERE well_name = 'Well B';"
-[153/200] exec=1 em=1 3.9s running_acc=0.484 cx=basic SQL | pred: "SELECT SUM(cargo_capacity) FROM Vessels WHERE type != 'Tanker';"
-[154/200] exec=1 em=1 4.1s running_acc=0.487 cx=basic SQL | pred: "SELECT fare FROM fares WHERE line = 'blue' AND passenger_type = 'adult';"
-[155/200] exec=0 em=0 4.3s running_acc=0.484 cx=basic SQL | pred: "SELECT COUNT(*) FROM Relocation WHERE Location = 'South America' AND Success = 1;"
-[156/200] exec=1 em=1 3.4s running_acc=0.487 cx=basic SQL | pred: 'SELECT AVG(altitude) FROM geostationary_satellites;'
-[157/200] exec=0 em=0 5.2s running_acc=0.484 cx=basic SQL | pred: "SELECT COUNT(project_id) / COUNT(*) AS success_rate FROM indonesia_projects WHERE location = 'rural' AND success = TRUE;"
-[158/200] exec=0 em=0 4.6s running_acc=0.481 cx=basic SQL | pred: 'SELECT product_name FROM cosmetics WHERE cruelty_free = TRUE ORDER BY consumer_preference_score DESC LIMIT 5;'
-[159/200] exec=1 em=0 2.5s running_acc=0.484 cx=basic SQL | pred: 'SELECT SUM(budget) FROM programs WHERE community_impact_score > 5;'
-[160/200] exec=1 em=0 7.3s running_acc=0.487 cx=basic SQL | pred: "SELECT SUM(project_count) AS total_projects FROM (\n    SELECT country, COUNT(*) AS project_count\n    FROM rural_infrastructure\n    WHERE country IN ('"
-[161/200] exec=1 em=1 2.1s running_acc=0.491 cx=basic SQL | pred: "SELECT MAX(billing_amount) FROM cases WHERE precedent_type = 'Non-Precedential';"
-[162/200] exec=1 em=0 2.5s running_acc=0.494 cx=basic SQL | pred: "SELECT COUNT(*) FROM Warehouses WHERE city = 'City Y' AND capacity > 100000;"
-[163/200] exec=0 em=0 2.0s running_acc=0.491 cx=basic SQL | pred: 'SELECT item_name FROM organic_inventory ORDER BY quantity * unit_price DESC LIMIT 3;'
-[164/200] exec=1 em=1 2.1s running_acc=0.494 cx=basic SQL | pred: 'SELECT AVG(car_manufacture_year) FROM policies WHERE policy_id = 1003;'
-[165/200] exec=1 em=1 2.0s running_acc=0.497 cx=basic SQL | pred: "SELECT COUNT(*) FROM Missions WHERE agency = 'AgencyX' AND success = TRUE;"
-[166/200] exec=1 em=1 1.6s running_acc=0.500 cx=basic SQL | pred: 'SELECT MAX(max_habitat_depth) FROM species;'
-[167/200] exec=0 em=0 4.4s running_acc=0.497 cx=basic SQL | pred: "SELECT SUM(CASE WHEN type = 'school' THEN 1 ELSE 0 END) + SUM(CASE WHEN type = 'hospital' THEN 1 ELSE 0 END) AS total FROM relief_operations;"
-[168/200] exec=1 em=0 4.9s running_acc=0.500 cx=basic SQL | pred: "SELECT AVG(delivery_time) FROM orders WHERE country = 'Italy' AND eco_friendly = TRUE;"
-[169/200] exec=1 em=0 3.8s running_acc=0.503 cx=basic SQL | pred: 'SELECT SUM(cost) AS total_cost FROM agri_innovation_projects ORDER BY cost DESC;'
-[170/200] exec=1 em=0 3.9s running_acc=0.506 cx=basic SQL | pred: "SELECT SUM(cost) FROM renewable_energy WHERE project_name LIKE '%Solar%' GROUP BY project_name;"
-[171/200] exec=0 em=0 4.3s running_acc=0.503 cx=basic SQL | pred: "SELECT COUNT(*) FROM species_inventory WHERE region = 'Indian Ocean' AND species LIKE '%marine%';"
-[172/200] exec=1 em=0 9.0s running_acc=0.506 cx=basic SQL | pred: "SELECT DISTINCT T1.material FROM clothing_materials AS T1 INNER JOIN clothing_materials AS T2 ON T1.country = T2.country WHERE T1.country = 'Africa' A"
-[173/200] exec=0 em=0 5.7s running_acc=0.503 cx=basic SQL | pred: "SELECT SUM(number_of_tourists) FROM tourism WHERE category = 'Historical' AND destination LIKE '%Europe%';"
-[174/200] exec=1 em=1 2.4s running_acc=0.506 cx=basic SQL | pred: 'SELECT MIN(age) FROM Trees;'
-[175/200] exec=0 em=0 4.0s running_acc=0.503 cx=basic SQL | pred: "SELECT name FROM Creative_AI WHERE country IN ('USA', 'Europe') ORDER BY id ASC;"
-[176/200] exec=1 em=0 4.1s running_acc=0.506 cx=basic SQL | pred: "SELECT AVG(age) FROM patients WHERE condition = 'Anxiety' AND state = 'New York';"
-[177/200] exec=1 em=1 3.6s running_acc=0.508 cx=basic SQL | pred: "SELECT AVG(transaction_amount) FROM retail_customers WHERE state = 'NY';"
-[178/200] exec=1 em=1 3.2s running_acc=0.511 cx=basic SQL | pred: 'SELECT MAX(ClaimAmount) FROM PetPolicies;'
-[179/200] exec=1 em=0 4.3s running_acc=0.514 cx=basic SQL | pred: 'SELECT warehouse_id, revenue * 0.9 AS discounted_revenue\nFROM warehouse_revenue;'
-[180/200] exec=0 em=0 4.3s running_acc=0.511 cx=basic SQL | pred: "SELECT name FROM contributors WHERE country = 'Africa' ORDER BY amount_donated DESC LIMIT 3;"
-[181/200] exec=1 em=1 4.1s running_acc=0.514 cx=basic SQL | pred: "SELECT COUNT(*) FROM AstroResearch WHERE Subject IN ('Neutron Stars', 'Quasars');"
-[182/200] exec=0 em=0 7.7s running_acc=0.511 cx=basic SQL | pred: "SELECT facility_name, safety_officer_name, safety_officer_email FROM facilities WHERE facility_name LIKE '%Chemical Manufacturing%' AND facility_id IN"
-[183/200] exec=1 em=1 5.4s running_acc=0.514 cx=basic SQL | pred: "SELECT AVG(salary) FROM union_members WHERE gender = 'Female' AND industry = 'Construction' AND membership_duration > 5;"
-[184/200] exec=0 em=0 5.6s running_acc=0.511 cx=basic SQL | pred: "SELECT rate FROM recycling_rates WHERE waste_type = 'Organic' AND location = 'UrbanArea' AND year = 2020;"
-[185/200] exec=1 em=0 6.3s running_acc=0.514 cx=basic SQL | pred: "SELECT MAX(msy_value) FROM msy WHERE species = 'Catfish' AND region = 'Pacific Ocean' AND year = 2024;"
-[186/200] exec=1 em=1 4.0s running_acc=0.516 cx=basic SQL | pred: 'SELECT Strategy FROM Cybersecurity_Strategies WHERE Year = 2010;'
-[187/200] exec=1 em=0 7.4s running_acc=0.519 cx=basic SQL | pred: 'SELECT AVG(water_consumption / population) AS avg_water_consumption_per_capita FROM new_york_water_use WHERE year = 2021;'
-[188/200] exec=1 em=0 5.3s running_acc=0.521 cx=basic SQL | pred: "SELECT SUM(gas_consumption) FROM gas_consumption WHERE country = 'Nigeria' AND consumption_year = 2019;"
-[189/200] exec=1 em=1 3.6s running_acc=0.524 cx=basic SQL | pred: 'SELECT subscriber_id FROM broadband_subscribers WHERE download_speed > 300;'
-[190/200] exec=0 em=0 4.5s running_acc=0.521 cx=basic SQL | pred: "SELECT COUNT(DISTINCT customer_id) FROM credit_cards WHERE card_type = 'Kiva Community Credit Union';"
-[191/200] exec=1 em=1 4.5s running_acc=0.524 cx=basic SQL | pred: "SELECT AVG(sustainability_score) FROM garment_data_2 WHERE collection = 'Autumn 2021';"
-[192/200] exec=0 em=0 4.1s running_acc=0.521 cx=basic SQL | pred: "SELECT * FROM intelligence_operations WHERE region = 'americas';"
-[193/200] exec=1 em=0 5.1s running_acc=0.523 cx=basic SQL | pred: "SELECT COUNT(*) FROM spacecraft_components WHERE company = 'AstroCorp' AND country = 'Russia' AND weight < 100;"
-[194/200] exec=1 em=1 4.2s running_acc=0.526 cx=basic SQL | pred: 'SELECT COUNT(DISTINCT garment_category) FROM circular_economy;'
-[195/200] exec=1 em=1 5.9s running_acc=0.528 cx=basic SQL | pred: "SELECT SUM(trips_per_month) FROM monthly_bike_trips WHERE city = 'New York City';"
-[196/200] exec=1 em=1 4.0s running_acc=0.531 cx=basic SQL | pred: 'SELECT AVG(weight) FROM ingredients WHERE product_id = 1;'
-[197/200] exec=1 em=1 3.0s running_acc=0.533 cx=basic SQL | pred: "SELECT name FROM researchers WHERE project = 'gene sequencing';"
-[198/200] exec=0 em=0 2.7s running_acc=0.530 cx=basic SQL | pred: 'SELECT SUM(id) FROM mars_missions;'
-[199/200] exec=1 em=0 7.0s running_acc=0.533 cx=basic SQL | pred: "SELECT COUNT(contract_id) FROM smart_contracts WHERE developer_community IN ('Women in Tech', 'Minority Ethnic Group', 'LGBTQ+', 'People with Disabili"
-[200/200] exec=0 em=0 5.3s running_acc=0.530 cx=basic SQL | pred: 'SELECT AVG(visitors) FROM india_tourism WHERE sustainability_rating = 5 AND year BETWEEN 2018 AND 2023;'
-SUMMARY {
-  "system": "base Coder-1.5B (no LoRA)",
-  "n_eval": 200,
-  "exec_acc": 0.53,
-  "exact_match": 0.255,
-  "valid_sql": 0.925,
-  "gold_runs": 0.995,
-  "sec_per_example": 3.7,
-  "by_complexity": {
-    "aggregation": {
-      "acc": 0.3673,
-      "n": 49
-    },
-    "basic SQL": {
-      "acc": 0.6923,
-      "n": 104
-    },
-    "multiple_joins": {
-      "acc": 0.0,
-      "n": 3
-    },
-    "set operations": {
-      "acc": 0.0,
-      "n": 2
-    },
-    "single join": {
-      "acc": 0.4615,
-      "n": 26
-    },
-    "subqueries": {
-      "acc": 0.375,
-      "n": 8
-    },
-    "window functions": {
-      "acc": 0.125,
-      "n": 8
-    }
-  }
-}
-
-=== 2026-10-29 17:54:13 eval LoRA Coder-1.5B (n=5000, r=16, lr=0.0002, ep=1) on 200 examples
-Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|▏         | 5/338 [00:00<00:19, 16.82it/s]Loading weights:   4%|▍         | 15/338 [00:00<00:12, 25.22it/s]Loading weights:   8%|▊         | 27/338 [00:01<00:15, 20.37it/s]Loading weights:  10%|█         | 35/338 [00:01<00:11, 26.96it/s]Loading weights:  12%|█▏        | 40/338 [00:01<00:10, 28.86it/s]Loading weights:  13%|█▎        | 44/338 [00:01<00:10, 27.71it/s]Loading weights:  15%|█▌        | 51/338 [00:01<00:09, 31.22it/s]Loading weights:  17%|█▋        | 57/338 [00:02<00:10, 25.72it/s]Loading weights:  19%|█▉        | 65/338 [00:02<00:08, 33.63it/s]Loading weights:  21%|██        | 70/338 [00:02<00:07, 34.39it/s]Loading weights:  22%|██▏       | 75/338 [00:02<00:09, 28.53it/s]Loading weights:  24%|██▍       | 81/338 [00:02<00:09, 26.41it/s]Loading weights:  26%|██▌       | 87/338 [00:03<00:09, 26.77it/s]Loading weights:  28%|██▊       | 93/338 [00:03<00:10, 23.64it/s]Loading weights:  31%|███       | 105/338 [00:03<00:08, 28.34it/s]Loading weights:  35%|███▍      | 117/338 [00:04<00:07, 28.42it/s]Loading weights:  37%|███▋      | 125/338 [00:04<00:07, 30.00it/s]Loading weights:  38%|███▊      | 129/338 [00:04<00:07, 29.77it/s]Loading weights:  40%|███▉      | 135/338 [00:04<00:06, 30.14it/s]Loading weights:  43%|████▎     | 147/338 [00:05<00:04, 39.22it/s]Loading weights:  45%|████▍     | 152/338 [00:05<00:04, 37.94it/s]Loading weights:  46%|████▌     | 156/338 [00:05<00:05, 36.38it/s]Loading weights:  47%|████▋     | 160/338 [00:05<00:07, 24.02it/s]Loading weights:  52%|█████▏    | 176/338 [00:05<00:04, 39.43it/s]Loading weights:  54%|█████▎    | 181/338 [00:06<00:04, 31.62it/s]Loading weights:  56%|█████▌    | 188/338 [00:06<00:05, 29.81it/s]Loading weights:  58%|█████▊    | 195/338 [00:06<00:04, 29.26it/s]Loading weights:  59%|█████▉    | 199/338 [00:06<00:04, 29.99it/s]Loading weights:  61%|██████    | 207/338 [00:06<00:03, 35.70it/s]Loading weights:  63%|██████▎   | 213/338 [00:07<00:03, 35.63it/s]Loading weights:  65%|██████▍   | 219/338 [00:07<00:03, 31.85it/s]Loading weights:  67%|██████▋   | 227/338 [00:07<00:03, 36.05it/s]Loading weights:  68%|██████▊   | 231/338 [00:07<00:03, 34.08it/s]Loading weights:  70%|██████▉   | 235/338 [00:07<00:03, 27.08it/s]Loading weights:  72%|███████▏  | 243/338 [00:08<00:02, 35.88it/s]Loading weights:  74%|███████▎  | 249/338 [00:08<00:03, 28.36it/s]Loading weights:  77%|███████▋  | 261/338 [00:08<00:02, 35.65it/s]Loading weights:  79%|███████▉  | 268/338 [00:08<00:01, 38.27it/s]Loading weights:  81%|████████  | 273/338 [00:08<00:01, 33.75it/s]Loading weights:  83%|████████▎ | 279/338 [00:09<00:02, 28.31it/s]Loading weights:  85%|████████▍ | 287/338 [00:09<00:01, 34.39it/s]Loading weights:  88%|████████▊ | 297/338 [00:09<00:01, 34.27it/s]Loading weights:  90%|████████▉ | 303/338 [00:09<00:00, 35.53it/s]Loading weights:  91%|█████████ | 308/338 [00:10<00:01, 29.40it/s]Loading weights:  93%|█████████▎| 316/338 [00:10<00:00, 29.18it/s]Loading weights:  95%|█████████▍| 321/338 [00:10<00:00, 31.87it/s]Loading weights: 100%|██████████| 338/338 [00:10<00:00, 32.00it/s]
-[1/200] exec=0 em=0 30.5s running_acc=0.000 cx=basic SQL | pred: "SELECT AVG(balance) FROM accounts WHERE country IN ('India', 'China') AND account_date BETWEEN '2022-04-01' AND '2022-06-30';"
-[2/200] exec=1 em=1 4.2s running_acc=0.500 cx=aggregation | pred: 'SELECT state, COUNT(*) FROM InfrastructureProjects GROUP BY state;'
-[3/200] exec=0 em=0 9.6s running_acc=0.333 cx=window functions | pred: 'SELECT id, reactor_temp, reactor_temp_time, LAG(reactor_temp) OVER (PARTITION BY id ORDER BY reactor_temp_time) AS prev_reactor_temp FROM production_r'
-[4/200] exec=0 em=0 2.7s running_acc=0.250 cx=single join | pred: 'SELECT department, COUNT(*) as total_workers FROM workers GROUP BY department;'
-[5/200] exec=1 em=0 14.1s running_acc=0.400 cx=multiple_joins | pred: "SELECT c.name FROM Companies c JOIN Funding f ON c.id = f.company_id WHERE c.country = 'USA' AND f.investor_type IN ('VC', 'Angel') GROUP BY c.name HA"
-[6/200] exec=0 em=0 11.0s running_acc=0.333 cx=subqueries | pred: 'SELECT AVG(num_clinics_per_state) as avg_num_clinics_per_state, COUNT(*) as num_states_with_more_than_50_clinics FROM (SELECT state, COUNT(*) as num_c'
-[7/200] exec=0 em=0 2.6s running_acc=0.286 cx=set operations | pred: 'SELECT project FROM atlantic_ocean UNION SELECT project FROM southern_ocean;'
-[8/200] exec=0 em=0 3.7s running_acc=0.250 cx=basic SQL err=SQL operational error: no such table: Products | pred: "SELECT SUM(Sales.SaleAmount) FROM Sales INNER JOIN Products ON Sales.Product = Products.Product WHERE Products.Category = 'Organic';"
-[9/200] exec=1 em=0 8.0s running_acc=0.333 cx=aggregation | pred: "SELECT restaurant_name, MAX(daily_revenue) FROM daily_revenue WHERE date BETWEEN '2022-01-01' AND '2022-12-31' GROUP BY restaurant_name;"
-[10/200] exec=0 em=0 8.0s running_acc=0.300 cx=window functions | pred: "SELECT * FROM mining_sites WHERE location != 'California' ORDER BY extraction_rate ASC LIMIT 3;"
-[11/200] exec=1 em=0 9.3s running_acc=0.364 cx=single join | pred: 'SELECT SUM(funding.amount) FROM funding JOIN organizations ON funding.org_id = organizations.org_id WHERE organizations.implemented_digital_divide_ini'
-[12/200] exec=0 em=0 26.5s running_acc=0.333 cx=multiple_joins | pred: "SELECT d.dept_name, COUNT(d.worker_id) AS total_workers, SUM(CASE WHEN w.worker_gender IN ('Female', 'Male') THEN 1 ELSE 0 END) AS female_or_male_work"
-[13/200] exec=0 em=0 5.7s running_acc=0.308 cx=subqueries | pred: 'SELECT contributor, recycling_rate FROM waste_contributors ORDER BY recycling_rate ASC LIMIT 3;'
-[14/200] exec=0 em=0 4.9s running_acc=0.286 cx=set operations | pred: "SELECT AVG(views) FROM movies WHERE country IN ('South Korea', 'Japan');"
-[15/200] exec=1 em=1 4.0s running_acc=0.333 cx=basic SQL | pred: "SELECT COUNT(*) FROM transportation_systems WHERE system_type = 'Bicycle-Sharing';"
-[16/200] exec=0 em=0 2.1s running_acc=0.312 cx=aggregation | pred: 'SELECT COUNT(*) as num_loans FROM socially_responsible_lending;'
-[17/200] exec=0 em=0 9.8s running_acc=0.294 cx=window functions | pred: 'SELECT program, AVG(energy_savings) OVER (PARTITION BY program ORDER BY energy_savings ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg FROM en'
-[18/200] exec=0 em=0 12.5s running_acc=0.278 cx=single join | pred: 'SELECT d.name, COUNT(f.id) * 100.0 / (SELECT COUNT(*) FROM faculty f WHERE f.department = d.name) AS percentage FROM faculty f JOIN departments d ON f'
-[19/200] exec=0 em=0 10.1s running_acc=0.263 cx=multiple_joins err=SQL operational error: no such column: vehicles.type | pred: "SELECT SUM(sales.vehicle_count) FROM sales INNER JOIN sales_regions ON sales.region_id = sales_regions.id WHERE sales_regions.name = 'California' AND "
-[20/200] exec=0 em=0 15.9s running_acc=0.250 cx=subqueries | pred: "SELECT Region, COUNT(*) as TotalWorkers, SUM(CASE WHEN WorkerType = 'CommunityHealthWorker' THEN 1 ELSE 0 END) as CommunityHealthWorkers, SUM(CASE WHE"
-[21/200] exec=1 em=0 5.3s running_acc=0.286 cx=basic SQL | pred: "SELECT MIN(Salary) FROM Employees WHERE Gender = 'Female' AND Ethnicity = 'Latinx' AND Department = 'Sales';"
-[22/200] exec=1 em=1 5.8s running_acc=0.318 cx=aggregation | pred: "SELECT rep_name, SUM(total_sales) as total_sales FROM sales_data_2 WHERE drug_name = 'DrugT' AND region = 'North America' AND quarter = 1 GROUP BY rep"
-[23/200] exec=0 em=0 2.8s running_acc=0.304 cx=window functions | pred: 'SELECT country, AVG(yield) as avg_yield FROM farming GROUP BY country ORDER BY avg_yield DESC;'
-[24/200] exec=1 em=0 3.4s running_acc=0.333 cx=single join | pred: "SELECT AVG(mental_health_score) FROM students JOIN courses ON students.course_id = courses.course_id WHERE course_type = 'Traditional';"
-[25/200] exec=0 em=0 6.2s running_acc=0.320 cx=subqueries | pred: "SELECT COUNT(*) FROM patients WHERE age > 65 AND diagnosis = 'Hypertension' AND id IN (SELECT id FROM patients WHERE age > 65 AND diagnosis = 'Hyperte"
-[26/200] exec=1 em=1 2.5s running_acc=0.346 cx=basic SQL | pred: "SELECT COUNT(*) FROM schools WHERE state = 'Texas' AND type = 'Public';"
-[27/200] exec=1 em=0 2.4s running_acc=0.370 cx=aggregation | pred: 'SELECT country, SUM(cost) as total_cost FROM missions GROUP BY country;'
-[28/200] exec=0 em=0 5.4s running_acc=0.357 cx=window functions | pred: "SELECT PolicyType, COUNT(*) as NumPolicies FROM Policies WHERE SaleDate BETWEEN '2022-01-01' AND '2022-03-31' GROUP BY PolicyType;"
-[29/200] exec=1 em=0 4.4s running_acc=0.379 cx=single join | pred: "SELECT COUNT(*) FROM hotels h JOIN eco_hotels e ON h.hotel_id = e.hotel_id WHERE h.country = 'Canada' AND e.is_eco = true;"
-[30/200] exec=1 em=0 8.3s running_acc=0.400 cx=subqueries | pred: 'SELECT o.name, SUM(o.donation_amount) as total_donation, SUM(o.donation_amount) * 100 / (SELECT SUM(donation_amount) FROM organizations WHERE donation'
-[31/200] exec=1 em=0 2.4s running_acc=0.419 cx=basic SQL | pred: "SELECT SUM(ticket_price) FROM concert_tickets WHERE country = 'United States';"
-[32/200] exec=1 em=1 2.3s running_acc=0.438 cx=aggregation | pred: 'SELECT region, AVG(assets_value) FROM customers GROUP BY region;'
-[33/200] exec=1 em=0 3.8s running_acc=0.455 cx=window functions | pred: "SELECT name, crop, yield_per_acre FROM Farm WHERE region = 'African' ORDER BY yield_per_acre DESC LIMIT 1;"
-[34/200] exec=1 em=0 3.7s running_acc=0.471 cx=single join | pred: "SELECT c.name, p.address FROM co_owners c JOIN properties p ON c.property_id = p.id WHERE p.city = 'Portland';"
-[35/200] exec=1 em=0 3.4s running_acc=0.486 cx=subqueries | pred: 'SELECT COUNT(*) FROM Cases WHERE AttorneyID = 2;'
-[36/200] exec=1 em=1 5.1s running_acc=0.500 cx=basic SQL | pred: "SELECT program_name FROM fwp_programs WHERE country IN ('USA', 'UK');"
-[37/200] exec=1 em=0 6.2s running_acc=0.514 cx=aggregation | pred: "SELECT country, AVG(capacity) FROM projects WHERE type IN ('Wind', 'Solar') GROUP BY country;"
-[38/200] exec=0 em=0 4.9s running_acc=0.500 cx=window functions | pred: 'SELECT year, COUNT(*) as num_topics FROM ai_safety_research GROUP BY year;'
-[39/200] exec=1 em=0 7.5s running_acc=0.513 cx=single join | pred: "SELECT AVG(Amount) FROM Claims JOIN Policyholders ON Claims.PolicyholderID = Policyholders.PolicyholderID WHERE Policyholders.State = 'TX';"
-[40/200] exec=1 em=0 6.6s running_acc=0.525 cx=subqueries | pred: "SELECT site_name FROM SiteN WHERE artifact_type = 'Bone Fragments' GROUP BY site_name ORDER BY COUNT(*) ASC LIMIT 1;"
-[41/200] exec=1 em=1 5.4s running_acc=0.537 cx=basic SQL | pred: "SELECT MAX(revenue) FROM Restaurants WHERE type = 'Japanese';"
-[42/200] exec=1 em=0 5.8s running_acc=0.548 cx=aggregation | pred: "SELECT property_type, AVG(area) as avg_area FROM sustainable_urban_properties WHERE state = 'New York' GROUP BY property_type;"
-[43/200] exec=1 em=0 8.2s running_acc=0.558 cx=window functions | pred: 'SELECT sa.agency_name, SUM(sm.cost) as total_cost FROM space_agencies sa JOIN space_missions sm ON sa.id = sm.agency_id GROUP BY sa.agency_name;'
-[44/200] exec=0 em=0 14.1s running_acc=0.545 cx=single join | pred: 'SELECT A.name, A.age, A.location, P.product_name, P.price FROM Agroecology_Farmers A JOIN Agroecology_Produce P ON A.id = P.farmer_id WHERE A.location'
-[45/200] exec=1 em=0 4.2s running_acc=0.556 cx=subqueries | pred: 'SELECT location FROM justice_programs ORDER BY id LIMIT 1;'
-[46/200] exec=0 em=0 9.1s running_acc=0.543 cx=basic SQL | pred: "SELECT COUNT(DISTINCT country) FROM EnergyEfficiencyPolicies WHERE policy_start_date >= '2010-01-01' AND country IN ('UAE', 'Saudi Arabia', 'Egypt');"
-[47/200] exec=0 em=0 5.5s running_acc=0.532 cx=aggregation | pred: "SELECT country, product, COUNT(*) as count FROM sizes WHERE country = 'France' GROUP BY country, product;"
-[48/200] exec=0 em=0 12.0s running_acc=0.521 cx=single join | pred: "SELECT COUNT(*) * 100.0 / SUM(CASE WHEN Outcome = 'won' THEN 1 ELSE 0 END) FROM Cases INNER JOIN Attorneys ON Cases.AttorneyID = Attorneys.AttorneyID "
-[49/200] exec=1 em=0 8.1s running_acc=0.531 cx=basic SQL | pred: 'SELECT AVG(ResponseTime) as AvgResponseTime, SUM(RespondedWithin48Hours) as RespondedWithin48Hours FROM FeedbackResponse WHERE Year = 2022;'
-[50/200] exec=1 em=1 6.2s running_acc=0.540 cx=aggregation | pred: "SELECT word, COUNT(*) as count FROM news WHERE category = 'Politics' GROUP BY word ORDER BY count DESC LIMIT 1;"
-[51/200] exec=1 em=0 5.4s running_acc=0.549 cx=single join | pred: 'SELECT dc.category, SUM(rd.amount) as total_rnd_expenditure FROM rd_expenditure rd JOIN drug_categories dc ON rd.category_id = dc.id GROUP BY dc.categ'
-[52/200] exec=1 em=1 4.8s running_acc=0.558 cx=basic SQL | pred: "SELECT MAX(labor_cost_per_square_foot) FROM Labor_Cost_Per_Square_Foot WHERE state = 'Florida' AND budget > 6000000;"
-[53/200] exec=1 em=0 2.8s running_acc=0.566 cx=aggregation | pred: 'SELECT species, stocking_density FROM fish_stock WHERE year = 2021;'
-[54/200] exec=0 em=0 6.1s running_acc=0.556 cx=single join | pred: 'SELECT ad_category, SUM(impressions) as total_impressions, SUM(clicks) as total_clicks FROM ad_data JOIN users ON ad_data.user_id = users.id WHERE use'
-[55/200] exec=1 em=1 3.2s running_acc=0.564 cx=basic SQL | pred: "SELECT MAX(quantity_sold) FROM naval_sales WHERE company = 'ArmaTech' AND region = 'Europe';"
-[56/200] exec=1 em=0 2.4s running_acc=0.571 cx=aggregation | pred: 'SELECT region, AVG(claim_amount) FROM claims GROUP BY region;'
-[57/200] exec=1 em=0 5.9s running_acc=0.579 cx=single join | pred: 'SELECT cc.content_category, COUNT(pe.id) as post_count FROM content_categories cc JOIN posts_extended pe ON cc.id = pe.content_category_id WHERE pe.co'
-[58/200] exec=1 em=1 2.4s running_acc=0.586 cx=basic SQL | pred: "SELECT species_name FROM marine_species WHERE ocean_location = 'Arctic Ocean';"
-[59/200] exec=1 em=0 3.1s running_acc=0.593 cx=aggregation | pred: 'SELECT country, COUNT(*) as num_initiatives FROM smart_city_initiatives GROUP BY country;'
-[60/200] exec=1 em=0 7.9s running_acc=0.600 cx=single join | pred: 'SELECT climate_change_impacts_southern_ocean.species_name, climate_change_impacts_southern_ocean.impacts FROM climate_change_impacts_southern_ocean IN'
-[61/200] exec=1 em=1 2.7s running_acc=0.607 cx=basic SQL | pred: 'SELECT COUNT(*) FROM community_development WHERE completion_year = 2021;'
-[62/200] exec=0 em=0 3.4s running_acc=0.597 cx=aggregation | pred: 'SELECT game_genre, COUNT(*) as num_players FROM player GROUP BY game_genre ORDER BY num_players DESC LIMIT 1;'
-[63/200] exec=0 em=0 5.9s running_acc=0.587 cx=single join | pred: "SELECT A.artifact_id FROM Artifacts A INNER JOIN ExcavationSites E ON A.site_id = E.site_id WHERE E.site_name = 'Pompeii' AND A.discovered_year < 2000"
-[64/200] exec=1 em=1 2.7s running_acc=0.594 cx=basic SQL | pred: 'SELECT country, production_quantity FROM solar_energy ORDER BY production_quantity DESC LIMIT 3;'
-[65/200] exec=0 em=0 3.8s running_acc=0.585 cx=aggregation | pred: 'SELECT menu_item_name, SUM(quantity_sold) FROM menu_items WHERE price > 10000 GROUP BY menu_item_name;'
-[66/200] exec=1 em=0 4.1s running_acc=0.591 cx=single join | pred: "SELECT AVG(Amount) FROM Donations JOIN Donors ON Donations.DonorID = Donors.DonorID WHERE Donors.Country = 'USA';"
-[67/200] exec=1 em=1 4.1s running_acc=0.597 cx=basic SQL | pred: "SELECT SUM(quantity) FROM Fabrics WHERE year = 2020 AND type IN ('Organic_Cotton', 'Recycled_Polyester');"
-[68/200] exec=0 em=0 8.5s running_acc=0.588 cx=aggregation | pred: "SELECT country, COUNT(*) as total_articles, SUM(CASE WHEN category = 'politics' THEN 1 ELSE 0 END) as politics_articles, ROUND(SUM(CASE WHEN category "
-[69/200] exec=1 em=1 4.1s running_acc=0.594 cx=single join | pred: "SELECT AVG(fabrics.cost) FROM Fabrics INNER JOIN Products ON Fabrics.id = Products.fabric_id WHERE Products.product_name = 'T-Shirt';"
-[70/200] exec=1 em=1 2.6s running_acc=0.600 cx=basic SQL | pred: "SELECT SUM(quantity) FROM fleet_inventory WHERE type IN ('Cargo', 'Tanker');"
-[71/200] exec=1 em=0 2.2s running_acc=0.606 cx=aggregation | pred: 'SELECT type, AVG(temperature) FROM crop GROUP BY type;'
-[72/200] exec=0 em=0 5.5s running_acc=0.597 cx=single join | pred: 'SELECT f.facility_name, AVG(po.output_quantity) as avg_production FROM production_output po JOIN facilities f ON po.machine_id = f.facility_id WHERE f'
-[73/200] exec=1 em=1 3.2s running_acc=0.603 cx=basic SQL | pred: "SELECT MIN(Rating) FROM SafetyTesting WHERE VehicleType = 'SUV' AND Country = 'United Kingdom';"
-[74/200] exec=1 em=0 3.5s running_acc=0.608 cx=aggregation | pred: "SELECT Region, SUM(Quantity) FROM Regional_Sales WHERE Menu_Item = 'Veggie Burger' GROUP BY Region;"
-[75/200] exec=0 em=0 6.2s running_acc=0.600 cx=single join err=SQL operational error: near "INNER": syntax error | pred: "SELECT COUNT(*) as NumPolicyholders, AVG(ClaimAmount) as AvgClaimAmount FROM Policyholders WHERE Country = 'Brazil' AND AnnualIncome > 50000 INNER JOI"
-[76/200] exec=1 em=1 2.1s running_acc=0.605 cx=basic SQL | pred: 'SELECT DISTINCT route_id, station_id FROM route_stations;'
-[77/200] exec=1 em=1 3.4s running_acc=0.610 cx=aggregation | pred: 'SELECT menu_category, SUM(quantity) as total_quantity FROM orders GROUP BY menu_category ORDER BY total_quantity DESC LIMIT 3;'
-[78/200] exec=1 em=0 3.4s running_acc=0.615 cx=single join | pred: "SELECT AVG(e.cost) FROM equipment e JOIN students s ON e.student_id = s.id WHERE s.department = 'education';"
-[79/200] exec=1 em=1 3.3s running_acc=0.620 cx=basic SQL | pred: "SELECT SUM(num_engagements) FROM TourEngagements WHERE city = 'Barcelona' AND rating >= 4.5;"
-[80/200] exec=1 em=0 3.0s running_acc=0.625 cx=aggregation | pred: 'SELECT make, COUNT(*) as num_evs FROM vehicle_data WHERE is_ev = true GROUP BY make;'
-[81/200] exec=1 em=0 4.4s running_acc=0.630 cx=single join | pred: "SELECT r.name, SUM(revenue) FROM restaurants r JOIN revenue re ON r.id = re.restaurant_id WHERE r.category = 'fine_dining' GROUP BY r.name;"
-[82/200] exec=1 em=1 1.8s running_acc=0.634 cx=basic SQL | pred: 'SELECT SUM(cost) FROM space_missions;'
-[83/200] exec=1 em=0 3.5s running_acc=0.639 cx=aggregation | pred: 'SELECT ProgramName, AVG(DonationAmount) as AvgDonation FROM Programs GROUP BY ProgramName ORDER BY AvgDonation DESC;'
-[84/200] exec=0 em=0 4.6s running_acc=0.631 cx=single join err=SQL operational error: ambiguous column name: habitat_type | pred: 'SELECT habitat_type, COUNT(*) FROM endangered_species_new INNER JOIN habitat_preservation_new ON endangered_species_new.habitat_type = habitat_preserv'
-[85/200] exec=1 em=1 3.2s running_acc=0.635 cx=basic SQL | pred: "SELECT SUM(Incidents) FROM UnionSafety WHERE HeadquarterCountry IN ('USA', 'Canada', 'Mexico');"
-[86/200] exec=1 em=0 2.9s running_acc=0.640 cx=aggregation | pred: 'SELECT country, SUM(product_count) FROM cruelty_free_products WHERE cruelty_free = true GROUP BY country;'
-[87/200] exec=1 em=0 4.2s running_acc=0.644 cx=single join | pred: "SELECT e.country, COUNT(e.id) FROM employees e JOIN training t ON e.id = t.employee_id WHERE t.course = 'SQL' GROUP BY e.country;"
-[88/200] exec=1 em=1 2.9s running_acc=0.648 cx=basic SQL | pred: "SELECT COUNT(*) FROM RuralHealthFacility8 WHERE diagnosis IN ('Anxiety', 'Depression');"
-[89/200] exec=1 em=1 3.9s running_acc=0.652 cx=aggregation | pred: 'SELECT country, SUM(listings) as total_listings FROM ota_hotels GROUP BY country ORDER BY total_listings DESC LIMIT 3;'
-[90/200] exec=1 em=0 5.6s running_acc=0.656 cx=single join | pred: 'SELECT SUM(unit_sales) FROM product_sales JOIN product_safety ON product_sales.product_name = product_safety.product_name WHERE product_safety.is_para'
-[91/200] exec=1 em=0 2.5s running_acc=0.659 cx=basic SQL | pred: "SELECT DISTINCT supplier FROM StoreSuppliers WHERE store = 'Organic Foods';"
-[92/200] exec=0 em=0 3.4s running_acc=0.652 cx=aggregation | pred: "SELECT AVG(AvgFabricWaste) as AvgFabricWaste FROM TextileSuppliers WHERE Region = 'NY';"
-[93/200] exec=0 em=0 4.6s running_acc=0.645 cx=single join | pred: 'SELECT AVG(m.productivity) as avg_productivity, SUM(mc.production_volume) as total_production_volume FROM miners m JOIN mining_companies mc ON m.compa'
-[94/200] exec=1 em=0 2.2s running_acc=0.649 cx=basic SQL | pred: 'SELECT COUNT(*) FROM donors WHERE donation > 500;'
-[95/200] exec=1 em=0 3.1s running_acc=0.653 cx=aggregation | pred: 'SELECT game_genre, AVG(performance_score) as avg_performance FROM game_genre_performance GROUP BY game_genre;'
-[96/200] exec=1 em=0 4.7s running_acc=0.656 cx=single join | pred: "SELECT AVG(price) FROM products INNER JOIN sales ON products.product_id = sales.product_id WHERE products.category = 'Face Care' AND products.organic "
-[97/200] exec=1 em=1 3.3s running_acc=0.660 cx=basic SQL | pred: "SELECT AVG(SafetyRating) FROM Vehicles WHERE Type = 'Electric' AND ReleaseYear = 2020;"
-[98/200] exec=0 em=0 2.8s running_acc=0.653 cx=aggregation | pred: "SELECT SUM(tickets_sold * ticket_price) FROM concerts WHERE artist_name = 'BTS';"
-[99/200] exec=1 em=0 4.5s running_acc=0.657 cx=single join | pred: "SELECT SUM(revenue) FROM SkincareSales INNER JOIN ProductIngredients ON SkincareSales.productID = ProductIngredients.productID WHERE region = 'North A"
-[100/200] exec=1 em=1 2.4s running_acc=0.660 cx=basic SQL | pred: 'SELECT COUNT(*) FROM bus_fleet WHERE is_wheelchair_accessible = true;'
-[101/200] exec=0 em=0 7.2s running_acc=0.653 cx=aggregation | pred: "SELECT SUM(eco_tourists) FROM EcoTouristsQ1Q2 WHERE country IN ('Japan', 'Thailand', 'Indonesia') AND quarter IN (1, 2);"
-[102/200] exec=1 em=1 4.9s running_acc=0.657 cx=basic SQL | pred: "SELECT * FROM community_centers WHERE country = 'Colombia';"
-[103/200] exec=1 em=1 10.1s running_acc=0.660 cx=aggregation | pred: "SELECT supplier, SUM(quantity) as total_quantity FROM military_sales WHERE region = 'North America' AND quarter = 'Q3' AND year = 2022 GROUP BY suppli"
-[104/200] exec=1 em=0 8.3s running_acc=0.663 cx=basic SQL | pred: "SELECT SUM(Quantity) FROM MaizeProduction WHERE Location IN ('Kenya', 'Tanzania', 'Uganda') AND System = 'Indigenous Food Systems';"
-[105/200] exec=1 em=1 5.9s running_acc=0.667 cx=aggregation | pred: 'SELECT program_id, COUNT(DISTINCT org_name) FROM community_orgs GROUP BY program_id;'
-[106/200] exec=0 em=0 4.4s running_acc=0.660 cx=basic SQL | pred: 'SELECT dissolved_oxygen FROM atlantic_fish_farms;'
-[107/200] exec=1 em=1 10.7s running_acc=0.664 cx=aggregation | pred: "SELECT plan_id, SUM(data_usage) as total_data_usage FROM subscriber_data WHERE usage_month = 'Jan-2022' GROUP BY plan_id;"
-[108/200] exec=1 em=0 6.0s running_acc=0.667 cx=basic SQL | pred: 'SELECT ocean_basin, SUM(species_number) FROM species_count GROUP BY ocean_basin;'
-[109/200] exec=1 em=0 5.5s running_acc=0.670 cx=aggregation | pred: 'SELECT state, SUM(inspections) FROM safety_inspections GROUP BY state;'
-[110/200] exec=0 em=0 4.7s running_acc=0.664 cx=basic SQL | pred: "SELECT AVG(length) FROM routes WHERE type = 'Light Rail';"
-[111/200] exec=0 em=0 6.4s running_acc=0.658 cx=aggregation | pred: 'SELECT industry, union_status, COUNT(*) as num_employees FROM employees GROUP BY industry, union_status;'
-[112/200] exec=1 em=1 3.9s running_acc=0.661 cx=basic SQL | pred: 'SELECT SUM(duration) FROM SpaceMissions;'
-[113/200] exec=0 em=0 6.8s running_acc=0.655 cx=aggregation | pred: "SELECT d.name, SUM(d.employees) FROM department d WHERE d.name = 'Mining' GROUP BY d.name;"
-[114/200] exec=1 em=1 3.9s running_acc=0.658 cx=basic SQL | pred: 'SELECT MAX(donation_amount) FROM dance_sponsors;'
-[115/200] exec=1 em=0 6.0s running_acc=0.661 cx=aggregation | pred: 'SELECT state, COUNT(*) FROM schools GROUP BY state;'
-[116/200] exec=1 em=1 5.3s running_acc=0.664 cx=basic SQL | pred: "SELECT COUNT(*) FROM broadband_subscribers WHERE subscriber_location = 'Urban';"
-[117/200] exec=1 em=0 8.6s running_acc=0.667 cx=aggregation | pred: 'SELECT team_id, SUM(total_sales) as total_sales FROM team_performance WHERE home_game = true GROUP BY team_id ORDER BY total_sales DESC;'
-[118/200] exec=1 em=1 9.0s running_acc=0.669 cx=basic SQL | pred: "SELECT SUM(Cost) FROM Trainings WHERE TrainingDate BETWEEN '2022-01-01' AND '2022-06-30';"
-[119/200] exec=1 em=1 4.9s running_acc=0.672 cx=aggregation | pred: 'SELECT country, COUNT(*) as num_missions FROM SpaceMissions GROUP BY country;'
-[120/200] exec=1 em=1 3.6s running_acc=0.675 cx=basic SQL | pred: "SELECT * FROM Farmers WHERE location = 'Asia';"
-[121/200] exec=0 em=0 10.8s running_acc=0.669 cx=aggregation | pred: 'SELECT Continent, Language_Name, ROUND(Number_Speakers / SUM(Number_Speakers) OVER (), 4) * 100 AS Percentage_Speakers, ROW_NUMBER() OVER (PARTITION B'
-[122/200] exec=1 em=1 7.3s running_acc=0.672 cx=basic SQL | pred: "SELECT COUNT(*) FROM WaterTreatmentPlants WHERE region = 'Urban' AND total_capacity > 50000;"
-[123/200] exec=1 em=0 6.4s running_acc=0.675 cx=aggregation | pred: 'SELECT cause_area, COUNT(DISTINCT id) FROM volunteers GROUP BY cause_area;'
-[124/200] exec=1 em=1 5.7s running_acc=0.677 cx=basic SQL | pred: "SELECT MIN(production_rate) FROM zinc_mines WHERE location = 'India';"
-[125/200] exec=0 em=0 7.8s running_acc=0.672 cx=aggregation | pred: 'SELECT Player, AVG(Hits / GamesPlayed) as BattingAverage FROM Players GROUP BY Player ORDER BY BattingAverage DESC LIMIT 1;'
-[126/200] exec=1 em=1 5.3s running_acc=0.675 cx=basic SQL | pred: "SELECT MAX(ticket_sales) FROM EventData WHERE city = 'Tokyo';"
-[127/200] exec=1 em=1 5.6s running_acc=0.677 cx=aggregation | pred: 'SELECT state, AVG(rating) as avg_rating FROM Residential_Buildings GROUP BY state;'
-[128/200] exec=1 em=1 8.1s running_acc=0.680 cx=basic SQL | pred: 'SELECT project_name, funding_amount FROM climate_finance WHERE year = 2019 ORDER BY funding_amount DESC LIMIT 3;'
-[129/200] exec=0 em=0 5.6s running_acc=0.674 cx=aggregation | pred: "SELECT AVG(salary) FROM employees WHERE gender IN ('Male', 'Female');"
-[130/200] exec=1 em=1 7.4s running_acc=0.677 cx=basic SQL | pred: "SELECT COUNT(*) FROM mines WHERE location = 'Colombia' AND eia_score > 80;"
-[131/200] exec=1 em=0 5.6s running_acc=0.679 cx=aggregation | pred: 'SELECT state, SUM(spending) as total_spending FROM us_conservation GROUP BY state;'
-[132/200] exec=1 em=0 6.1s running_acc=0.682 cx=basic SQL | pred: "SELECT union_name FROM cb_agreements WHERE expiration_year = 2024 AND region = 'west_region';"
-[133/200] exec=0 em=0 10.2s running_acc=0.677 cx=aggregation | pred: 'SELECT Year, Category, Resolution, SUM(Cases) FROM CasesByJusticeCategory WHERE Year = 2021 GROUP BY Year, Category, Resolution;'
-[134/200] exec=1 em=1 5.7s running_acc=0.679 cx=basic SQL | pred: "SELECT AVG(rating) FROM movies WHERE production_year BETWEEN 2010 AND 2020 AND country = 'USA';"
-[135/200] exec=0 em=0 14.3s running_acc=0.674 cx=aggregation err=SQL operational error: no such column: departure_port | pred: 'SELECT AVG(travel_time) as median_travel_time FROM (SELECT vessel_id, travel_time, ROW_NUMBER() OVER (ORDER BY travel_time) as rn, COUNT(*) OVER () as'
-[136/200] exec=0 em=0 3.4s running_acc=0.669 cx=basic SQL | pred: 'SELECT * FROM cybersecurity_strategies;'
-[137/200] exec=1 em=0 10.1s running_acc=0.672 cx=aggregation | pred: "SELECT country, SUM(amount) as total_expenditure FROM climate_finance WHERE country IN ('Brazil', 'Argentina', 'Colombia') GROUP BY country ORDER BY t"
-[138/200] exec=1 em=0 4.7s running_acc=0.674 cx=basic SQL | pred: "SELECT conservation_status FROM species WHERE scientific_name = 'Giant Pacific Octopus';"
-[139/200] exec=1 em=0 6.6s running_acc=0.676 cx=aggregation | pred: "SELECT MIN(wage) as min_wage, COUNT(*) as num_workers FROM wages WHERE sector = 'food';"
-[140/200] exec=1 em=1 5.1s running_acc=0.679 cx=basic SQL | pred: "SELECT COUNT(*) FROM smart_contract_deployments WHERE developer_name = 'Hayden Adams';"
-[141/200] exec=1 em=0 4.3s running_acc=0.681 cx=aggregation | pred: "SELECT asset_name, trading_volume FROM digital_assets WHERE region = 'Europe' ORDER BY trading_volume DESC LIMIT 5;"
-[142/200] exec=1 em=1 4.7s running_acc=0.683 cx=basic SQL | pred: "SELECT COUNT(DISTINCT id) FROM donors WHERE state = 'Washington';"
-[143/200] exec=1 em=0 4.5s running_acc=0.685 cx=aggregation | pred: 'SELECT species, AVG(water_temperature) FROM fish_tanks GROUP BY species;'
-[144/200] exec=1 em=1 5.1s running_acc=0.688 cx=basic SQL | pred: 'SELECT COUNT(*) FROM Arctic_Marine_Species WHERE is_affected_by_pollution = true;'
-[145/200] exec=1 em=1 9.4s running_acc=0.690 cx=aggregation | pred: 'SELECT ArtistName, SUM(SalesAmount) as TotalRevenue FROM MusicSales GROUP BY ArtistName ORDER BY TotalRevenue DESC LIMIT 3;'
-[146/200] exec=1 em=1 5.7s running_acc=0.692 cx=basic SQL | pred: "SELECT SUM(cost) FROM production_cost WHERE country = 'Netherlands' AND material = 'linen';"
-[147/200] exec=1 em=0 4.8s running_acc=0.694 cx=basic SQL | pred: "SELECT AVG(score) FROM inspections WHERE area = 'urban';"
-[148/200] exec=1 em=1 11.3s running_acc=0.696 cx=basic SQL | pred: "SELECT COUNT(*) FROM security_incidents WHERE incident_date BETWEEN '2022-01-01' AND '2022-12-31';"
-[149/200] exec=1 em=1 4.2s running_acc=0.698 cx=basic SQL | pred: 'SELECT MAX(visitors) FROM gcnp_visitors;'
-[150/200] exec=1 em=0 14.1s running_acc=0.700 cx=basic SQL | pred: "SELECT SUM(consumption) FROM water_consumption WHERE user_category = 'residential' AND usage_date BETWEEN '2021-07-01' AND '2021-07-31';"
-[151/200] exec=0 em=0 8.0s running_acc=0.695 cx=basic SQL | pred: "SELECT SUM(participants) FROM employee_training_pacific WHERE region = 'Pacific' AND training = 'Disability Awareness';"
-[152/200] exec=1 em=1 5.0s running_acc=0.697 cx=basic SQL | pred: "SELECT production_quantity FROM well_quantities WHERE well_name = 'Well B';"
-[153/200] exec=1 em=1 5.6s running_acc=0.699 cx=basic SQL | pred: "SELECT SUM(cargo_capacity) FROM Vessels WHERE type != 'Tanker';"
-[154/200] exec=1 em=1 6.1s running_acc=0.701 cx=basic SQL | pred: "SELECT fare FROM fares WHERE line = 'blue' AND passenger_type = 'adult';"
-[155/200] exec=0 em=0 6.4s running_acc=0.697 cx=basic SQL | pred: "SELECT COUNT(*) FROM Relocation WHERE Location = 'South America' AND Success > 0;"
-[156/200] exec=0 em=0 6.9s running_acc=0.692 cx=basic SQL | pred: "SELECT AVG(altitude) FROM geostationary_satellites WHERE type = 'Communication' OR type = 'Weather';"
-[157/200] exec=0 em=0 5.1s running_acc=0.688 cx=basic SQL | pred: "SELECT AVG(success) FROM indonesia_projects WHERE location = 'rural';"
-[158/200] exec=0 em=0 6.6s running_acc=0.684 cx=basic SQL | pred: 'SELECT product_name FROM cosmetics WHERE cruelty_free = true ORDER BY consumer_preference_score DESC LIMIT 5;'
-[159/200] exec=0 em=0 5.4s running_acc=0.679 cx=basic SQL | pred: 'SELECT SUM(budget) FROM programs WHERE community_impact_score >= 5;'
-[160/200] exec=1 em=0 10.0s running_acc=0.681 cx=basic SQL | pred: "SELECT COUNT(*) FROM rural_infrastructure WHERE country IN ('Indonesia', 'Thailand', 'Philippines', 'Vietnam', 'Malaysia') AND year = 2018;"
-[161/200] exec=1 em=1 6.0s running_acc=0.683 cx=basic SQL | pred: "SELECT MAX(billing_amount) FROM cases WHERE precedent_type = 'Non-Precedential';"
-[162/200] exec=1 em=0 7.0s running_acc=0.685 cx=basic SQL | pred: "SELECT COUNT(*) FROM Warehouses WHERE city = 'City Y' AND capacity > 100000;"
-[163/200] exec=1 em=0 6.2s running_acc=0.687 cx=basic SQL | pred: 'SELECT item_name, SUM(quantity * unit_price) as total_value FROM organic_inventory GROUP BY item_name ORDER BY total_value DESC LIMIT 3;'
-[164/200] exec=1 em=1 6.2s running_acc=0.689 cx=basic SQL | pred: 'SELECT AVG(car_manufacture_year) FROM policies WHERE policy_id = 1003;'
-[165/200] exec=1 em=1 5.7s running_acc=0.691 cx=basic SQL | pred: "SELECT COUNT(*) FROM Missions WHERE agency = 'AgencyX' AND success = TRUE;"
-[166/200] exec=1 em=1 4.2s running_acc=0.693 cx=basic SQL | pred: 'SELECT MAX(max_habitat_depth) FROM species;'
-[167/200] exec=0 em=0 5.1s running_acc=0.689 cx=basic SQL | pred: "SELECT COUNT(*) FROM relief_operations WHERE type IN ('school', 'hospital');"
-[168/200] exec=1 em=0 6.4s running_acc=0.690 cx=basic SQL | pred: "SELECT AVG(delivery_time) FROM orders WHERE country = 'Italy' AND eco_friendly = TRUE;"
-[169/200] exec=1 em=0 7.5s running_acc=0.692 cx=basic SQL | pred: "SELECT SUM(cost) as total_cost FROM agri_innovation_projects WHERE sector = 'Agriculture' ORDER BY cost DESC;"
-[170/200] exec=1 em=1 4.8s running_acc=0.694 cx=basic SQL | pred: "SELECT SUM(cost) FROM renewable_energy WHERE project_name LIKE '%Solar%';"
-[171/200] exec=1 em=1 4.6s running_acc=0.696 cx=basic SQL | pred: "SELECT COUNT(*) FROM species_inventory WHERE region = 'Indian Ocean';"
-[172/200] exec=1 em=1 4.2s running_acc=0.698 cx=basic SQL | pred: "SELECT DISTINCT material FROM clothing_materials WHERE country = 'Africa';"
-[173/200] exec=1 em=1 5.3s running_acc=0.699 cx=basic SQL | pred: "SELECT SUM(number_of_tourists) FROM tourism WHERE category = 'Historical';"
-[174/200] exec=1 em=1 3.3s running_acc=0.701 cx=basic SQL | pred: 'SELECT MIN(age) FROM Trees;'
-[175/200] exec=0 em=0 5.4s running_acc=0.697 cx=basic SQL | pred: "SELECT * FROM Creative_AI WHERE country IN ('USA', 'Europe');"
-[176/200] exec=1 em=1 6.2s running_acc=0.699 cx=basic SQL | pred: "SELECT AVG(age) FROM patients WHERE state = 'New York' AND condition = 'Anxiety';"
-[177/200] exec=1 em=1 5.6s running_acc=0.701 cx=basic SQL | pred: "SELECT AVG(transaction_amount) FROM retail_customers WHERE state = 'NY';"
-[178/200] exec=1 em=1 4.3s running_acc=0.702 cx=basic SQL | pred: 'SELECT MAX(ClaimAmount) FROM PetPolicies;'
-[179/200] exec=1 em=0 6.2s running_acc=0.704 cx=basic SQL | pred: 'SELECT warehouse_id, revenue * 0.9 AS discounted_revenue FROM warehouse_revenue;'
-[180/200] exec=1 em=0 3.9s running_acc=0.706 cx=basic SQL | pred: "SELECT name FROM contributors WHERE country IN ('USA', 'Canada', 'Kenya') ORDER BY amount_donated DESC LIMIT 3;"
-[181/200] exec=1 em=1 5.6s running_acc=0.707 cx=basic SQL | pred: "SELECT COUNT(*) FROM AstroResearch WHERE Subject IN ('Neutron Stars', 'Quasars');"
-[182/200] exec=0 em=0 7.9s running_acc=0.703 cx=basic SQL | pred: "SELECT facility_name, safety_officer_name, safety_officer_email FROM facilities WHERE facility_name LIKE '%Chemical%' OR facility_name LIKE '%Manufact"
-[183/200] exec=1 em=1 8.1s running_acc=0.705 cx=basic SQL | pred: "SELECT AVG(salary) FROM union_members WHERE gender = 'Female' AND industry = 'Construction' AND membership_duration > 5;"
-[184/200] exec=0 em=0 9.0s running_acc=0.701 cx=basic SQL | pred: "SELECT rate FROM recycling_rates WHERE waste_type IN ('Organic', 'Electronic') AND location = 'UrbanArea' AND year = 2020;"
-[185/200] exec=1 em=0 7.5s running_acc=0.703 cx=basic SQL | pred: "SELECT MAX(msy_value) FROM msy WHERE species = 'Catfish' AND year = 2024 AND region = 'Pacific Ocean';"
-[186/200] exec=1 em=1 4.5s running_acc=0.704 cx=basic SQL | pred: 'SELECT Strategy FROM Cybersecurity_Strategies WHERE Year = 2010;'
-[187/200] exec=1 em=0 6.9s running_acc=0.706 cx=basic SQL | pred: 'SELECT AVG(water_consumption/population) FROM new_york_water_use WHERE year = 2021;'
-[188/200] exec=1 em=0 7.6s running_acc=0.707 cx=basic SQL | pred: "SELECT SUM(gas_consumption) FROM gas_consumption WHERE country = 'Nigeria' AND consumption_year = 2019;"
-[189/200] exec=1 em=1 5.6s running_acc=0.709 cx=basic SQL | pred: 'SELECT subscriber_id FROM broadband_subscribers WHERE download_speed > 300;'
-[190/200] exec=1 em=0 7.9s running_acc=0.711 cx=basic SQL | pred: "SELECT COUNT(DISTINCT customer_id) FROM credit_cards WHERE card_type = 'Platinum' OR card_type = 'Gold';"
-[191/200] exec=1 em=1 6.4s running_acc=0.712 cx=basic SQL | pred: "SELECT AVG(sustainability_score) FROM garment_data_2 WHERE collection = 'Autumn 2021';"
-[192/200] exec=0 em=0 2.7s running_acc=0.708 cx=basic SQL | pred: "SELECT * FROM intelligence_operations WHERE region = 'americas';"
-[193/200] exec=1 em=0 7.6s running_acc=0.710 cx=basic SQL | pred: "SELECT COUNT(*) FROM spacecraft_components WHERE company = 'AstroCorp' AND country = 'Russia' AND weight < 100;"
-[194/200] exec=1 em=1 5.0s running_acc=0.711 cx=basic SQL | pred: 'SELECT COUNT(DISTINCT garment_category) FROM circular_economy;'
-[195/200] exec=1 em=1 6.5s running_acc=0.713 cx=basic SQL | pred: "SELECT SUM(trips_per_month) FROM monthly_bike_trips WHERE city = 'New York City';"
-[196/200] exec=1 em=1 4.9s running_acc=0.714 cx=basic SQL | pred: 'SELECT AVG(weight) FROM ingredients WHERE product_id = 1;'
-[197/200] exec=1 em=1 3.9s running_acc=0.716 cx=basic SQL | pred: "SELECT name FROM researchers WHERE project = 'gene sequencing';"
-[198/200] exec=1 em=1 3.2s running_acc=0.717 cx=basic SQL | pred: 'SELECT COUNT(*) FROM mars_missions;'
-[199/200] exec=1 em=1 11.1s running_acc=0.719 cx=basic SQL | pred: "SELECT COUNT(*) FROM smart_contracts WHERE developer_community IN ('Women in Tech', 'Minority Ethnic Group', 'LGBTQ+', 'People with Disabilities', 'In"
-[200/200] exec=0 em=0 7.2s running_acc=0.715 cx=basic SQL | pred: 'SELECT AVG(visitors) FROM india_tourism WHERE year BETWEEN 2018 AND 2023 AND sustainability_rating = 5;'
-SUMMARY {
-  "system": "LoRA Coder-1.5B (n=5000, r=16, lr=0.0002, ep=1)",
-  "n_eval": 200,
-  "exec_acc": 0.715,
-  "exact_match": 0.38,
-  "valid_sql": 0.975,
-  "gold_runs": 0.995,
-  "sec_per_example": 5.98,
-  "by_complexity": {
-    "aggregation": {
-      "acc": 0.6939,
-      "n": 49
-    },
-    "basic SQL": {
-      "acc": 0.8269,
-      "n": 104
-    },
-    "multiple_joins": {
-      "acc": 0.3333,
-      "n": 3
-    },
-    "set operations": {
-      "acc": 0.0,
-      "n": 2
-    },
-    "single join": {
-      "acc": 0.6154,
-      "n": 26
-    },
-    "subqueries": {
-      "acc": 0.5,
-      "n": 8
-    },
-    "window functions": {
-      "acc": 0.25,
-      "n": 8
-    }
-  }
-}
-[
-  {
-    "system": "base Coder-1.5B (no LoRA)",
-    "split": "val",
-    "n_eval": 200,
-    "exec_acc": 0.53,
-    "exact_match": 0.255,
-    "valid_sql": 0.925,
-    "sec_per_example": 3.7,
-    "acc_aggregation": 0.3673,
-    "acc_basic SQL": 0.6923,
-    "acc_multiple_joins": 0.0,
-    "acc_set operations": 0.0,
-    "acc_single join": 0.4615,
-    "acc_subqueries": 0.375,
-    "acc_window functions": 0.125,
-    "train_n": 0,
-    "r": "",
-    "lr": "",
-    "epochs": "",
-    "targets": "",
-    "max_len": 512,
-    "train_min": ""
-  },
-  {
-    "system": "LoRA Coder-1.5B (n=5000, r=16, lr=0.0002, ep=1)",
-    "split": "val",
-    "n_eval": 200,
-    "exec_acc": 0.715,
-    "exact_match": 0.38,
-    "valid_sql": 0.975,
-    "sec_per_example": 5.98,
-    "acc_aggregation": 0.6939,
-    "acc_basic SQL": 0.8269,
-    "acc_multiple_joins": 0.3333,
-    "acc_set operations": 0.0,
-    "acc_single join": 0.6154,
-    "acc_subqueries": 0.5,
-    "acc_window functions": 0.25,
-    "train_n": 5000,
-    "r": 16,
-    "lr": 0.0002,
-    "epochs": 1,
-    "targets": "q_proj+k_proj+v_proj+o_proj",
-    "max_len": 512,
-    "train_min": null
-  }
-]
-appended to results\lora_results.csv
