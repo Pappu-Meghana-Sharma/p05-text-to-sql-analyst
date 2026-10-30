@@ -1,0 +1,39 @@
+{
+  "system": "base 0.5B (no LoRA)",
+  "n_eval": 200,
+  "exec_acc": 0.5,
+  "exact_match": 0.17,
+  "valid_sql": 0.875,
+  "gold_runs": 0.995,
+  "sec_per_example": 3.4,
+  "by_complexity": {
+    "aggregation": {
+      "acc": 0.4082,
+      "n": 49
+    },
+    "basic SQL": {
+      "acc": 0.6635,
+      "n": 104
+    },
+    "multiple_joins": {
+      "acc": 0.0,
+      "n": 3
+    },
+    "set operations": {
+      "acc": 0.0,
+      "n": 2
+    },
+    "single join": {
+      "acc": 0.3077,
+      "n": 26
+    },
+    "subqueries": {
+      "acc": 0.375,
+      "n": 8
+    },
+    "window functions": {
+      "acc": 0.0,
+      "n": 8
+    }
+  }
+}
