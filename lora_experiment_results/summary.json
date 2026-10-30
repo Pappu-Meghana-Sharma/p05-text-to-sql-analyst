@@ -1,0 +1,62 @@
+[
+  {
+    "model": "0.5B",
+    "training_examples": 5000,
+    "rank": 16,
+    "epochs": 1,
+    "validation_examples": 200,
+    "validation_execution_accuracy": 0.6,
+    "validation_exact_match": 0.32,
+    "validation_valid_sql": 0.945,
+    "test_examples": 200,
+    "test_execution_accuracy": 0.605,
+    "test_exact_match": 0.285,
+    "test_valid_sql": 0.955,
+    "folder": "0.5B_5k"
+  },
+  {
+    "model": "0.5B",
+    "training_examples": 10000,
+    "rank": 16,
+    "epochs": 1,
+    "validation_examples": 200,
+    "validation_execution_accuracy": 0.615,
+    "validation_exact_match": 0.35,
+    "validation_valid_sql": 0.945,
+    "test_examples": 200,
+    "test_execution_accuracy": 0.655,
+    "test_exact_match": 0.31,
+    "test_valid_sql": 0.935,
+    "folder": "0.5B_10k"
+  },
+  {
+    "model": "1.5B",
+    "training_examples": 5000,
+    "rank": 16,
+    "epochs": 1,
+    "validation_examples": 200,
+    "validation_execution_accuracy": 0.715,
+    "validation_exact_match": 0.38,
+    "validation_valid_sql": 0.975,
+    "test_examples": 200,
+    "test_execution_accuracy": 0.69,
+    "test_exact_match": 0.33,
+    "test_valid_sql": 0.975,
+    "folder": "1.5B_5k"
+  },
+  {
+    "model": "1.5B",
+    "training_examples": 10000,
+    "rank": 16,
+    "epochs": 1,
+    "validation_examples": 200,
+    "validation_execution_accuracy": 0.735,
+    "validation_exact_match": 0.395,
+    "validation_valid_sql": 0.985,
+    "test_examples": 200,
+    "test_execution_accuracy": 0.715,
+    "test_exact_match": 0.36,
+    "test_valid_sql": 0.97,
+    "folder": "1.5B_10k"
+  }
+]
