@@ -1,0 +1,7 @@
+system,round_limit,n,execution_accuracy,exact_match,avg_rounds_used,repair_success_rate
+LoRA 0.5B (1k) + repair,0,200,0.56,0.235,0.0,0.0
+LoRA 0.5B (1k) + repair,1,200,0.56,0.235,0.105,0.0
+LoRA 0.5B (1k) + repair,3,200,0.56,0.235,0.27,0.0
+LoRA 0.5B (5k) + repair,0,200,0.605,0.285,0.0,0.0
+LoRA 0.5B (5k) + repair,1,200,0.61,0.285,0.055,0.012658227848101266
+LoRA 0.5B (5k) + repair,3,200,0.61,0.285,0.145,0.012658227848101266

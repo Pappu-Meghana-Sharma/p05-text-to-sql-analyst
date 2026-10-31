@@ -1,0 +1,4 @@
+k,retriever,n,execution_accuracy,exact_match,valid_sql
+0,BM25,200,0.58,0.295,0.94
+3,BM25,200,0.675,0.41,0.945
+5,BM25,200,0.655,0.41,0.91

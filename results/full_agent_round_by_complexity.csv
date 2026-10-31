@@ -1,0 +1,22 @@
+round_limit,complexity,n,execution_accuracy
+0,aggregation,49,0.5306122448979592
+0,basic SQL,102,0.803921568627451
+0,multiple_joins,4,1.0
+0,set operations,2,0.0
+0,single join,27,0.6666666666666666
+0,subqueries,9,0.4444444444444444
+0,window functions,7,0.14285714285714285
+1,aggregation,49,0.5306122448979592
+1,basic SQL,102,0.803921568627451
+1,multiple_joins,4,1.0
+1,set operations,2,0.0
+1,single join,27,0.6666666666666666
+1,subqueries,9,0.5555555555555556
+1,window functions,7,0.14285714285714285
+3,aggregation,49,0.5510204081632653
+3,basic SQL,102,0.803921568627451
+3,multiple_joins,4,1.0
+3,set operations,2,0.0
+3,single join,27,0.7037037037037037
+3,subqueries,9,0.5555555555555556
+3,window functions,7,0.14285714285714285

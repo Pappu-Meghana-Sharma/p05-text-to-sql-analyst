@@ -1,0 +1,15 @@
+
+=== 2026-10-31 11:05:38 n=1000 r=16 lr=0.0002 epochs=1 targets=['q_proj', 'k_proj', 'v_proj', 'o_proj'] batch=2x8 max_len=512 base=Qwen/Qwen2.5-0.5B-Instruct adapter=/home/aidslab/GenAI/p05-text-to-sql-analyst/notebook_adapters/lora_0.5b_1k prompt=plain
+step 5/63  {"loss": 0.6185145378112793, "grad_norm": 1.6938873529434204, "learning_rate": 0.00018730158730158731, "epoch": 0.08}
+step 10/63  {"loss": 0.30416929721832275, "grad_norm": 1.360973596572876, "learning_rate": 0.00017142857142857143, "epoch": 0.16}
+step 15/63  {"loss": 0.2747371196746826, "grad_norm": 1.143478512763977, "learning_rate": 0.00015555555555555556, "epoch": 0.24}
+step 20/63  {"loss": 0.3071082830429077, "grad_norm": 1.0568128824234009, "learning_rate": 0.00013968253968253967, "epoch": 0.32}
+step 25/63  {"loss": 0.298374605178833, "grad_norm": 1.4417401552200317, "learning_rate": 0.0001238095238095238, "epoch": 0.4}
+step 30/63  {"loss": 0.24813051223754884, "grad_norm": 1.170981526374817, "learning_rate": 0.00010793650793650794, "epoch": 0.48}
+step 35/63  {"loss": 0.2628458499908447, "grad_norm": 1.1213326454162598, "learning_rate": 9.206349206349206e-05, "epoch": 0.56}
+step 40/63  {"loss": 0.3015616416931152, "grad_norm": 0.7670500874519348, "learning_rate": 7.619047619047618e-05, "epoch": 0.64}
+step 45/63  {"loss": 0.2820051908493042, "grad_norm": 1.2116742134094238, "learning_rate": 6.0317460317460316e-05, "epoch": 0.72}
+step 50/63  {"loss": 0.2692302703857422, "grad_norm": 0.8749658465385437, "learning_rate": 4.4444444444444447e-05, "epoch": 0.8}
+step 55/63  {"loss": 0.2593763113021851, "grad_norm": 0.8577731251716614, "learning_rate": 2.857142857142857e-05, "epoch": 0.88}
+step 60/63  {"loss": 0.21231534481048583, "grad_norm": 1.071522831916809, "learning_rate": 1.2698412698412699e-05, "epoch": 0.96}
+step 63/63  {"train_runtime": 44.3249, "train_samples_per_second": 22.538, "train_steps_per_second": 1.421, "total_flos": 417399762278400.0, "train_loss": 0.2985305417151678, "epoch": 1.0}

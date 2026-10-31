@@ -1,0 +1,4 @@
+system,k,n,execution_accuracy,exact_match,valid_sql,prompt_style
+BM25 k=0,0,200,0.58,0.295,0.94,strict
+BM25 k=3,3,200,0.675,0.41,0.945,strict
+BM25 k=5,5,200,0.655,0.41,0.91,strict

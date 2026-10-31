@@ -1,0 +1,36 @@
+complexity,system,n,execution_accuracy,exact_match
+window functions,Zero-shot (k=0),2,0.0,0.0
+basic SQL,Zero-shot (k=0),102,0.7843137254901961,0.5196078431372549
+aggregation,Zero-shot (k=0),8,0.5,0.125
+single join,Zero-shot (k=0),27,0.37037037037037035,0.0
+multiple_joins,Zero-shot (k=0),4,0.75,0.0
+subqueries,Zero-shot (k=0),9,0.3333333333333333,0.0
+set operations,Zero-shot (k=0),2,0.0,0.0
+window functions,BM25 few-shot (k=3),2,0.5,0.5
+basic SQL,BM25 few-shot (k=3),102,0.7941176470588235,0.5686274509803921
+aggregation,BM25 few-shot (k=3),8,0.625,0.25
+single join,BM25 few-shot (k=3),27,0.6666666666666666,0.18518518518518517
+multiple_joins,BM25 few-shot (k=3),4,1.0,0.25
+subqueries,BM25 few-shot (k=3),9,0.4444444444444444,0.2222222222222222
+set operations,BM25 few-shot (k=3),2,0.0,0.0
+window functions,Dense few-shot (k=5),2,0.5,0.5
+basic SQL,Dense few-shot (k=5),102,0.803921568627451,0.5588235294117647
+aggregation,Dense few-shot (k=5),8,0.75,0.25
+single join,Dense few-shot (k=5),27,0.4074074074074074,0.07407407407407407
+multiple_joins,Dense few-shot (k=5),4,0.75,0.0
+subqueries,Dense few-shot (k=5),9,0.4444444444444444,0.2222222222222222
+set operations,Dense few-shot (k=5),2,0.0,0.0
+window functions,Random few-shot (k=3),2,0.0,0.0
+basic SQL,Random few-shot (k=3),102,0.7843137254901961,0.49019607843137253
+aggregation,Random few-shot (k=3),8,0.625,0.5
+single join,Random few-shot (k=3),27,0.37037037037037035,0.037037037037037035
+multiple_joins,Random few-shot (k=3),4,0.75,0.0
+subqueries,Random few-shot (k=3),9,0.2222222222222222,0.0
+set operations,Random few-shot (k=3),2,0.0,0.0
+window functions,Agent with repair,2,1.0,1.0
+basic SQL,Agent with repair,102,0.9411764705882353,0.696078431372549
+aggregation,Agent with repair,8,1.0,0.5
+single join,Agent with repair,27,0.6296296296296297,0.2962962962962963
+multiple_joins,Agent with repair,4,1.0,0.25
+subqueries,Agent with repair,9,0.7777777777777778,0.5555555555555556
+set operations,Agent with repair,2,0.5,0.5

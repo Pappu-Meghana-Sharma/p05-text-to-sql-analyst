@@ -1,0 +1,391 @@
+domain,system,n,execution_accuracy,exact_match
+financial services,Zero-shot (k=0),3,0.3333333333333333,0.0
+energy,Zero-shot (k=0),3,0.3333333333333333,0.3333333333333333
+humanitarian aid,Zero-shot (k=0),2,0.5,0.5
+aerospace,Zero-shot (k=0),2,1.0,0.0
+defense industry,Zero-shot (k=0),1,0.0,0.0
+music,Zero-shot (k=0),2,0.5,0.0
+oil and gas,Zero-shot (k=0),2,1.0,0.5
+rare earth elements,Zero-shot (k=0),3,0.3333333333333333,0.3333333333333333
+rural development,Zero-shot (k=0),1,1.0,0.0
+blockchain,Zero-shot (k=0),3,0.6666666666666666,0.3333333333333333
+restaurant operations,Zero-shot (k=0),3,0.6666666666666666,0.0
+sustainable energy,Zero-shot (k=0),1,1.0,1.0
+retail,Zero-shot (k=0),4,0.75,0.5
+sports entertainment,Zero-shot (k=0),2,1.0,1.0
+ocean shipping,Zero-shot (k=0),2,0.0,0.0
+fine arts,Zero-shot (k=0),2,0.5,0.5
+wildlife conservation,Zero-shot (k=0),2,0.5,0.5
+public health,Zero-shot (k=0),4,0.75,0.5
+justice,Zero-shot (k=0),2,1.0,0.0
+defense contractors,Zero-shot (k=0),2,0.5,0.5
+government services,Zero-shot (k=0),2,1.0,0.5
+social media,Zero-shot (k=0),2,0.0,0.0
+biotechnology,Zero-shot (k=0),2,0.5,0.5
+higher education,Zero-shot (k=0),2,1.0,1.0
+defense security,Zero-shot (k=0),3,0.6666666666666666,0.6666666666666666
+education,Zero-shot (k=0),2,0.5,0.0
+healthcare,Zero-shot (k=0),1,0.0,0.0
+chemicals,Zero-shot (k=0),3,0.6666666666666666,0.6666666666666666
+nonprofit,Zero-shot (k=0),2,1.0,0.0
+gaming technology,Zero-shot (k=0),2,0.0,0.0
+hospitality,Zero-shot (k=0),3,0.6666666666666666,0.6666666666666666
+agriculture,Zero-shot (k=0),2,1.0,0.0
+technology,Zero-shot (k=0),3,1.0,1.0
+public transportation,Zero-shot (k=0),2,0.5,0.0
+mining industry,Zero-shot (k=0),3,1.0,0.0
+trade unions,Zero-shot (k=0),1,0.0,0.0
+pharmaceuticals,Zero-shot (k=0),3,0.0,0.0
+sports,Zero-shot (k=0),2,0.5,0.5
+arts and culture,Zero-shot (k=0),2,1.0,0.0
+construction,Zero-shot (k=0),2,0.5,0.0
+defense operations,Zero-shot (k=0),3,0.3333333333333333,0.0
+cultural preservation,Zero-shot (k=0),2,0.0,0.0
+oceanography,Zero-shot (k=0),4,1.0,0.25
+music industry,Zero-shot (k=0),3,0.3333333333333333,0.3333333333333333
+transportation,Zero-shot (k=0),1,1.0,1.0
+arts operations and management,Zero-shot (k=0),3,0.6666666666666666,0.6666666666666666
+oceans,Zero-shot (k=0),1,1.0,0.0
+finance,Zero-shot (k=0),1,1.0,1.0
+entertainment industry,Zero-shot (k=0),3,1.0,0.6666666666666666
+water resources,Zero-shot (k=0),2,0.5,0.0
+social impact investing,Zero-shot (k=0),1,0.0,0.0
+real estate,Zero-shot (k=0),1,1.0,1.0
+climate change,Zero-shot (k=0),2,1.0,0.5
+food industry,Zero-shot (k=0),3,1.0,0.0
+fitness industry,Zero-shot (k=0),2,0.0,0.0
+ethical fashion,Zero-shot (k=0),1,1.0,1.0
+sustainable infrastructure,Zero-shot (k=0),1,1.0,1.0
+forestry,Zero-shot (k=0),2,1.0,0.5
+food services,Zero-shot (k=0),1,1.0,1.0
+fashion,Zero-shot (k=0),1,0.0,0.0
+media,Zero-shot (k=0),2,1.0,1.0
+legal services,Zero-shot (k=0),2,1.0,0.5
+telecommunications,Zero-shot (k=0),3,0.0,0.0
+fashion retail,Zero-shot (k=0),1,1.0,1.0
+rural health,Zero-shot (k=0),2,1.0,1.0
+mental health,Zero-shot (k=0),2,0.5,0.5
+tourism,Zero-shot (k=0),2,0.5,0.0
+nonprofit operations,Zero-shot (k=0),1,1.0,0.0
+space exploration,Zero-shot (k=0),1,1.0,1.0
+automotive,Zero-shot (k=0),1,0.0,0.0
+aquaculture,Zero-shot (k=0),1,1.0,0.0
+venture capital,Zero-shot (k=0),1,1.0,1.0
+human resources,Zero-shot (k=0),1,1.0,0.0
+precision agriculture,Zero-shot (k=0),2,0.5,0.5
+waste management,Zero-shot (k=0),1,1.0,0.0
+museums,Zero-shot (k=0),1,1.0,0.0
+startups,Zero-shot (k=0),1,1.0,0.0
+space,Zero-shot (k=0),1,1.0,1.0
+financial services,BM25 few-shot (k=3),3,1.0,0.6666666666666666
+energy,BM25 few-shot (k=3),3,0.0,0.0
+humanitarian aid,BM25 few-shot (k=3),2,0.5,0.5
+aerospace,BM25 few-shot (k=3),2,1.0,0.0
+defense industry,BM25 few-shot (k=3),1,0.0,0.0
+music,BM25 few-shot (k=3),2,1.0,0.5
+oil and gas,BM25 few-shot (k=3),2,0.5,0.5
+rare earth elements,BM25 few-shot (k=3),3,0.3333333333333333,0.3333333333333333
+rural development,BM25 few-shot (k=3),1,1.0,0.0
+blockchain,BM25 few-shot (k=3),3,0.6666666666666666,0.3333333333333333
+restaurant operations,BM25 few-shot (k=3),3,0.6666666666666666,0.3333333333333333
+sustainable energy,BM25 few-shot (k=3),1,1.0,0.0
+retail,BM25 few-shot (k=3),4,0.75,0.5
+sports entertainment,BM25 few-shot (k=3),2,1.0,1.0
+ocean shipping,BM25 few-shot (k=3),2,1.0,0.5
+fine arts,BM25 few-shot (k=3),2,1.0,1.0
+wildlife conservation,BM25 few-shot (k=3),2,0.5,0.5
+public health,BM25 few-shot (k=3),4,1.0,0.75
+justice,BM25 few-shot (k=3),2,1.0,0.5
+defense contractors,BM25 few-shot (k=3),2,0.5,0.5
+government services,BM25 few-shot (k=3),2,1.0,0.5
+social media,BM25 few-shot (k=3),2,1.0,1.0
+biotechnology,BM25 few-shot (k=3),2,0.5,0.5
+higher education,BM25 few-shot (k=3),2,1.0,1.0
+defense security,BM25 few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+education,BM25 few-shot (k=3),2,1.0,0.0
+healthcare,BM25 few-shot (k=3),1,0.0,0.0
+chemicals,BM25 few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+nonprofit,BM25 few-shot (k=3),2,1.0,0.5
+gaming technology,BM25 few-shot (k=3),2,0.0,0.0
+hospitality,BM25 few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+agriculture,BM25 few-shot (k=3),2,0.5,0.0
+technology,BM25 few-shot (k=3),3,0.6666666666666666,0.3333333333333333
+public transportation,BM25 few-shot (k=3),2,0.5,0.0
+mining industry,BM25 few-shot (k=3),3,1.0,0.6666666666666666
+trade unions,BM25 few-shot (k=3),1,0.0,0.0
+pharmaceuticals,BM25 few-shot (k=3),3,0.3333333333333333,0.3333333333333333
+sports,BM25 few-shot (k=3),2,0.5,0.5
+arts and culture,BM25 few-shot (k=3),2,1.0,0.5
+construction,BM25 few-shot (k=3),2,0.5,0.0
+defense operations,BM25 few-shot (k=3),3,1.0,0.3333333333333333
+cultural preservation,BM25 few-shot (k=3),2,0.5,0.0
+oceanography,BM25 few-shot (k=3),4,1.0,0.25
+music industry,BM25 few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+transportation,BM25 few-shot (k=3),1,1.0,1.0
+arts operations and management,BM25 few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+oceans,BM25 few-shot (k=3),1,1.0,0.0
+finance,BM25 few-shot (k=3),1,1.0,1.0
+entertainment industry,BM25 few-shot (k=3),3,1.0,0.6666666666666666
+water resources,BM25 few-shot (k=3),2,1.0,1.0
+social impact investing,BM25 few-shot (k=3),1,1.0,0.0
+real estate,BM25 few-shot (k=3),1,1.0,1.0
+climate change,BM25 few-shot (k=3),2,1.0,0.5
+food industry,BM25 few-shot (k=3),3,1.0,0.0
+fitness industry,BM25 few-shot (k=3),2,0.0,0.0
+ethical fashion,BM25 few-shot (k=3),1,1.0,0.0
+sustainable infrastructure,BM25 few-shot (k=3),1,1.0,1.0
+forestry,BM25 few-shot (k=3),2,0.5,0.0
+food services,BM25 few-shot (k=3),1,1.0,1.0
+fashion,BM25 few-shot (k=3),1,1.0,0.0
+media,BM25 few-shot (k=3),2,0.5,0.5
+legal services,BM25 few-shot (k=3),2,1.0,0.5
+telecommunications,BM25 few-shot (k=3),3,0.0,0.0
+fashion retail,BM25 few-shot (k=3),1,1.0,1.0
+rural health,BM25 few-shot (k=3),2,1.0,1.0
+mental health,BM25 few-shot (k=3),2,1.0,1.0
+tourism,BM25 few-shot (k=3),2,1.0,1.0
+nonprofit operations,BM25 few-shot (k=3),1,1.0,0.0
+space exploration,BM25 few-shot (k=3),1,1.0,1.0
+automotive,BM25 few-shot (k=3),1,0.0,0.0
+aquaculture,BM25 few-shot (k=3),1,1.0,0.0
+venture capital,BM25 few-shot (k=3),1,1.0,1.0
+human resources,BM25 few-shot (k=3),1,1.0,0.0
+precision agriculture,BM25 few-shot (k=3),2,0.5,0.5
+waste management,BM25 few-shot (k=3),1,1.0,0.0
+museums,BM25 few-shot (k=3),1,1.0,0.0
+startups,BM25 few-shot (k=3),1,0.0,0.0
+space,BM25 few-shot (k=3),1,1.0,1.0
+financial services,Dense few-shot (k=5),3,0.3333333333333333,0.3333333333333333
+energy,Dense few-shot (k=5),3,0.3333333333333333,0.3333333333333333
+humanitarian aid,Dense few-shot (k=5),2,0.5,0.5
+aerospace,Dense few-shot (k=5),2,1.0,0.0
+defense industry,Dense few-shot (k=5),1,0.0,0.0
+music,Dense few-shot (k=5),2,1.0,0.5
+oil and gas,Dense few-shot (k=5),2,0.5,0.5
+rare earth elements,Dense few-shot (k=5),3,0.0,0.0
+rural development,Dense few-shot (k=5),1,1.0,0.0
+blockchain,Dense few-shot (k=5),3,0.6666666666666666,0.3333333333333333
+restaurant operations,Dense few-shot (k=5),3,0.6666666666666666,0.0
+sustainable energy,Dense few-shot (k=5),1,1.0,1.0
+retail,Dense few-shot (k=5),4,1.0,0.5
+sports entertainment,Dense few-shot (k=5),2,1.0,1.0
+ocean shipping,Dense few-shot (k=5),2,0.0,0.0
+fine arts,Dense few-shot (k=5),2,1.0,1.0
+wildlife conservation,Dense few-shot (k=5),2,0.5,0.5
+public health,Dense few-shot (k=5),4,1.0,0.75
+justice,Dense few-shot (k=5),2,1.0,0.0
+defense contractors,Dense few-shot (k=5),2,1.0,0.5
+government services,Dense few-shot (k=5),2,1.0,0.5
+social media,Dense few-shot (k=5),2,0.5,0.5
+biotechnology,Dense few-shot (k=5),2,0.5,0.5
+higher education,Dense few-shot (k=5),2,1.0,1.0
+defense security,Dense few-shot (k=5),3,1.0,0.6666666666666666
+education,Dense few-shot (k=5),2,0.5,0.0
+healthcare,Dense few-shot (k=5),1,0.0,0.0
+chemicals,Dense few-shot (k=5),3,1.0,1.0
+nonprofit,Dense few-shot (k=5),2,1.0,0.5
+gaming technology,Dense few-shot (k=5),2,0.0,0.0
+hospitality,Dense few-shot (k=5),3,0.6666666666666666,0.3333333333333333
+agriculture,Dense few-shot (k=5),2,0.5,0.0
+technology,Dense few-shot (k=5),3,0.6666666666666666,0.6666666666666666
+public transportation,Dense few-shot (k=5),2,0.5,0.0
+mining industry,Dense few-shot (k=5),3,0.6666666666666666,0.3333333333333333
+trade unions,Dense few-shot (k=5),1,0.0,0.0
+pharmaceuticals,Dense few-shot (k=5),3,0.3333333333333333,0.3333333333333333
+sports,Dense few-shot (k=5),2,0.5,0.0
+arts and culture,Dense few-shot (k=5),2,0.5,0.0
+construction,Dense few-shot (k=5),2,0.5,0.0
+defense operations,Dense few-shot (k=5),3,1.0,0.3333333333333333
+cultural preservation,Dense few-shot (k=5),2,0.0,0.0
+oceanography,Dense few-shot (k=5),4,1.0,0.25
+music industry,Dense few-shot (k=5),3,0.3333333333333333,0.3333333333333333
+transportation,Dense few-shot (k=5),1,1.0,1.0
+arts operations and management,Dense few-shot (k=5),3,0.6666666666666666,0.6666666666666666
+oceans,Dense few-shot (k=5),1,1.0,0.0
+finance,Dense few-shot (k=5),1,1.0,1.0
+entertainment industry,Dense few-shot (k=5),3,1.0,0.6666666666666666
+water resources,Dense few-shot (k=5),2,1.0,1.0
+social impact investing,Dense few-shot (k=5),1,1.0,0.0
+real estate,Dense few-shot (k=5),1,1.0,1.0
+climate change,Dense few-shot (k=5),2,1.0,0.5
+food industry,Dense few-shot (k=5),3,1.0,0.3333333333333333
+fitness industry,Dense few-shot (k=5),2,0.0,0.0
+ethical fashion,Dense few-shot (k=5),1,1.0,1.0
+sustainable infrastructure,Dense few-shot (k=5),1,1.0,1.0
+forestry,Dense few-shot (k=5),2,0.0,0.0
+food services,Dense few-shot (k=5),1,1.0,1.0
+fashion,Dense few-shot (k=5),1,1.0,0.0
+media,Dense few-shot (k=5),2,1.0,1.0
+legal services,Dense few-shot (k=5),2,1.0,0.5
+telecommunications,Dense few-shot (k=5),3,0.0,0.0
+fashion retail,Dense few-shot (k=5),1,1.0,1.0
+rural health,Dense few-shot (k=5),2,1.0,1.0
+mental health,Dense few-shot (k=5),2,0.5,0.5
+tourism,Dense few-shot (k=5),2,1.0,1.0
+nonprofit operations,Dense few-shot (k=5),1,1.0,0.0
+space exploration,Dense few-shot (k=5),1,1.0,1.0
+automotive,Dense few-shot (k=5),1,1.0,0.0
+aquaculture,Dense few-shot (k=5),1,1.0,1.0
+venture capital,Dense few-shot (k=5),1,1.0,0.0
+human resources,Dense few-shot (k=5),1,1.0,0.0
+precision agriculture,Dense few-shot (k=5),2,0.5,0.5
+waste management,Dense few-shot (k=5),1,1.0,0.0
+museums,Dense few-shot (k=5),1,1.0,0.0
+startups,Dense few-shot (k=5),1,0.0,0.0
+space,Dense few-shot (k=5),1,1.0,1.0
+financial services,Random few-shot (k=3),3,0.0,0.0
+energy,Random few-shot (k=3),3,0.3333333333333333,0.0
+humanitarian aid,Random few-shot (k=3),2,0.5,0.5
+aerospace,Random few-shot (k=3),2,1.0,0.0
+defense industry,Random few-shot (k=3),1,0.0,0.0
+music,Random few-shot (k=3),2,1.0,0.0
+oil and gas,Random few-shot (k=3),2,0.5,0.0
+rare earth elements,Random few-shot (k=3),3,0.3333333333333333,0.3333333333333333
+rural development,Random few-shot (k=3),1,1.0,1.0
+blockchain,Random few-shot (k=3),3,0.6666666666666666,0.3333333333333333
+restaurant operations,Random few-shot (k=3),3,0.3333333333333333,0.0
+sustainable energy,Random few-shot (k=3),1,1.0,0.0
+retail,Random few-shot (k=3),4,0.75,0.5
+sports entertainment,Random few-shot (k=3),2,1.0,1.0
+ocean shipping,Random few-shot (k=3),2,0.0,0.0
+fine arts,Random few-shot (k=3),2,0.5,0.5
+wildlife conservation,Random few-shot (k=3),2,0.5,0.5
+public health,Random few-shot (k=3),4,1.0,1.0
+justice,Random few-shot (k=3),2,0.0,0.0
+defense contractors,Random few-shot (k=3),2,0.5,0.5
+government services,Random few-shot (k=3),2,1.0,0.5
+social media,Random few-shot (k=3),2,0.0,0.0
+biotechnology,Random few-shot (k=3),2,0.5,0.5
+higher education,Random few-shot (k=3),2,1.0,1.0
+defense security,Random few-shot (k=3),3,1.0,1.0
+education,Random few-shot (k=3),2,1.0,0.0
+healthcare,Random few-shot (k=3),1,0.0,0.0
+chemicals,Random few-shot (k=3),3,0.3333333333333333,0.3333333333333333
+nonprofit,Random few-shot (k=3),2,0.5,0.0
+gaming technology,Random few-shot (k=3),2,0.0,0.0
+hospitality,Random few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+agriculture,Random few-shot (k=3),2,1.0,0.0
+technology,Random few-shot (k=3),3,1.0,1.0
+public transportation,Random few-shot (k=3),2,0.5,0.0
+mining industry,Random few-shot (k=3),3,1.0,0.3333333333333333
+trade unions,Random few-shot (k=3),1,0.0,0.0
+pharmaceuticals,Random few-shot (k=3),3,0.3333333333333333,0.0
+sports,Random few-shot (k=3),2,0.5,0.5
+arts and culture,Random few-shot (k=3),2,1.0,0.0
+construction,Random few-shot (k=3),2,0.5,0.0
+defense operations,Random few-shot (k=3),3,0.6666666666666666,0.0
+cultural preservation,Random few-shot (k=3),2,0.0,0.0
+oceanography,Random few-shot (k=3),4,1.0,0.25
+music industry,Random few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+transportation,Random few-shot (k=3),1,1.0,1.0
+arts operations and management,Random few-shot (k=3),3,0.6666666666666666,0.6666666666666666
+oceans,Random few-shot (k=3),1,1.0,0.0
+finance,Random few-shot (k=3),1,1.0,1.0
+entertainment industry,Random few-shot (k=3),3,1.0,0.6666666666666666
+water resources,Random few-shot (k=3),2,1.0,1.0
+social impact investing,Random few-shot (k=3),1,0.0,0.0
+real estate,Random few-shot (k=3),1,1.0,1.0
+climate change,Random few-shot (k=3),2,1.0,0.0
+food industry,Random few-shot (k=3),3,1.0,0.3333333333333333
+fitness industry,Random few-shot (k=3),2,0.0,0.0
+ethical fashion,Random few-shot (k=3),1,1.0,0.0
+sustainable infrastructure,Random few-shot (k=3),1,1.0,1.0
+forestry,Random few-shot (k=3),2,0.5,0.0
+food services,Random few-shot (k=3),1,1.0,1.0
+fashion,Random few-shot (k=3),1,1.0,0.0
+media,Random few-shot (k=3),2,1.0,1.0
+legal services,Random few-shot (k=3),2,1.0,0.5
+telecommunications,Random few-shot (k=3),3,0.0,0.0
+fashion retail,Random few-shot (k=3),1,1.0,1.0
+rural health,Random few-shot (k=3),2,1.0,0.5
+mental health,Random few-shot (k=3),2,0.5,0.5
+tourism,Random few-shot (k=3),2,0.5,0.0
+nonprofit operations,Random few-shot (k=3),1,1.0,0.0
+space exploration,Random few-shot (k=3),1,1.0,1.0
+automotive,Random few-shot (k=3),1,0.0,0.0
+aquaculture,Random few-shot (k=3),1,1.0,0.0
+venture capital,Random few-shot (k=3),1,1.0,1.0
+human resources,Random few-shot (k=3),1,1.0,0.0
+precision agriculture,Random few-shot (k=3),2,0.5,0.5
+waste management,Random few-shot (k=3),1,1.0,0.0
+museums,Random few-shot (k=3),1,1.0,0.0
+startups,Random few-shot (k=3),1,0.0,0.0
+space,Random few-shot (k=3),1,1.0,1.0
+financial services,Agent with repair,3,0.6666666666666666,0.6666666666666666
+energy,Agent with repair,3,0.6666666666666666,0.6666666666666666
+humanitarian aid,Agent with repair,2,1.0,1.0
+aerospace,Agent with repair,2,1.0,0.0
+defense industry,Agent with repair,1,1.0,1.0
+music,Agent with repair,2,1.0,0.5
+oil and gas,Agent with repair,2,1.0,1.0
+rare earth elements,Agent with repair,3,0.3333333333333333,0.3333333333333333
+rural development,Agent with repair,1,1.0,0.0
+blockchain,Agent with repair,3,1.0,0.6666666666666666
+restaurant operations,Agent with repair,3,0.6666666666666666,0.0
+sustainable energy,Agent with repair,1,1.0,1.0
+retail,Agent with repair,4,1.0,0.5
+sports entertainment,Agent with repair,2,1.0,1.0
+ocean shipping,Agent with repair,2,1.0,1.0
+fine arts,Agent with repair,2,1.0,1.0
+wildlife conservation,Agent with repair,2,0.5,0.5
+public health,Agent with repair,4,1.0,0.75
+justice,Agent with repair,2,1.0,0.0
+defense contractors,Agent with repair,2,1.0,0.5
+government services,Agent with repair,2,1.0,0.5
+social media,Agent with repair,2,1.0,1.0
+biotechnology,Agent with repair,2,0.5,0.5
+higher education,Agent with repair,2,1.0,1.0
+defense security,Agent with repair,3,1.0,0.6666666666666666
+education,Agent with repair,2,1.0,0.5
+healthcare,Agent with repair,1,1.0,1.0
+chemicals,Agent with repair,3,1.0,1.0
+nonprofit,Agent with repair,2,1.0,0.5
+gaming technology,Agent with repair,2,0.5,0.5
+hospitality,Agent with repair,3,0.6666666666666666,0.3333333333333333
+agriculture,Agent with repair,2,1.0,0.5
+technology,Agent with repair,3,1.0,1.0
+public transportation,Agent with repair,2,0.5,0.0
+mining industry,Agent with repair,3,1.0,0.6666666666666666
+trade unions,Agent with repair,1,1.0,1.0
+pharmaceuticals,Agent with repair,3,0.3333333333333333,0.3333333333333333
+sports,Agent with repair,2,1.0,0.5
+arts and culture,Agent with repair,2,1.0,0.5
+construction,Agent with repair,2,1.0,0.5
+defense operations,Agent with repair,3,1.0,0.3333333333333333
+cultural preservation,Agent with repair,2,0.0,0.0
+oceanography,Agent with repair,4,1.0,0.25
+music industry,Agent with repair,3,1.0,1.0
+transportation,Agent with repair,1,1.0,1.0
+arts operations and management,Agent with repair,3,1.0,1.0
+oceans,Agent with repair,1,1.0,0.0
+finance,Agent with repair,1,1.0,1.0
+entertainment industry,Agent with repair,3,1.0,0.6666666666666666
+water resources,Agent with repair,2,1.0,1.0
+social impact investing,Agent with repair,1,1.0,0.0
+real estate,Agent with repair,1,1.0,1.0
+climate change,Agent with repair,2,1.0,0.5
+food industry,Agent with repair,3,1.0,0.3333333333333333
+fitness industry,Agent with repair,2,0.0,0.0
+ethical fashion,Agent with repair,1,1.0,1.0
+sustainable infrastructure,Agent with repair,1,1.0,1.0
+forestry,Agent with repair,2,0.5,0.5
+food services,Agent with repair,1,1.0,1.0
+fashion,Agent with repair,1,1.0,0.0
+media,Agent with repair,2,1.0,1.0
+legal services,Agent with repair,2,1.0,0.5
+telecommunications,Agent with repair,3,0.3333333333333333,0.3333333333333333
+fashion retail,Agent with repair,1,1.0,1.0
+rural health,Agent with repair,2,1.0,1.0
+mental health,Agent with repair,2,1.0,1.0
+tourism,Agent with repair,2,1.0,1.0
+nonprofit operations,Agent with repair,1,1.0,0.0
+space exploration,Agent with repair,1,1.0,1.0
+automotive,Agent with repair,1,1.0,0.0
+aquaculture,Agent with repair,1,1.0,1.0
+venture capital,Agent with repair,1,1.0,0.0
+human resources,Agent with repair,1,1.0,0.0
+precision agriculture,Agent with repair,2,1.0,1.0
+waste management,Agent with repair,1,1.0,0.0
+museums,Agent with repair,1,1.0,0.0
+startups,Agent with repair,1,1.0,1.0
+space,Agent with repair,1,1.0,1.0
