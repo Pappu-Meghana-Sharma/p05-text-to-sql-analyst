@@ -1,5 +1,5 @@
 requirement,status
-Baseline vs full repair system,Complete on 154 shared fixed-test IDs
+Baseline vs full repair system,Complete on 200 shared fixed-test IDs
 Execution accuracy by complexity and domain,Complete; tables and charts saved
 At least 10 failure cases,Complete; 10 cases saved
 "Repair rounds {0, 1, 3}",Complete: n=200 per limit; 0/1/3 rounds
